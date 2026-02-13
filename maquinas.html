@@ -16,20 +16,20 @@
         /* ================= VARIÁVEIS ================= */
         :root {
             --azul-principal: #1f3b2d;
-            --azul-secundario: #2a5a3c;
+            --azul-secundario: #1e3a8a;
             --azul-claro: #e8f3e9;
             --verde-energia: #2f7d32;
             --verde-claro: #e8f3e9;
-            --laranja-destaque: #f0b429;
+            --azul-destaque: #1d4ed8;
             --cinza-escuro: #2f3c34;
             --cinza-medio: #5f6d66;
             --cinza-claro: #f7f8f3;
             --branco: #ffffff;
             --preto: #000000;
             
-            --gradiente-azul: linear-gradient(135deg, #1f3b2d 0%, #2a5a3c 100%);
+            --gradiente-azul: linear-gradient(135deg, #1f3b2d 0%, #1e3a8a 100%);
             --gradiente-verde: linear-gradient(135deg, #2f7d32 0%, #256628 100%);
-            --gradiente-laranja: linear-gradient(135deg, #f0b429 0%, #d49b1a 100%);
+            --gradiente-azul-destaque: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
             
             --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.08);
             --sombra-media: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -495,7 +495,7 @@
         }
 
         .btn-laranja {
-            background: var(--gradiente-laranja);
+            background: var(--gradiente-azul-destaque);
             color: var(--branco);
             box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
         }
@@ -549,7 +549,7 @@
         }
 
         .maquina-card-badge.laranja {
-            background: var(--laranja-destaque);
+            background: var(--azul-destaque);
         }
 
         .maquina-img {
