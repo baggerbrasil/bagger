@@ -1,1442 +1,2891 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BaggerBrasil | Revolução Elétrica no Campo | Máquinas Agrícolas 100% Elétricas</title>
-    <meta name="description" content="Máquinas agrícolas 100% elétricas com alta performance, economia e sustentabilidade. Tecnologia limpa para o agronegócio brasileiro.">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-
-    <style>
-        /* ================= VARIÁVEIS & RESET ================= */
-        :root {
-            --azul-escuro: #111545;
-            --azul-medio: #1a1f5a;
-            --verde-primario: #4f46e5;
-            --verde-secundario: #4338ca;
-            --verde-claro: #e0e7ff;
-            --cinza-escuro: #334155;
-            --cinza-medio: #64748b;
-            --cinza-claro: #f1f5f9;
-            --branco: #ffffff;
-            --preto: #0a0a0a;
-            
-            --gradiente-azul: linear-gradient(135deg, #111545 0%, #1a1f5a 100%);
-            --gradiente-verde: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
-            --gradiente-hero: linear-gradient(135deg, rgba(17,21,69,0.92) 0%, rgba(79,70,229,0.85) 100%);
-            
-            --sombra-padrao: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --sombra-elevada: 0 25px 60px rgba(0, 0, 0, 0.12);
-            --sombra-botao: 0 10px 25px rgba(79, 70, 229, 0.3);
-            
-            --raio-padrao: 16px;
-            --raio-grande: 24px;
-            --raio-redondo: 50px;
-            
-            --transicao-padrao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            --transicao-lenta: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--cinza-claro);
-            color: var(--cinza-escuro);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--azul-escuro);
-            line-height: 1.2;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        /* ================= TIPOGRAFIA ================= */
-        h1 { font-size: 3.5rem; font-weight: 900; }
-        h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1.5rem; }
-        h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
-        p { margin-bottom: 1.5rem; font-size: 1.1rem; }
-        
-        .texto-destaque { color: var(--verde-primario); font-weight: 700; }
-        .texto-centro { text-align: center; }
-        .texto-grande { font-size: 1.3rem; }
-
-        /* ================= ANIMAÇÕES ================= */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ================= HEADER ================= */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            z-index: 1000;
-            transition: var(--transicao-padrao);
-            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
-        }
-
-        header.scrolled {
-            box-shadow: var(--sombra-padrao);
-            padding: 5px 0;
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            transition: var(--transicao-padrao);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            color: var(--verde-primario);
-            font-size: 2.2rem;
-            animation: float 4s ease-in-out infinite;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 900;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: var(--verde-primario);
-        }
-
-        /* Menu de Navegação */
-        .menu-desktop {
-            display: flex;
-            gap: 40px;
-        }
-
-        .menu-desktop a {
-            text-decoration: none;
-            color: var(--azul-escuro);
-            font-weight: 600;
-            font-size: 1.05rem;
-            position: relative;
-            padding: 5px 0;
-            transition: var(--transicao-padrao);
-        }
-
-        .menu-desktop a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 3px;
-            background: var(--gradiente-verde);
-            border-radius: 2px;
-            transition: var(--transicao-padrao);
-        }
-
-        .menu-desktop a:hover {
-            color: var(--verde-primario);
-        }
-
-        .menu-desktop a:hover::after {
-            width: 100%;
-        }
-
-        .btn-contato-header {
-            background: var(--gradiente-verde);
-            color: var(--branco);
-            border: none;
-            padding: 12px 28px;
-            border-radius: var(--raio-redondo);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transicao-padrao);
-            box-shadow: var(--sombra-botao);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-contato-header:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
-        }
-
-        /* Menu Mobile */
-        .menu-mobile-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--azul-escuro);
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        .menu-mobile {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 300px;
-            height: 100vh;
-            background: var(--branco);
-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
-            z-index: 999;
-            transition: var(--transicao-padrao);
-            padding: 100px 30px 40px;
-            display: flex;
-            flex-direction: column;
-            gap: 25px;
-        }
-
-        .menu-mobile.active {
-            right: 0;
-        }
-
-        .menu-mobile a {
-            text-decoration: none;
-            color: var(--azul-escuro);
-            font-weight: 600;
-            font-size: 1.2rem;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(15, 23, 42, 0.1);
-            transition: var(--transicao-padrao);
-        }
-
-        .menu-mobile a:hover {
-            color: var(--verde-primario);
-            padding-left: 10px;
-        }
-
-        /* Overlay do menu mobile */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* ================= HERO SECTION ================= */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            background: 
-                var(--gradiente-hero),
-                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
-            color: var(--branco);
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234f46e5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            opacity: 0.3;
-            animation: float 20s linear infinite;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, #ffffff, #bbf7d0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            color: #e5e7eb;
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-
-        /* ================= BOTÕES ================= */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            padding: 18px 40px;
-            border-radius: var(--raio-redondo);
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            cursor: pointer;
-            transition: var(--transicao-padrao);
-            position: relative;
-            overflow: hidden;
-            border: none;
-        }
-
-        .btn-primary {
-            background: var(--gradiente-verde);
-            color: var(--branco);
-            box-shadow: var(--sombra-botao);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.4);
-        }
-
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 60%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: 0.6s;
-        }
-
-        .btn-primary:hover::after {
-            left: 120%;
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: var(--branco);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: var(--branco);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        /* ================= VANTAGENS ================= */
-        .vantagens {
-            background-color: var(--branco);
-        }
-
-        .vantagens-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .vantagem-card {
-            background: var(--branco);
-            padding: 40px 30px;
-            border-radius: var(--raio-padrao);
-            text-align: center;
-            box-shadow: var(--sombra-padrao);
-            transition: var(--transicao-padrao);
-            border: 1px solid rgba(15, 23, 42, 0.05);
-        }
-
-        .vantagem-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--sombra-elevada);
-            border-color: var(--verde-claro);
-        }
-
-        .vantagem-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--gradiente-verde);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            color: var(--branco);
-            font-size: 2rem;
-        }
-
-        /* ================= SOBRE ================= */
-        .sobre-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .sobre-img {
-            border-radius: var(--raio-grande);
-            overflow: hidden;
-            box-shadow: var(--sombra-elevada);
-            position: relative;
-        }
-
-        .sobre-img::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(34, 197, 94, 0.1), transparent);
-            z-index: 1;
-        }
-
-        .sobre-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transicao-lenta);
-        }
-
-        .sobre-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 50px;
-        }
-
-        .stat {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: var(--raio-padrao);
-            text-align: center;
-            box-shadow: var(--sombra-padrao);
-            border: 1px solid rgba(15, 23, 42, 0.05);
-            transition: var(--transicao-padrao);
-        }
-
-        .stat:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--sombra-elevada);
-        }
-
-        .stat h3 {
-            font-size: 2.8rem;
-            color: var(--verde-primario);
-            margin-bottom: 5px;
-        }
-
-        /* ================= CATÁLOGO ================= */
-        .catalogo {
-            background-color: var(--cinza-claro);
-        }
-
-        .catalogo-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 70px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: var(--branco);
-            border-radius: var(--raio-grande);
-            overflow: hidden;
-            box-shadow: var(--sombra-padrao);
-            transition: var(--transicao-padrao);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: var(--sombra-elevada);
-        }
-
-        .card-img {
-            height: 240px;
-            overflow: hidden;
-        }
-
-        .card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transicao-lenta);
-        }
-
-        .card:hover .card-img img {
-            transform: scale(1.1);
-        }
-
-        .card-content {
-            padding: 30px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-content h3 {
-            margin-bottom: 15px;
-        }
-
-        .card-btn {
-            margin-top: auto;
-            padding-top: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: var(--verde-primario);
-            font-weight: 600;
-            text-decoration: none;
-            transition: var(--transicao-padrao);
-        }
-
-        .card-btn:hover {
-            gap: 12px;
-        }
-
-        /* ================= DEPOIMENTOS ================= */
-        .depoimentos {
-            background: var(--gradiente-azul);
-            color: var(--branco);
-        }
-
-        .depoimentos h2 {
-            color: var(--branco);
-        }
-
-        .swiper {
-            width: 100%;
-            padding: 50px 0 80px;
-        }
-
-        .depoimento-slide {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: var(--raio-grande);
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .depoimento-conteudo {
-            font-size: 1.2rem;
-            font-style: italic;
-            margin-bottom: 30px;
-            line-height: 1.6;
-        }
-
-        .depoimento-autor {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .depoimento-autor img {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--verde-primario);
-        }
-
-        .swiper-pagination-bullet {
-            background: var(--cinza-medio);
-            opacity: 0.5;
-            width: 12px;
-            height: 12px;
-        }
-
-        .swiper-pagination-bullet-active {
-            background: var(--verde-primario);
-            opacity: 1;
-        }
-
-        /* ================= CONTATO ================= */
-        .contato-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-        }
-
-        .contato-info {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-        }
-
-        .contato-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-
-        .contato-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--verde-claro);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--verde-primario);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .contato-form {
-            background: var(--branco);
-            padding: 50px;
-            border-radius: var(--raio-grande);
-            box-shadow: var(--sombra-elevada);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--azul-escuro);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 16px 20px;
-            border: 1px solid rgba(15, 23, 42, 0.1);
-            border-radius: 12px;
-            font-family: 'Roboto', sans-serif;
-            font-size: 1rem;
-            transition: var(--transicao-padrao);
-            background-color: var(--cinza-claro);
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--verde-primario);
-            background-color: var(--branco);
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
-        }
-
-        /* ================= FOOTER ================= */
-        footer {
-            background: var(--gradiente-azul);
-            color: #cbd5e1;
-            padding: 80px 0 40px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 60px;
-            margin-bottom: 60px;
-        }
-
-        .footer-col h4 {
-            color: var(--branco);
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--verde-primario);
-        }
-
-        .footer-links {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .footer-links a {
-            color: #cbd5e1;
-            text-decoration: none;
-            transition: var(--transicao-padrao);
-        }
-
-        .footer-links a:hover {
-            color: var(--verde-primario);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .social-link {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--branco);
-            text-decoration: none;
-            transition: var(--transicao-padrao);
-        }
-
-        .social-link:hover {
-            background: var(--verde-primario);
-            transform: translateY(-5px);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            text-align: center;
-            font-size: 0.95rem;
-        }
-
-        .footer-bottom span {
-            color: var(--verde-primario);
-            font-weight: 700;
-        }
-
-        /* ================= BOTÃO WHATSAPP ================= */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
-            background: #4f46e5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--branco);
-            font-size: 2.2rem;
-            text-decoration: none;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
-            z-index: 999;
-            transition: var(--transicao-padrao);
-            animation: pulse 2s infinite;
-        }
-
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.6);
-        }
-
-        /* ================= RESPONSIVO ================= */
-        @media (max-width: 1200px) {
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.4rem; }
-            .hero h1 { font-size: 3.2rem; }
-        }
-
-        @media (max-width: 992px) {
-            section { padding: 80px 0; }
-            
-            .sobre-container,
-            .contato-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-            
-            .footer-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 50px;
-            }
-            
-            .menu-desktop {
-                display: none;
-            }
-            
-            .menu-mobile-btn {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            h1 { font-size: 2.6rem; }
-            h2 { font-size: 2.1rem; }
-            .hero h1 { font-size: 2.8rem; }
-            
-            .btn-group {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .contato-form {
-                padding: 30px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            .hero h1 { font-size: 2.4rem; }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .whatsapp-btn {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-    </style>
-</head>
-
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-leaf logo-icon"></i>
-                <h1>bagger<span>BRASIL</span></h1>
-            </div>
-            
-            <!-- Menu Desktop -->
-            <nav class="menu-desktop">
-                <a href="#home">Início</a>
-                <a href="#vantagens">Vantagens</a>
-                <a href="#sobre">Sobre</a>
-                <a href="maquinas.html">Máquinas</a> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
-                <a href="#contato">Contato</a>
-            </nav>
-            
-            <button class="btn-contato-header">
-                <i class="fas fa-phone-alt"></i> Falar com Especialista
-            </button>
-            
-            <!-- Menu Mobile Button -->
-            <button class="menu-mobile-btn" id="menuMobileBtn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        
-        <!-- Menu Mobile -->
-        <nav class="menu-mobile" id="menuMobile">
-            <a href="#home">Início</a>
-            <a href="#vantagens">Vantagens</a>
-            <a href="#sobre">Sobre</a>
-            <a href="maquinas.html">Máquinas</a> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
-            <a href="#contato">Contato</a>
-            <button class="btn btn-primary" style="margin-top: 20px;">
-                <i class="fas fa-phone-alt"></i> Falar com Especialista
-            </button>
-        </nav>
-        
-        <!-- Overlay Menu Mobile -->
-        <div class="overlay" id="overlay"></div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="fade-in">Revolução Elétrica no Campo</h1>
-                <p class="fade-in">Máquinas agrícolas 100% elétricas com alta performance, redução de até 70% nos custos operacionais e zero emissões de poluentes. Tecnologia limpa para o agronegócio brasileiro.</p>
-                <div class="btn-group">
-                    <a href="maquinas.html" class="btn btn-primary fade-in"> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
-                        <i class="fas fa-bolt"></i> Explorar Máquinas
-                    </a>
-                    <a href="#contato" class="btn btn-secondary fade-in">
-                        <i class="fas fa-calendar-alt"></i> Agendar Demonstração
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Vantagens -->
-    <section id="vantagens" class="vantagens">
-        <div class="container">
-            <h2 class="texto-centro">Por que escolher a <span class="texto-destaque">BaggerBrasil</span>?</h2>
-            <p class="texto-centro texto-grande" style="max-width: 800px; margin: 0 auto 40px;">Oferecemos as soluções mais avançadas em eletrificação agrícola com benefícios reais para sua operação.</p>
-            
-            <div class="vantagens-grid">
-                <div class="vantagem-card fade-in">
-                    <div class="vantagem-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>Sustentabilidade</h3>
-                    <p>Zero emissões de carbono, contribuindo para a preservação ambiental e agregando valor à sua marca.</p>
-                </div>
-                
-                <div class="vantagem-card fade-in">
-                    <div class="vantagem-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Economia</h3>
-                    <p>Redução de até 70% nos custos com combustível e manutenção em comparação com máquinas a diesel.</p>
-                </div>
-                
-                <div class="vantagem-card fade-in">
-                    <div class="vantagem-icon">
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <h3>Alta Performance</h3>
-                    <p>Torque instantâneo, operação silenciosa e maior vida útil dos componentes mecânicos.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sobre -->
-    <section id="sobre">
-        <div class="container">
-            <div class="sobre-container">
-                <div class="fade-in">
-                    <h2>Liderança em Tecnologia Agrícola Sustentável</h2>
-                    <p class="texto-grande">A <span class="texto-destaque">BaggerBrasil</span> é referência nacional em eletrificação agrícola, oferecendo soluções limpas e eficientes que transformam a produtividade no campo.</p>
-                    <p>Com mais de 15 anos de experiência, desenvolvemos máquinas que unem alta tecnologia, confiabilidade e respeito ao meio ambiente. Nossa missão é liderar a transição energética no agronegócio brasileiro.</p>
-                    
-                    <div class="stats">
-                        <div class="stat fade-in">
-                            <h3>15+</h3>
-                            <p>Anos de experiência</p>
-                        </div>
-                        <div class="stat fade-in">
-                            <h3>500+</h3>
-                            <p>Máquinas vendidas</p>
-                        </div>
-                        <div class="stat fade-in">
-                            <h3>70%</h3>
-                            <p>Economia operacional</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="sobre-img fade-in">
-                    <img src="uploads/escavadeira-1.jpg" alt="Trator elétrico BaggerBrasil em operação">
-                </div>
-            </div>
-        </div>
-    </section>
-
-  <!-- Catálogo -->
-    <section id="catalogo" class="catalogo">
-        <div class="container">
-            <div class="catalogo-header fade-in">
-                <h2>Nossas <span class="texto-destaque">Máquinas</span></h2>
-                <p class="texto-grande">Conheça nossa linha completa de equipamentos 100% elétricos desenvolvidos para maximizar sua produtividade.</p>
-            </div>
-            
-            <div class="cards">
-                <div class="card fade-in">
-                    <div class="card-img">
-                        <img src="uploads/escavadeira-2.jpg" alt="Trator elétrico">
-                    </div>
-                    <div class="card-content">
-                        <h3>Tratores Elétricos</h3>
-                        <p>Potência limpa para todas as operações com autonomia de até 12 horas de trabalho contínuo.</p>
-                        <a href="maquinas.html#tratores" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
-                            Ver Modelos <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-img">
-                        <img src="uploads/escavadeira-3.jpg" alt="Colheitadeira elétrica">
-                    </div>
-                    <div class="card-content">
-                        <h3>Colheitadeiras Elétricas</h3>
-                        <p>Alta eficiência e zero emissões com sistema de colheita inteligente que reduz perdas em até 15%.</p>
-                        <a href="maquinas.html#colheitadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
-                            Ver Modelos <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="card fade-in">
-                    <div class="card-img">
-                        <img src="uploads/escavadeira-4.jpg" alt="Empilhadeira elétrica">
-                    </div>
-                    <div class="card-content">
-                        <h3>Empilhadeiras Elétricas</h3>
-                        <p>Operação silenciosa e econômica para ambientes fechados ou abertos, com capacidade de 1 a 5 toneladas.</p>
-                        <a href="maquinas.html#empilhadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
-                            Ver Modelos <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Novo Card para Escavadeiras -->
-                <div class="card fade-in">
-                    <div class="card-img">
-                        <img src="uploads/escavadeira-5.jpg" alt="Escavadeira elétrica">
-                    </div>
-                    <div class="card-content">
-                        <h3>Escavadeiras Elétricas</h3>
-                        <p>Escavação precisa e eficiente com zero emissões. Ideal para obras urbanas e agrícolas.</p>
-                        <a href="maquinas.html#miniescavadeiraeletrica" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
-                            Ver Modelos <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="texto-centro" style="margin-top: 60px;">
-                <a href="maquinas.html" class="btn btn-primary"> <!-- LINK PARA PÁGINA COMPLETA -->
-                    <i class="fas fa-list"></i> Ver Todas as Máquinas
-                </a>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!--
-     Depoimentos 
-    <section id="depoimentos" class="depoimentos">
-        <div class="container">
-            <h2 class="texto-centro fade-in">O que nossos clientes dizem</h2>
-            
-            <div class="swiper fade-in">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="depoimento-slide">
-                            <div class="depoimento-conteudo">
-                                "A migração para máquinas elétricas da BaggerBrasil reduziu nossos custos operacionais em 65%. O retorno sobre o investimento foi alcançado em apenas 18 meses."
-                            </div>
-                            <div class="depoimento-autor">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
-                                <div>
-                                    <h4>Carlos Silva</h4>
-                                    <p>Fazenda São João, Mato Grosso</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="depoimento-slide">
-                            <div class="depoimento-conteudo">
-                                "Além da economia, o silêncio das máquinas elétricas melhorou muito as condições de trabalho para nossa equipe. A produtividade aumentou 20%."
-                            </div>
-                            <div class="depoimento-autor">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Costa">
-                                <div>
-                                    <h4>Ana Costa</h4>
-                                    <p>Agropecuária Costa Feliz, Goiás</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-slide">
-                        <div class="depoimento-slide">
-                            <div class="depoimento-conteudo">
-                                "O suporte técnico da BaggerBrasil é excepcional. A transição para elétrico foi tranquila e hoje somos referência em sustentabilidade na nossa região."
-                            </div>
-                            <div class="depoimento-autor">
-                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Roberto Almeida">
-                                <div>
-                                    <h4>Roberto Almeida</h4>
-                                    <p>Fazenda Vale Verde, Paraná</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
-    </section>
-    -->
-    <!-- Contato -->
-    <section id="contato">
-        <div class="container">
-            <h2 class="texto-centro fade-in">Entre em <span class="texto-destaque">Contato</span></h2>
-            <p class="texto-centro texto-grande" style="max-width: 700px; margin: 0 auto 60px;">Nossa equipe de especialistas está pronta para apresentar as melhores soluções elétricas para sua operação.</p>
-            
-            <div class="contato-container">
-                <div class="contato-info fade-in">
-                    <div class="contato-item">
-                        <div class="contato-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div>
-                            <h4>Nossa Localização</h4>
-                            <p>Av. das Indústrias, 1234<br>Campo Grande, MS<br>CEP: 79000-000</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contato-item">
-                        <div class="contato-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Telefone</h4>
-                            <p>(67) 3322-5566<br>Segunda a Sexta, 8h às 18h</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contato-item">
-                        <div class="contato-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>E-mail</h4>
-                            <p>vendas@baggerbrasil.com.br<br>suporte@baggerbrasil.com.br</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="contato-form fade-in">
-                    <h3>Solicite uma Proposta</h3>
-                    <form id="formContato">
-                        <div class="form-group">
-                            <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="interesse">Interesse Principal</label>
-                            <select id="interesse" class="form-control" required>
-                                <option value="">Selecione uma opção</option>
-                                <option value="tratores">Tratores Elétricos</option>
-                                <option value="colheitadeiras">Colheitadeiras Elétricas</option>
-                                <option value="empilhadeiras">Empilhadeiras Elétricas</option>
-                                <option value="outros">Outros Equipamentos</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
-                            <i class="fas fa-paper-plane"></i> Enviar Solicitação
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="logo" style="margin-bottom: 20px;">
-                        <i class="fas fa-leaf logo-icon"></i>
-                        <h1 style="color: white; font-size: 1.5rem;">bagger<span>BRASIL</span></h1>
-                    </div>
-                    <p>Tecnologia elétrica de ponta para o agronegócio brasileiro. Sustentabilidade, economia e alta performance.</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Links Rápidos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Início</a></li>
-                        <li><a href="#vantagens">Vantagens</a></li>
-                        <li><a href="#sobre">Sobre Nós</a></li>
-                        <li><a href="#catalogo">Catálogo</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Nossos Produtos</h4>
-                    <ul class="footer-links">
-                        <li><a href="#catalogo">Tratores Elétricos</a></li>
-                        <li><a href="#catalogo">Colheitadeiras Elétricas</a></li>
-                        <li><a href="#catalogo">Empilhadeiras Elétricas</a></li>
-                        <li><a href="#catalogo">Sistemas de Carga</a></li>
-                        <li><a href="#contato">Solicitar Catálogo</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h4>Suporte</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Manual do Operador</a></li>
-                        <li><a href="#">Perguntas Frequentes</a></li>
-                        <li><a href="#">Política de Garantia</a></li>
-                        <li><a href="#">Peças e Acessórios</a></li>
-                        <li><a href="#">Trabalhe Conosco</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>© 2026 <span>BaggerBrasil</span> — Todos os direitos reservados. CNPJ: 12.345.678/0001-90</p>
-                <p style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">Desenvolvido com <i class="fas fa-heart" style="color: #ef4444;"></i> para o agronegócio brasileiro</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/556733225566?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20máquinas%20elétricas%20BaggerBrasil" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-        // Menu Mobile
-        const menuMobileBtn = document.getElementById('menuMobileBtn');
-        const menuMobile = document.getElementById('menuMobile');
-        const overlay = document.getElementById('overlay');
-        
-        menuMobileBtn.addEventListener('click', () => {
-            menuMobile.classList.toggle('active');
-            overlay.classList.toggle('active');
-            document.body.style.overflow = menuMobile.classList.contains('active') ? 'hidden' : 'auto';
-            
-            // Alternar ícone do botão
-            const icon = menuMobileBtn.querySelector('i');
-            if (menuMobile.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-        
-        overlay.addEventListener('click', () => {
-            menuMobile.classList.remove('active');
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto';
-            menuMobileBtn.querySelector('i').classList.remove('fa-times');
-            menuMobileBtn.querySelector('i').classList.add('fa-bars');
-        });
-        
-        // Fechar menu ao clicar em um link
-        menuMobile.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuMobile.classList.remove('active');
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
-                menuMobileBtn.querySelector('i').classList.remove('fa-times');
-                menuMobileBtn.querySelector('i').classList.add('fa-bars');
-            });
-        });
-        
-        // Scroll Animation
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        });
-        
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-        
-        // Header Scroll Effect
-        window.addEventListener('scroll', () => {
-            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
-        });
-        
-        // Swiper (Depoimentos)
-        const swiper = new Swiper('.swiper', {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            breakpoints: {
-                768: {
-                    slidesPerView: 2,
-                },
-                1024: {
-                    slidesPerView: 3,
-                }
-            }
-        });
-        
-        // Form Submission
-        document.getElementById('formContato').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulação de envio
-            const nome = document.getElementById('nome').value;
-            const botao = this.querySelector('button[type="submit"]');
-            const textoOriginal = botao.innerHTML;
-            
-            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            botao.disabled = true;
-            
-            setTimeout(() => {
-                alert(`Obrigado, ${nome}! Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em até 24 horas.`);
-                botao.innerHTML = textoOriginal;
-                botao.disabled = false;
-                document.getElementById('formContato').reset();
-            }, 1500);
-        });
-        
-        // Smooth Scroll para links internos
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-        
-        // Botão "Falar com Especialista"
-        document.querySelector('.btn-contato-header').addEventListener('click', () => {
-            document.getElementById('contato').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    </script>
-</body>
-</html>
+diff --git a/index.html b/index.html
+index 67cd2901ee90e8fae98625f1582730c16f606535..1c419d755f2c8b755a3d4b7033638ed9e00af507 100644
+--- a/index.html
++++ b/index.html
+@@ -1,1442 +1,1444 @@
+-<!DOCTYPE html>
+-<html lang="pt-BR">
+-<head>
+-    <meta charset="UTF-8">
+-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-    <title>BaggerBrasil | Revolução Elétrica no Campo | Máquinas Agrícolas 100% Elétricas</title>
+-    <meta name="description" content="Máquinas agrícolas 100% elétricas com alta performance, economia e sustentabilidade. Tecnologia limpa para o agronegócio brasileiro.">
+-    
+-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+-
+-    <style>
+-        /* ================= VARIÁVEIS & RESET ================= */
+-        :root {
+-            --azul-escuro: #111545;
+-            --azul-medio: #1a1f5a;
+-            --verde-primario: #4f46e5;
+-            --verde-secundario: #4338ca;
+-            --verde-claro: #e0e7ff;
+-            --cinza-escuro: #334155;
+-            --cinza-medio: #64748b;
+-            --cinza-claro: #f1f5f9;
+-            --branco: #ffffff;
+-            --preto: #0a0a0a;
+-            
+-            --gradiente-azul: linear-gradient(135deg, #111545 0%, #1a1f5a 100%);
+-            --gradiente-verde: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+-            --gradiente-hero: linear-gradient(135deg, rgba(17,21,69,0.92) 0%, rgba(79,70,229,0.85) 100%);
+-            
+-            --sombra-padrao: 0 10px 30px rgba(0, 0, 0, 0.08);
+-            --sombra-elevada: 0 25px 60px rgba(0, 0, 0, 0.12);
+-            --sombra-botao: 0 10px 25px rgba(79, 70, 229, 0.3);
+-            
+-            --raio-padrao: 16px;
+-            --raio-grande: 24px;
+-            --raio-redondo: 50px;
+-            
+-            --transicao-padrao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+-            --transicao-lenta: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+-        }
+-
+-        * {
+-            margin: 0;
+-            padding: 0;
+-            box-sizing: border-box;
+-        }
+-
+-        html {
+-            scroll-behavior: smooth;
+-            scroll-padding-top: 100px;
+-        }
+-
+-        body {
+-            font-family: 'Roboto', sans-serif;
+-            background-color: var(--cinza-claro);
+-            color: var(--cinza-escuro);
+-            line-height: 1.7;
+-            overflow-x: hidden;
+-        }
+-
+-        h1, h2, h3, h4, h5 {
+-            font-family: 'Montserrat', sans-serif;
+-            color: var(--azul-escuro);
+-            line-height: 1.2;
+-        }
+-
+-        .container {
+-            max-width: 1300px;
+-            margin: 0 auto;
+-            padding: 0 24px;
+-        }
+-
+-        section {
+-            padding: 100px 0;
+-        }
+-
+-        /* ================= TIPOGRAFIA ================= */
+-        h1 { font-size: 3.5rem; font-weight: 900; }
+-        h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1.5rem; }
+-        h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
+-        p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+-        
+-        .texto-destaque { color: var(--verde-primario); font-weight: 700; }
+-        .texto-centro { text-align: center; }
+-        .texto-grande { font-size: 1.3rem; }
+-
+-        /* ================= ANIMAÇÕES ================= */
+-        @keyframes fadeInUp {
+-            from {
+-                opacity: 0;
+-                transform: translateY(50px);
+-            }
+-            to {
+-                opacity: 1;
+-                transform: translateY(0);
+-            }
+-        }
+-
+-        @keyframes float {
+-            0%, 100% { transform: translateY(0); }
+-            50% { transform: translateY(-15px); }
+-        }
+-
+-        @keyframes pulse {
+-            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
+-            70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }
+-            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
+-        }
+-
+-        .fade-in {
+-            opacity: 0;
+-            transform: translateY(40px);
+-            transition: opacity 0.8s ease, transform 0.8s ease;
+-        }
+-
+-        .fade-in.visible {
+-            opacity: 1;
+-            transform: translateY(0);
+-        }
+-
+-        /* ================= HEADER ================= */
+-        header {
+-            position: fixed;
+-            top: 0;
+-            left: 0;
+-            width: 100%;
+-            background: rgba(255, 255, 255, 0.95);
+-            backdrop-filter: blur(15px);
+-            -webkit-backdrop-filter: blur(15px);
+-            z-index: 1000;
+-            transition: var(--transicao-padrao);
+-            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
+-        }
+-
+-        header.scrolled {
+-            box-shadow: var(--sombra-padrao);
+-            padding: 5px 0;
+-        }
+-
+-        .header-container {
+-            display: flex;
+-            justify-content: space-between;
+-            align-items: center;
+-            padding: 20px 0;
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .logo {
+-            display: flex;
+-            align-items: center;
+-            gap: 12px;
+-        }
+-
+-        .logo-icon {
+-            color: var(--verde-primario);
+-            font-size: 2.2rem;
+-            animation: float 4s ease-in-out infinite;
+-        }
+-
+-        .logo h1 {
+-            font-size: 1.8rem;
+-            font-weight: 900;
+-            letter-spacing: -0.5px;
+-        }
+-
+-        .logo span {
+-            color: var(--verde-primario);
+-        }
+-
+-        /* Menu de Navegação */
+-        .menu-desktop {
+-            display: flex;
+-            gap: 40px;
+-        }
+-
+-        .menu-desktop a {
+-            text-decoration: none;
+-            color: var(--azul-escuro);
+-            font-weight: 600;
+-            font-size: 1.05rem;
+-            position: relative;
+-            padding: 5px 0;
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .menu-desktop a::after {
+-            content: '';
+-            position: absolute;
+-            bottom: 0;
+-            left: 0;
+-            width: 0;
+-            height: 3px;
+-            background: var(--gradiente-verde);
+-            border-radius: 2px;
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .menu-desktop a:hover {
+-            color: var(--verde-primario);
+-        }
+-
+-        .menu-desktop a:hover::after {
+-            width: 100%;
+-        }
+-
+-        .btn-contato-header {
+-            background: var(--gradiente-verde);
+-            color: var(--branco);
+-            border: none;
+-            padding: 12px 28px;
+-            border-radius: var(--raio-redondo);
+-            font-weight: 600;
+-            font-size: 1rem;
+-            cursor: pointer;
+-            transition: var(--transicao-padrao);
+-            box-shadow: var(--sombra-botao);
+-            display: flex;
+-            align-items: center;
+-            gap: 8px;
+-        }
+-
+-        .btn-contato-header:hover {
+-            transform: translateY(-3px);
+-            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
+-        }
+-
+-        /* Menu Mobile */
+-        .menu-mobile-btn {
+-            display: none;
+-            background: none;
+-            border: none;
+-            font-size: 1.8rem;
+-            color: var(--azul-escuro);
+-            cursor: pointer;
+-            z-index: 1001;
+-        }
+-
+-        .menu-mobile {
+-            position: fixed;
+-            top: 0;
+-            right: -100%;
+-            width: 300px;
+-            height: 100vh;
+-            background: var(--branco);
+-            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+-            z-index: 999;
+-            transition: var(--transicao-padrao);
+-            padding: 100px 30px 40px;
+-            display: flex;
+-            flex-direction: column;
+-            gap: 25px;
+-        }
+-
+-        .menu-mobile.active {
+-            right: 0;
+-        }
+-
+-        .menu-mobile a {
+-            text-decoration: none;
+-            color: var(--azul-escuro);
+-            font-weight: 600;
+-            font-size: 1.2rem;
+-            padding: 12px 0;
+-            border-bottom: 1px solid rgba(15, 23, 42, 0.1);
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .menu-mobile a:hover {
+-            color: var(--verde-primario);
+-            padding-left: 10px;
+-        }
+-
+-        /* Overlay do menu mobile */
+-        .overlay {
+-            display: none;
+-            position: fixed;
+-            top: 0;
+-            left: 0;
+-            width: 100%;
+-            height: 100%;
+-            background: rgba(0, 0, 0, 0.5);
+-            z-index: 998;
+-        }
+-
+-        .overlay.active {
+-            display: block;
+-        }
+-
+-        /* ================= HERO SECTION ================= */
+-        .hero {
+-            min-height: 100vh;
+-            display: flex;
+-            align-items: center;
+-            position: relative;
+-            background: 
+-                var(--gradiente-hero),
+-                url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+-            color: var(--branco);
+-            overflow: hidden;
+-        }
+-
+-        .hero::before {
+-            content: '';
+-            position: absolute;
+-            top: 0;
+-            left: 0;
+-            width: 100%;
+-            height: 100%;
+-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%234f46e5' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+-            opacity: 0.3;
+-            animation: float 20s linear infinite;
+-        }
+-
+-        .hero-content {
+-            max-width: 800px;
+-            position: relative;
+-            z-index: 2;
+-        }
+-
+-        .hero h1 {
+-            font-size: 4rem;
+-            margin-bottom: 1.5rem;
+-            background: linear-gradient(90deg, #ffffff, #bbf7d0);
+-            -webkit-background-clip: text;
+-            background-clip: text;
+-            -webkit-text-fill-color: transparent;
+-            
+-            animation: fadeInUp 1s ease-out;
+-        }
+-
+-        .hero p {
+-            font-size: 1.4rem;
+-            margin-bottom: 2.5rem;
+-            color: #e5e7eb;
+-            animation: fadeInUp 1s ease-out 0.2s both;
+-        }
+-
+-        /* ================= BOTÕES ================= */
+-        .btn {
+-            display: inline-flex;
+-            align-items: center;
+-            justify-content: center;
+-            gap: 12px;
+-            padding: 18px 40px;
+-            border-radius: var(--raio-redondo);
+-            font-weight: 700;
+-            font-size: 1.1rem;
+-            text-decoration: none;
+-            cursor: pointer;
+-            transition: var(--transicao-padrao);
+-            position: relative;
+-            overflow: hidden;
+-            border: none;
+-        }
+-
+-        .btn-primary {
+-            background: var(--gradiente-verde);
+-            color: var(--branco);
+-            box-shadow: var(--sombra-botao);
+-        }
+-
+-        .btn-primary:hover {
+-            transform: translateY(-5px);
+-            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.4);
+-        }
+-
+-        .btn-primary::after {
+-            content: '';
+-            position: absolute;
+-            top: 0;
+-            left: -100%;
+-            width: 60%;
+-            height: 100%;
+-            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+-            transition: 0.6s;
+-        }
+-
+-        .btn-primary:hover::after {
+-            left: 120%;
+-        }
+-
+-        .btn-secondary {
+-            background: transparent;
+-            color: var(--branco);
+-            border: 2px solid rgba(255, 255, 255, 0.3);
+-        }
+-
+-        .btn-secondary:hover {
+-            background: rgba(255, 255, 255, 0.1);
+-            border-color: var(--branco);
+-        }
+-
+-        .btn-group {
+-            display: flex;
+-            gap: 20px;
+-            flex-wrap: wrap;
+-            animation: fadeInUp 1s ease-out 0.4s both;
+-        }
+-
+-        /* ================= VANTAGENS ================= */
+-        .vantagens {
+-            background-color: var(--branco);
+-        }
+-
+-        .vantagens-grid {
+-            display: grid;
+-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+-            gap: 30px;
+-            margin-top: 60px;
+-        }
+-
+-        .vantagem-card {
+-            background: var(--branco);
+-            padding: 40px 30px;
+-            border-radius: var(--raio-padrao);
+-            text-align: center;
+-            box-shadow: var(--sombra-padrao);
+-            transition: var(--transicao-padrao);
+-            border: 1px solid rgba(15, 23, 42, 0.05);
+-        }
+-
+-        .vantagem-card:hover {
+-            transform: translateY(-10px);
+-            box-shadow: var(--sombra-elevada);
+-            border-color: var(--verde-claro);
+-        }
+-
+-        .vantagem-icon {
+-            width: 80px;
+-            height: 80px;
+-            background: var(--gradiente-verde);
+-            border-radius: 50%;
+-            display: flex;
+-            align-items: center;
+-            justify-content: center;
+-            margin: 0 auto 25px;
+-            color: var(--branco);
+-            font-size: 2rem;
+-        }
+-
+-        /* ================= SOBRE ================= */
+-        .sobre-container {
+-            display: grid;
+-            grid-template-columns: 1fr 1fr;
+-            gap: 80px;
+-            align-items: center;
+-        }
+-
+-        .sobre-img {
+-            border-radius: var(--raio-grande);
+-            overflow: hidden;
+-            box-shadow: var(--sombra-elevada);
+-            position: relative;
+-        }
+-
+-        .sobre-img::before {
+-            content: '';
+-            position: absolute;
+-            top: 0;
+-            left: 0;
+-            width: 100%;
+-            height: 100%;
+-            background: linear-gradient(45deg, rgba(34, 197, 94, 0.1), transparent);
+-            z-index: 1;
+-        }
+-
+-        .sobre-img img {
+-            width: 100%;
+-            height: 100%;
+-            object-fit: cover;
+-            transition: var(--transicao-lenta);
+-        }
+-
+-        .sobre-img:hover img {
+-            transform: scale(1.05);
+-        }
+-
+-        .stats {
+-            display: grid;
+-            grid-template-columns: repeat(3, 1fr);
+-            gap: 25px;
+-            margin-top: 50px;
+-        }
+-
+-        .stat {
+-            background: rgba(255, 255, 255, 0.9);
+-            backdrop-filter: blur(10px);
+-            padding: 30px;
+-            border-radius: var(--raio-padrao);
+-            text-align: center;
+-            box-shadow: var(--sombra-padrao);
+-            border: 1px solid rgba(15, 23, 42, 0.05);
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .stat:hover {
+-            transform: translateY(-5px);
+-            box-shadow: var(--sombra-elevada);
+-        }
+-
+-        .stat h3 {
+-            font-size: 2.8rem;
+-            color: var(--verde-primario);
+-            margin-bottom: 5px;
+-        }
+-
+-        /* ================= CATÁLOGO ================= */
+-        .catalogo {
+-            background-color: var(--cinza-claro);
+-        }
+-
+-        .catalogo-header {
+-            text-align: center;
+-            max-width: 700px;
+-            margin: 0 auto 70px;
+-        }
+-
+-        .cards {
+-            display: grid;
+-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+-            gap: 40px;
+-        }
+-
+-        .card {
+-            background: var(--branco);
+-            border-radius: var(--raio-grande);
+-            overflow: hidden;
+-            box-shadow: var(--sombra-padrao);
+-            transition: var(--transicao-padrao);
+-            height: 100%;
+-            display: flex;
+-            flex-direction: column;
+-        }
+-
+-        .card:hover {
+-            transform: translateY(-15px);
+-            box-shadow: var(--sombra-elevada);
+-        }
+-
+-        .card-img {
+-            height: 240px;
+-            overflow: hidden;
+-        }
+-
+-        .card-img img {
+-            width: 100%;
+-            height: 100%;
+-            object-fit: cover;
+-            transition: var(--transicao-lenta);
+-        }
+-
+-        .card:hover .card-img img {
+-            transform: scale(1.1);
+-        }
+-
+-        .card-content {
+-            padding: 30px;
+-            flex-grow: 1;
+-            display: flex;
+-            flex-direction: column;
+-        }
+-
+-        .card-content h3 {
+-            margin-bottom: 15px;
+-        }
+-
+-        .card-btn {
+-            margin-top: auto;
+-            padding-top: 20px;
+-            display: inline-flex;
+-            align-items: center;
+-            gap: 8px;
+-            color: var(--verde-primario);
+-            font-weight: 600;
+-            text-decoration: none;
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .card-btn:hover {
+-            gap: 12px;
+-        }
+-
+-        /* ================= DEPOIMENTOS ================= */
+-        .depoimentos {
+-            background: var(--gradiente-azul);
+-            color: var(--branco);
+-        }
+-
+-        .depoimentos h2 {
+-            color: var(--branco);
+-        }
+-
+-        .swiper {
+-            width: 100%;
+-            padding: 50px 0 80px;
+-        }
+-
+-        .depoimento-slide {
+-            background: rgba(255, 255, 255, 0.1);
+-            backdrop-filter: blur(10px);
+-            border-radius: var(--raio-grande);
+-            padding: 40px;
+-            border: 1px solid rgba(255, 255, 255, 0.1);
+-        }
+-
+-        .depoimento-conteudo {
+-            font-size: 1.2rem;
+-            font-style: italic;
+-            margin-bottom: 30px;
+-            line-height: 1.6;
+-        }
+-
+-        .depoimento-autor {
+-            display: flex;
+-            align-items: center;
+-            gap: 15px;
+-        }
+-
+-        .depoimento-autor img {
+-            width: 60px;
+-            height: 60px;
+-            border-radius: 50%;
+-            object-fit: cover;
+-            border: 3px solid var(--verde-primario);
+-        }
+-
+-        .swiper-pagination-bullet {
+-            background: var(--cinza-medio);
+-            opacity: 0.5;
+-            width: 12px;
+-            height: 12px;
+-        }
+-
+-        .swiper-pagination-bullet-active {
+-            background: var(--verde-primario);
+-            opacity: 1;
+-        }
+-
+-        /* ================= CONTATO ================= */
+-        .contato-container {
+-            display: grid;
+-            grid-template-columns: 1fr 1fr;
+-            gap: 80px;
+-        }
+-
+-        .contato-info {
+-            display: flex;
+-            flex-direction: column;
+-            gap: 30px;
+-        }
+-
+-        .contato-item {
+-            display: flex;
+-            align-items: flex-start;
+-            gap: 20px;
+-        }
+-
+-        .contato-icon {
+-            width: 60px;
+-            height: 60px;
+-            background: var(--verde-claro);
+-            border-radius: 50%;
+-            display: flex;
+-            align-items: center;
+-            justify-content: center;
+-            color: var(--verde-primario);
+-            font-size: 1.5rem;
+-            flex-shrink: 0;
+-        }
+-
+-        .contato-form {
+-            background: var(--branco);
+-            padding: 50px;
+-            border-radius: var(--raio-grande);
+-            box-shadow: var(--sombra-elevada);
+-        }
+-
+-        .form-group {
+-            margin-bottom: 25px;
+-        }
+-
+-        .form-group label {
+-            display: block;
+-            margin-bottom: 8px;
+-            font-weight: 500;
+-            color: var(--azul-escuro);
+-        }
+-
+-        .form-control {
+-            width: 100%;
+-            padding: 16px 20px;
+-            border: 1px solid rgba(15, 23, 42, 0.1);
+-            border-radius: 12px;
+-            font-family: 'Roboto', sans-serif;
+-            font-size: 1rem;
+-            transition: var(--transicao-padrao);
+-            background-color: var(--cinza-claro);
+-        }
+-
+-        .form-control:focus {
+-            outline: none;
+-            border-color: var(--verde-primario);
+-            background-color: var(--branco);
+-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.1);
+-        }
+-
+-        /* ================= FOOTER ================= */
+-        footer {
+-            background: var(--gradiente-azul);
+-            color: #cbd5e1;
+-            padding: 80px 0 40px;
+-        }
+-
+-        .footer-container {
+-            display: grid;
+-            grid-template-columns: repeat(4, 1fr);
+-            gap: 60px;
+-            margin-bottom: 60px;
+-        }
+-
+-        .footer-col h4 {
+-            color: var(--branco);
+-            font-size: 1.3rem;
+-            margin-bottom: 25px;
+-            position: relative;
+-            padding-bottom: 10px;
+-        }
+-
+-        .footer-col h4::after {
+-            content: '';
+-            position: absolute;
+-            bottom: 0;
+-            left: 0;
+-            width: 40px;
+-            height: 3px;
+-            background: var(--verde-primario);
+-        }
+-
+-        .footer-links {
+-            list-style: none;
+-            display: flex;
+-            flex-direction: column;
+-            gap: 15px;
+-        }
+-
+-        .footer-links a {
+-            color: #cbd5e1;
+-            text-decoration: none;
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .footer-links a:hover {
+-            color: var(--verde-primario);
+-            padding-left: 5px;
+-        }
+-
+-        .social-links {
+-            display: flex;
+-            gap: 15px;
+-            margin-top: 25px;
+-        }
+-
+-        .social-link {
+-            width: 45px;
+-            height: 45px;
+-            background: rgba(255, 255, 255, 0.1);
+-            border-radius: 50%;
+-            display: flex;
+-            align-items: center;
+-            justify-content: center;
+-            color: var(--branco);
+-            text-decoration: none;
+-            transition: var(--transicao-padrao);
+-        }
+-
+-        .social-link:hover {
+-            background: var(--verde-primario);
+-            transform: translateY(-5px);
+-        }
+-
+-        .footer-bottom {
+-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+-            padding-top: 30px;
+-            text-align: center;
+-            font-size: 0.95rem;
+-        }
+-
+-        .footer-bottom span {
+-            color: var(--verde-primario);
+-            font-weight: 700;
+-        }
+-
+-        /* ================= BOTÃO WHATSAPP ================= */
+-        .whatsapp-btn {
+-            position: fixed;
+-            bottom: 30px;
+-            right: 30px;
+-            width: 70px;
+-            height: 70px;
+-            background: #4f46e5;
+-            border-radius: 50%;
+-            display: flex;
+-            align-items: center;
+-            justify-content: center;
+-            color: var(--branco);
+-            font-size: 2.2rem;
+-            text-decoration: none;
+-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
+-            z-index: 999;
+-            transition: var(--transicao-padrao);
+-            animation: pulse 2s infinite;
+-        }
+-
+-        .whatsapp-btn:hover {
+-            transform: scale(1.1);
+-            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.6);
+-        }
+-
+-        /* ================= RESPONSIVO ================= */
+-        @media (max-width: 1200px) {
+-            h1 { font-size: 3rem; }
+-            h2 { font-size: 2.4rem; }
+-            .hero h1 { font-size: 3.2rem; }
+-        }
+-
+-        @media (max-width: 992px) {
+-            section { padding: 80px 0; }
+-            
+-            .sobre-container,
+-            .contato-container {
+-                grid-template-columns: 1fr;
+-                gap: 60px;
+-            }
+-            
+-            .footer-container {
+-                grid-template-columns: repeat(2, 1fr);
+-                gap: 50px;
+-            }
+-            
+-            .menu-desktop {
+-                display: none;
+-            }
+-            
+-            .menu-mobile-btn {
+-                display: block;
+-            }
+-        }
+-
+-        @media (max-width: 768px) {
+-            h1 { font-size: 2.6rem; }
+-            h2 { font-size: 2.1rem; }
+-            .hero h1 { font-size: 2.8rem; }
+-            
+-            .btn-group {
+-                flex-direction: column;
+-                align-items: flex-start;
+-            }
+-            
+-            .btn {
+-                width: 100%;
+-                justify-content: center;
+-            }
+-            
+-            .stats {
+-                grid-template-columns: repeat(2, 1fr);
+-            }
+-            
+-            .cards {
+-                grid-template-columns: 1fr;
+-            }
+-            
+-            .contato-form {
+-                padding: 30px;
+-            }
+-        }
+-
+-        @media (max-width: 576px) {
+-            h1 { font-size: 2.2rem; }
+-            h2 { font-size: 1.8rem; }
+-            .hero h1 { font-size: 2.4rem; }
+-            
+-            .hero p {
+-                font-size: 1.1rem;
+-            }
+-            
+-            .stats {
+-                grid-template-columns: 1fr;
+-            }
+-            
+-            .footer-container {
+-                grid-template-columns: 1fr;
+-            }
+-            
+-            .whatsapp-btn {
+-                width: 60px;
+-                height: 60px;
+-                font-size: 1.8rem;
+-                bottom: 20px;
+-                right: 20px;
+-            }
+-        }
+-    </style>
+-</head>
+-
+-<body>
+-    <!-- Header -->
+-    <header>
+-        <div class="container header-container">
+-            <div class="logo">
+-                <i class="fas fa-leaf logo-icon"></i>
+-                <h1>bagger<span>BRASIL</span></h1>
+-            </div>
+-            
+-            <!-- Menu Desktop -->
+-            <nav class="menu-desktop">
+-                <a href="#home">Início</a>
+-                <a href="#vantagens">Vantagens</a>
+-                <a href="#sobre">Sobre</a>
+-                <a href="maquinas.html">Máquinas</a> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
+-                <a href="#contato">Contato</a>
+-            </nav>
+-            
+-            <button class="btn-contato-header">
+-                <i class="fas fa-phone-alt"></i> Falar com Especialista
+-            </button>
+-            
+-            <!-- Menu Mobile Button -->
+-            <button class="menu-mobile-btn" id="menuMobileBtn">
+-                <i class="fas fa-bars"></i>
+-            </button>
+-        </div>
+-        
+-        <!-- Menu Mobile -->
+-        <nav class="menu-mobile" id="menuMobile">
+-            <a href="#home">Início</a>
+-            <a href="#vantagens">Vantagens</a>
+-            <a href="#sobre">Sobre</a>
+-            <a href="maquinas.html">Máquinas</a> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
+-            <a href="#contato">Contato</a>
+-            <button class="btn btn-primary" style="margin-top: 20px;">
+-                <i class="fas fa-phone-alt"></i> Falar com Especialista
+-            </button>
+-        </nav>
+-        
+-        <!-- Overlay Menu Mobile -->
+-        <div class="overlay" id="overlay"></div>
+-    </header>
+-
+-    <!-- Hero Section -->
+-    <section class="hero" id="home">
+-        <div class="container">
+-            <div class="hero-content">
+-                <h1 class="fade-in">Revolução Elétrica no Campo</h1>
+-                <p class="fade-in">Máquinas agrícolas 100% elétricas com alta performance, redução de até 70% nos custos operacionais e zero emissões de poluentes. Tecnologia limpa para o agronegócio brasileiro.</p>
+-                <div class="btn-group">
+-                    <a href="maquinas.html" class="btn btn-primary fade-in"> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
+-                        <i class="fas fa-bolt"></i> Explorar Máquinas
+-                    </a>
+-                    <a href="#contato" class="btn btn-secondary fade-in">
+-                        <i class="fas fa-calendar-alt"></i> Agendar Demonstração
+-                    </a>
+-                </div>
+-            </div>
+-        </div>
+-    </section>
+-
+-    <!-- Vantagens -->
+-    <section id="vantagens" class="vantagens">
+-        <div class="container">
+-            <h2 class="texto-centro">Por que escolher a <span class="texto-destaque">BaggerBrasil</span>?</h2>
+-            <p class="texto-centro texto-grande" style="max-width: 800px; margin: 0 auto 40px;">Oferecemos as soluções mais avançadas em eletrificação agrícola com benefícios reais para sua operação.</p>
+-            
+-            <div class="vantagens-grid">
+-                <div class="vantagem-card fade-in">
+-                    <div class="vantagem-icon">
+-                        <i class="fas fa-leaf"></i>
+-                    </div>
+-                    <h3>Sustentabilidade</h3>
+-                    <p>Zero emissões de carbono, contribuindo para a preservação ambiental e agregando valor à sua marca.</p>
+-                </div>
+-                
+-                <div class="vantagem-card fade-in">
+-                    <div class="vantagem-icon">
+-                        <i class="fas fa-chart-line"></i>
+-                    </div>
+-                    <h3>Economia</h3>
+-                    <p>Redução de até 70% nos custos com combustível e manutenção em comparação com máquinas a diesel.</p>
+-                </div>
+-                
+-                <div class="vantagem-card fade-in">
+-                    <div class="vantagem-icon">
+-                        <i class="fas fa-tachometer-alt"></i>
+-                    </div>
+-                    <h3>Alta Performance</h3>
+-                    <p>Torque instantâneo, operação silenciosa e maior vida útil dos componentes mecânicos.</p>
+-                </div>
+-            </div>
+-        </div>
+-    </section>
+-
+-    <!-- Sobre -->
+-    <section id="sobre">
+-        <div class="container">
+-            <div class="sobre-container">
+-                <div class="fade-in">
+-                    <h2>Liderança em Tecnologia Agrícola Sustentável</h2>
+-                    <p class="texto-grande">A <span class="texto-destaque">BaggerBrasil</span> é referência nacional em eletrificação agrícola, oferecendo soluções limpas e eficientes que transformam a produtividade no campo.</p>
+-                    <p>Com mais de 15 anos de experiência, desenvolvemos máquinas que unem alta tecnologia, confiabilidade e respeito ao meio ambiente. Nossa missão é liderar a transição energética no agronegócio brasileiro.</p>
+-                    
+-                    <div class="stats">
+-                        <div class="stat fade-in">
+-                            <h3>15+</h3>
+-                            <p>Anos de experiência</p>
+-                        </div>
+-                        <div class="stat fade-in">
+-                            <h3>500+</h3>
+-                            <p>Máquinas vendidas</p>
+-                        </div>
+-                        <div class="stat fade-in">
+-                            <h3>70%</h3>
+-                            <p>Economia operacional</p>
+-                        </div>
+-                    </div>
+-                </div>
+-                
+-                <div class="sobre-img fade-in">
+-                    <img src="uploads/escavadeira-1.jpg" alt="Trator elétrico BaggerBrasil em operação">
+-                </div>
+-            </div>
+-        </div>
+-    </section>
+-
+-  <!-- Catálogo -->
+-    <section id="catalogo" class="catalogo">
+-        <div class="container">
+-            <div class="catalogo-header fade-in">
+-                <h2>Nossas <span class="texto-destaque">Máquinas</span></h2>
+-                <p class="texto-grande">Conheça nossa linha completa de equipamentos 100% elétricos desenvolvidos para maximizar sua produtividade.</p>
+-            </div>
+-            
+-            <div class="cards">
+-                <div class="card fade-in">
+-                    <div class="card-img">
+-                        <img src="uploads/escavadeira-2.jpg" alt="Trator elétrico">
+-                    </div>
+-                    <div class="card-content">
+-                        <h3>Tratores Elétricos</h3>
+-                        <p>Potência limpa para todas as operações com autonomia de até 12 horas de trabalho contínuo.</p>
+-                        <a href="maquinas.html#tratores" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+-                            Ver Modelos <i class="fas fa-arrow-right"></i>
+-                        </a>
+-                    </div>
+-                </div>
+-                
+-                <div class="card fade-in">
+-                    <div class="card-img">
+-                        <img src="uploads/escavadeira-3.jpg" alt="Colheitadeira elétrica">
+-                    </div>
+-                    <div class="card-content">
+-                        <h3>Colheitadeiras Elétricas</h3>
+-                        <p>Alta eficiência e zero emissões com sistema de colheita inteligente que reduz perdas em até 15%.</p>
+-                        <a href="maquinas.html#colheitadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+-                            Ver Modelos <i class="fas fa-arrow-right"></i>
+-                        </a>
+-                    </div>
+-                </div>
+-                
+-                <div class="card fade-in">
+-                    <div class="card-img">
+-                        <img src="uploads/escavadeira-4.jpg" alt="Empilhadeira elétrica">
+-                    </div>
+-                    <div class="card-content">
+-                        <h3>Empilhadeiras Elétricas</h3>
+-                        <p>Operação silenciosa e econômica para ambientes fechados ou abertos, com capacidade de 1 a 5 toneladas.</p>
+-                        <a href="maquinas.html#empilhadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+-                            Ver Modelos <i class="fas fa-arrow-right"></i>
+-                        </a>
+-                    </div>
+-                </div>
+-                
+-                <!-- Novo Card para Escavadeiras -->
+-                <div class="card fade-in">
+-                    <div class="card-img">
+-                        <img src="uploads/escavadeira-5.jpg" alt="Escavadeira elétrica">
+-                    </div>
+-                    <div class="card-content">
+-                        <h3>Escavadeiras Elétricas</h3>
+-                        <p>Escavação precisa e eficiente com zero emissões. Ideal para obras urbanas e agrícolas.</p>
+-                        <a href="maquinas.html#miniescavadeiraeletrica" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+-                            Ver Modelos <i class="fas fa-arrow-right"></i>
+-                        </a>
+-                    </div>
+-                </div>
+-            </div>
+-            
+-            <div class="texto-centro" style="margin-top: 60px;">
+-                <a href="maquinas.html" class="btn btn-primary"> <!-- LINK PARA PÁGINA COMPLETA -->
+-                    <i class="fas fa-list"></i> Ver Todas as Máquinas
+-                </a>
+-            </div>
+-        </div>
+-    </section>
+-
+-
+-
+-    <!--
+-     Depoimentos 
+-    <section id="depoimentos" class="depoimentos">
+-        <div class="container">
+-            <h2 class="texto-centro fade-in">O que nossos clientes dizem</h2>
+-            
+-            <div class="swiper fade-in">
+-                <div class="swiper-wrapper">
+-                    <div class="swiper-slide">
+-                        <div class="depoimento-slide">
+-                            <div class="depoimento-conteudo">
+-                                "A migração para máquinas elétricas da BaggerBrasil reduziu nossos custos operacionais em 65%. O retorno sobre o investimento foi alcançado em apenas 18 meses."
+-                            </div>
+-                            <div class="depoimento-autor">
+-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
+-                                <div>
+-                                    <h4>Carlos Silva</h4>
+-                                    <p>Fazenda São João, Mato Grosso</p>
+-                                </div>
+-                            </div>
+-                        </div>
+-                    </div>
+-                    
+-                    <div class="swiper-slide">
+-                        <div class="depoimento-slide">
+-                            <div class="depoimento-conteudo">
+-                                "Além da economia, o silêncio das máquinas elétricas melhorou muito as condições de trabalho para nossa equipe. A produtividade aumentou 20%."
+-                            </div>
+-                            <div class="depoimento-autor">
+-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Costa">
+-                                <div>
+-                                    <h4>Ana Costa</h4>
+-                                    <p>Agropecuária Costa Feliz, Goiás</p>
+-                                </div>
+-                            </div>
+-                        </div>
+-                    </div>
+-                    
+-                    <div class="swiper-slide">
+-                        <div class="depoimento-slide">
+-                            <div class="depoimento-conteudo">
+-                                "O suporte técnico da BaggerBrasil é excepcional. A transição para elétrico foi tranquila e hoje somos referência em sustentabilidade na nossa região."
+-                            </div>
+-                            <div class="depoimento-autor">
+-                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Roberto Almeida">
+-                                <div>
+-                                    <h4>Roberto Almeida</h4>
+-                                    <p>Fazenda Vale Verde, Paraná</p>
+-                                </div>
+-                            </div>
+-                        </div>
+-                    </div>
+-                </div>
+-                <div class="swiper-pagination"></div>
+-            </div>
+-        </div>
+-    </section>
+-    -->
+-    <!-- Contato -->
+-    <section id="contato">
+-        <div class="container">
+-            <h2 class="texto-centro fade-in">Entre em <span class="texto-destaque">Contato</span></h2>
+-            <p class="texto-centro texto-grande" style="max-width: 700px; margin: 0 auto 60px;">Nossa equipe de especialistas está pronta para apresentar as melhores soluções elétricas para sua operação.</p>
+-            
+-            <div class="contato-container">
+-                <div class="contato-info fade-in">
+-                    <div class="contato-item">
+-                        <div class="contato-icon">
+-                            <i class="fas fa-map-marker-alt"></i>
+-                        </div>
+-                        <div>
+-                            <h4>Nossa Localização</h4>
+-                            <p>Av. das Indústrias, 1234<br>Campo Grande, MS<br>CEP: 79000-000</p>
+-                        </div>
+-                    </div>
+-                    
+-                    <div class="contato-item">
+-                        <div class="contato-icon">
+-                            <i class="fas fa-phone"></i>
+-                        </div>
+-                        <div>
+-                            <h4>Telefone</h4>
+-                            <p>(67) 3322-5566<br>Segunda a Sexta, 8h às 18h</p>
+-                        </div>
+-                    </div>
+-                    
+-                    <div class="contato-item">
+-                        <div class="contato-icon">
+-                            <i class="fas fa-envelope"></i>
+-                        </div>
+-                        <div>
+-                            <h4>E-mail</h4>
+-                            <p>vendas@baggerbrasil.com.br<br>suporte@baggerbrasil.com.br</p>
+-                        </div>
+-                    </div>
+-                </div>
+-                
+-                <div class="contato-form fade-in">
+-                    <h3>Solicite uma Proposta</h3>
+-                    <form id="formContato">
+-                        <div class="form-group">
+-                            <label for="nome">Nome Completo</label>
+-                            <input type="text" id="nome" class="form-control" required>
+-                        </div>
+-                        
+-                        <div class="form-group">
+-                            <label for="email">E-mail</label>
+-                            <input type="email" id="email" class="form-control" required>
+-                        </div>
+-                        
+-                        <div class="form-group">
+-                            <label for="telefone">Telefone</label>
+-                            <input type="tel" id="telefone" class="form-control" required>
+-                        </div>
+-                        
+-                        <div class="form-group">
+-                            <label for="interesse">Interesse Principal</label>
+-                            <select id="interesse" class="form-control" required>
+-                                <option value="">Selecione uma opção</option>
+-                                <option value="tratores">Tratores Elétricos</option>
+-                                <option value="colheitadeiras">Colheitadeiras Elétricas</option>
+-                                <option value="empilhadeiras">Empilhadeiras Elétricas</option>
+-                                <option value="outros">Outros Equipamentos</option>
+-                            </select>
+-                        </div>
+-                        
+-                        <div class="form-group">
+-                            <label for="mensagem">Mensagem</label>
+-                            <textarea id="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
+-                        </div>
+-                        
+-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+-                            <i class="fas fa-paper-plane"></i> Enviar Solicitação
+-                        </button>
+-                    </form>
+-                </div>
+-            </div>
+-        </div>
+-    </section>
+-
+-    <!-- Footer -->
+-    <footer>
+-        <div class="container">
+-            <div class="footer-container">
+-                <div class="footer-col">
+-                    <div class="logo" style="margin-bottom: 20px;">
+-                        <i class="fas fa-leaf logo-icon"></i>
+-                        <h1 style="color: white; font-size: 1.5rem;">bagger<span>BRASIL</span></h1>
+-                    </div>
+-                    <p>Tecnologia elétrica de ponta para o agronegócio brasileiro. Sustentabilidade, economia e alta performance.</p>
+-                    <div class="social-links">
+-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+-                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+-                    </div>
+-                </div>
+-                
+-                <div class="footer-col">
+-                    <h4>Links Rápidos</h4>
+-                    <ul class="footer-links">
+-                        <li><a href="#home">Início</a></li>
+-                        <li><a href="#vantagens">Vantagens</a></li>
+-                        <li><a href="#sobre">Sobre Nós</a></li>
+-                        <li><a href="#catalogo">Catálogo</a></li>
+-                        <li><a href="#contato">Contato</a></li>
+-                    </ul>
+-                </div>
+-                
+-                <div class="footer-col">
+-                    <h4>Nossos Produtos</h4>
+-                    <ul class="footer-links">
+-                        <li><a href="#catalogo">Tratores Elétricos</a></li>
+-                        <li><a href="#catalogo">Colheitadeiras Elétricas</a></li>
+-                        <li><a href="#catalogo">Empilhadeiras Elétricas</a></li>
+-                        <li><a href="#catalogo">Sistemas de Carga</a></li>
+-                        <li><a href="#contato">Solicitar Catálogo</a></li>
+-                    </ul>
+-                </div>
+-                
+-                <div class="footer-col">
+-                    <h4>Suporte</h4>
+-                    <ul class="footer-links">
+-                        <li><a href="#">Manual do Operador</a></li>
+-                        <li><a href="#">Perguntas Frequentes</a></li>
+-                        <li><a href="#">Política de Garantia</a></li>
+-                        <li><a href="#">Peças e Acessórios</a></li>
+-                        <li><a href="#">Trabalhe Conosco</a></li>
+-                    </ul>
+-                </div>
+-            </div>
+-            
+-            <div class="footer-bottom">
+-                <p>© 2026 <span>BaggerBrasil</span> — Todos os direitos reservados. CNPJ: 12.345.678/0001-90</p>
+-                <p style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">Desenvolvido com <i class="fas fa-heart" style="color: #ef4444;"></i> para o agronegócio brasileiro</p>
+-            </div>
+-        </div>
+-    </footer>
+-
+-    <!-- WhatsApp Button -->
+-    <a href="https://wa.me/556733225566?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20máquinas%20elétricas%20BaggerBrasil" class="whatsapp-btn" target="_blank">
+-        <i class="fab fa-whatsapp"></i>
+-    </a>
+-
+-    <!-- Scripts -->
+-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+-    <script>
+-        // Menu Mobile
+-        const menuMobileBtn = document.getElementById('menuMobileBtn');
+-        const menuMobile = document.getElementById('menuMobile');
+-        const overlay = document.getElementById('overlay');
+-        
+-        menuMobileBtn.addEventListener('click', () => {
+-            menuMobile.classList.toggle('active');
+-            overlay.classList.toggle('active');
+-            document.body.style.overflow = menuMobile.classList.contains('active') ? 'hidden' : 'auto';
+-            
+-            // Alternar ícone do botão
+-            const icon = menuMobileBtn.querySelector('i');
+-            if (menuMobile.classList.contains('active')) {
+-                icon.classList.remove('fa-bars');
+-                icon.classList.add('fa-times');
+-            } else {
+-                icon.classList.remove('fa-times');
+-                icon.classList.add('fa-bars');
+-            }
+-        });
+-        
+-        overlay.addEventListener('click', () => {
+-            menuMobile.classList.remove('active');
+-            overlay.classList.remove('active');
+-            document.body.style.overflow = 'auto';
+-            menuMobileBtn.querySelector('i').classList.remove('fa-times');
+-            menuMobileBtn.querySelector('i').classList.add('fa-bars');
+-        });
+-        
+-        // Fechar menu ao clicar em um link
+-        menuMobile.querySelectorAll('a').forEach(link => {
+-            link.addEventListener('click', () => {
+-                menuMobile.classList.remove('active');
+-                overlay.classList.remove('active');
+-                document.body.style.overflow = 'auto';
+-                menuMobileBtn.querySelector('i').classList.remove('fa-times');
+-                menuMobileBtn.querySelector('i').classList.add('fa-bars');
+-            });
+-        });
+-        
+-        // Scroll Animation
+-        const observer = new IntersectionObserver(entries => {
+-            entries.forEach(entry => {
+-                if (entry.isIntersecting) {
+-                    entry.target.classList.add('visible');
+-                }
+-            });
+-        }, {
+-            threshold: 0.1,
+-            rootMargin: '0px 0px -50px 0px'
+-        });
+-        
+-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+-        
+-        // Header Scroll Effect
+-        window.addEventListener('scroll', () => {
+-            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
+-        });
+-        
+-        // Swiper (Depoimentos)
+-        const swiper = new Swiper('.swiper', {
+-            slidesPerView: 1,
+-            spaceBetween: 30,
+-            loop: true,
+-            autoplay: {
+-                delay: 5000,
+-                disableOnInteraction: false,
+-            },
+-            pagination: {
+-                el: '.swiper-pagination',
+-                clickable: true,
+-            },
+-            breakpoints: {
+-                768: {
+-                    slidesPerView: 2,
+-                },
+-                1024: {
+-                    slidesPerView: 3,
+-                }
+-            }
+-        });
+-        
+-        // Form Submission
+-        document.getElementById('formContato').addEventListener('submit', function(e) {
+-            e.preventDefault();
+-            
+-            // Simulação de envio
+-            const nome = document.getElementById('nome').value;
+-            const botao = this.querySelector('button[type="submit"]');
+-            const textoOriginal = botao.innerHTML;
+-            
+-            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+-            botao.disabled = true;
+-            
+-            setTimeout(() => {
+-                alert(`Obrigado, ${nome}! Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em até 24 horas.`);
+-                botao.innerHTML = textoOriginal;
+-                botao.disabled = false;
+-                document.getElementById('formContato').reset();
+-            }, 1500);
+-        });
+-        
+-        // Smooth Scroll para links internos
+-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+-            anchor.addEventListener('click', function(e) {
+-                e.preventDefault();
+-                
+-                const targetId = this.getAttribute('href');
+-                if (targetId === '#') return;
+-                
+-                const targetElement = document.querySelector(targetId);
+-                if (targetElement) {
+-                    window.scrollTo({
+-                        top: targetElement.offsetTop - 100,
+-                        behavior: 'smooth'
+-                    });
+-                }
+-            });
+-        });
+-        
+-        // Botão "Falar com Especialista"
+-        document.querySelector('.btn-contato-header').addEventListener('click', () => {
+-            document.getElementById('contato').scrollIntoView({
+-                behavior: 'smooth'
+-            });
+-        });
+-    </script>
+-</body>
+-</html>
++<!DOCTYPE html>
++<html lang="pt-BR">
++<head>
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>BaggerBrasil | Revolução Elétrica no Campo | Máquinas Agrícolas 100% Elétricas</title>
++    <meta name="description" content="Máquinas agrícolas 100% elétricas com alta performance, economia e sustentabilidade. Tecnologia limpa para o agronegócio brasileiro.">
++    
++    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
++    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
++    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
++
++    <style>
++        /* ================= VARIÁVEIS & RESET ================= */
++        :root {
++            --azul-escuro: #1f3b2d;
++            --azul-medio: #2a5a3c;
++            --verde-primario: #2f7d32;
++            --verde-secundario: #256628;
++            --verde-claro: #e8f3e9;
++            --cinza-escuro: #2f3c34;
++            --cinza-medio: #5f6d66;
++            --cinza-claro: #f7f8f3;
++            --branco: #ffffff;
++            --preto: #0a0a0a;
++            --destaque-amarelo: #f0b429;
++            
++            --gradiente-azul: linear-gradient(135deg, #1f3b2d 0%, #2a5a3c 100%);
++            --gradiente-verde: linear-gradient(135deg, #2f7d32 0%, #256628 100%);
++            --gradiente-hero: linear-gradient(140deg, rgba(23, 52, 34, 0.94) 0%, rgba(42, 90, 60, 0.84) 100%);
++            
++            --sombra-padrao: 0 10px 30px rgba(0, 0, 0, 0.08);
++            --sombra-elevada: 0 25px 60px rgba(0, 0, 0, 0.12);
++            --sombra-botao: 0 10px 25px rgba(47, 125, 50, 0.3);
++            
++            --raio-padrao: 16px;
++            --raio-grande: 24px;
++            --raio-redondo: 50px;
++            
++            --transicao-padrao: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
++            --transicao-lenta: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
++        }
++
++        * {
++            margin: 0;
++            padding: 0;
++            box-sizing: border-box;
++        }
++
++        html {
++            scroll-behavior: smooth;
++            scroll-padding-top: 100px;
++        }
++
++        body {
++            font-family: 'Roboto', sans-serif;
++            background-color: var(--cinza-claro);
++            color: var(--cinza-escuro);
++            line-height: 1.7;
++            overflow-x: hidden;
++        }
++
++        h1, h2, h3, h4, h5 {
++            font-family: 'Poppins', sans-serif;
++            color: var(--azul-escuro);
++            line-height: 1.2;
++        }
++
++        .container {
++            max-width: 1300px;
++            margin: 0 auto;
++            padding: 0 24px;
++        }
++
++        section {
++            padding: 100px 0;
++        }
++
++        /* ================= TIPOGRAFIA ================= */
++        h1 { font-size: 3.5rem; font-weight: 900; }
++        h2 { font-size: 2.8rem; font-weight: 800; margin-bottom: 1.5rem; }
++        h3 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; }
++        p { margin-bottom: 1.5rem; font-size: 1.1rem; }
++        
++        .texto-destaque { color: var(--verde-primario); font-weight: 700; }
++        .texto-amarelo { color: var(--destaque-amarelo); }
++        .texto-centro { text-align: center; }
++        .texto-grande { font-size: 1.3rem; }
++
++        /* ================= ANIMAÇÕES ================= */
++        @keyframes fadeInUp {
++            from {
++                opacity: 0;
++                transform: translateY(50px);
++            }
++            to {
++                opacity: 1;
++                transform: translateY(0);
++            }
++        }
++
++        @keyframes float {
++            0%, 100% { transform: translateY(0); }
++            50% { transform: translateY(-15px); }
++        }
++
++        @keyframes pulse {
++            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.4); }
++            70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); }
++            100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
++        }
++
++        .fade-in {
++            opacity: 0;
++            transform: translateY(40px);
++            transition: opacity 0.8s ease, transform 0.8s ease;
++        }
++
++        .fade-in.visible {
++            opacity: 1;
++            transform: translateY(0);
++        }
++
++        /* ================= HEADER ================= */
++        header {
++            position: fixed;
++            top: 0;
++            left: 0;
++            width: 100%;
++            background: rgba(255, 255, 255, 0.95);
++            backdrop-filter: blur(15px);
++            -webkit-backdrop-filter: blur(15px);
++            z-index: 1000;
++            transition: var(--transicao-padrao);
++            border-bottom: 1px solid rgba(15, 23, 42, 0.05);
++        }
++
++        header.scrolled {
++            box-shadow: var(--sombra-padrao);
++            padding: 5px 0;
++        }
++
++        .header-container {
++            display: flex;
++            justify-content: space-between;
++            align-items: center;
++            padding: 20px 0;
++            transition: var(--transicao-padrao);
++        }
++
++        .logo {
++            display: flex;
++            align-items: center;
++            gap: 12px;
++        }
++
++        .logo-icon {
++            color: var(--verde-primario);
++            font-size: 2.2rem;
++            animation: float 4s ease-in-out infinite;
++        }
++
++        .logo h1 {
++            font-size: 1.8rem;
++            font-weight: 900;
++            letter-spacing: -0.5px;
++        }
++
++        .logo span {
++            color: var(--verde-primario);
++        }
++
++        /* Menu de Navegação */
++        .menu-desktop {
++            display: flex;
++            gap: 40px;
++        }
++
++        .menu-desktop a {
++            text-decoration: none;
++            color: var(--azul-escuro);
++            font-weight: 600;
++            font-size: 1.05rem;
++            position: relative;
++            padding: 5px 0;
++            transition: var(--transicao-padrao);
++        }
++
++        .menu-desktop a::after {
++            content: '';
++            position: absolute;
++            bottom: 0;
++            left: 0;
++            width: 0;
++            height: 3px;
++            background: var(--gradiente-verde);
++            border-radius: 2px;
++            transition: var(--transicao-padrao);
++        }
++
++        .menu-desktop a:hover {
++            color: var(--verde-primario);
++        }
++
++        .menu-desktop a:hover::after {
++            width: 100%;
++        }
++
++        .btn-contato-header {
++            background: var(--gradiente-verde);
++            color: var(--branco);
++            border: none;
++            padding: 12px 28px;
++            border-radius: var(--raio-redondo);
++            font-weight: 600;
++            font-size: 1rem;
++            cursor: pointer;
++            transition: var(--transicao-padrao);
++            box-shadow: var(--sombra-botao);
++            display: flex;
++            align-items: center;
++            gap: 8px;
++        }
++
++        .btn-contato-header:hover {
++            transform: translateY(-3px);
++            box-shadow: 0 15px 30px rgba(79, 70, 229, 0.4);
++        }
++
++        /* Menu Mobile */
++        .menu-mobile-btn {
++            display: none;
++            background: none;
++            border: none;
++            font-size: 1.8rem;
++            color: var(--azul-escuro);
++            cursor: pointer;
++            z-index: 1001;
++        }
++
++        .menu-mobile {
++            position: fixed;
++            top: 0;
++            right: -100%;
++            width: 300px;
++            height: 100vh;
++            background: var(--branco);
++            box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
++            z-index: 999;
++            transition: var(--transicao-padrao);
++            padding: 100px 30px 40px;
++            display: flex;
++            flex-direction: column;
++            gap: 25px;
++        }
++
++        .menu-mobile.active {
++            right: 0;
++        }
++
++        .menu-mobile a {
++            text-decoration: none;
++            color: var(--azul-escuro);
++            font-weight: 600;
++            font-size: 1.2rem;
++            padding: 12px 0;
++            border-bottom: 1px solid rgba(15, 23, 42, 0.1);
++            transition: var(--transicao-padrao);
++        }
++
++        .menu-mobile a:hover {
++            color: var(--verde-primario);
++            padding-left: 10px;
++        }
++
++        /* Overlay do menu mobile */
++        .overlay {
++            display: none;
++            position: fixed;
++            top: 0;
++            left: 0;
++            width: 100%;
++            height: 100%;
++            background: rgba(0, 0, 0, 0.5);
++            z-index: 998;
++        }
++
++        .overlay.active {
++            display: block;
++        }
++
++        /* ================= HERO SECTION ================= */
++        .hero {
++            min-height: 100vh;
++            display: flex;
++            align-items: center;
++            position: relative;
++            background:
++                var(--gradiente-hero),
++                url('uploads/campo.jpg') center/cover no-repeat;
++            color: var(--branco);
++            overflow: hidden;
++        }
++
++        .hero::before {
++            content: '';
++            position: absolute;
++            top: 0;
++            left: 0;
++            width: 100%;
++            height: 100%;
++            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232f7d32' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
++            opacity: 0.3;
++            animation: float 20s linear infinite;
++        }
++
++        .hero-content {
++            max-width: 800px;
++            position: relative;
++            z-index: 2;
++        }
++
++        .hero h1 {
++            font-size: 4rem;
++            margin-bottom: 1.5rem;
++            background: linear-gradient(90deg, #ffffff, #f5d87b);
++            -webkit-background-clip: text;
++            background-clip: text;
++            -webkit-text-fill-color: transparent;
++            
++            animation: fadeInUp 1s ease-out;
++        }
++
++        .hero p {
++            font-size: 1.4rem;
++            margin-bottom: 2.5rem;
++            color: #f3f4ed;
++            animation: fadeInUp 1s ease-out 0.2s both;
++        }
++
++        /* ================= BOTÕES ================= */
++        .btn {
++            display: inline-flex;
++            align-items: center;
++            justify-content: center;
++            gap: 12px;
++            padding: 18px 40px;
++            border-radius: var(--raio-redondo);
++            font-weight: 700;
++            font-size: 1.1rem;
++            text-decoration: none;
++            cursor: pointer;
++            transition: var(--transicao-padrao);
++            position: relative;
++            overflow: hidden;
++            border: none;
++        }
++
++        .btn-primary {
++            background: var(--gradiente-verde);
++            color: var(--branco);
++            box-shadow: var(--sombra-botao);
++        }
++
++        .btn-primary:hover {
++            transform: translateY(-5px);
++            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.4);
++        }
++
++        .btn-primary::after {
++            content: '';
++            position: absolute;
++            top: 0;
++            left: -100%;
++            width: 60%;
++            height: 100%;
++            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
++            transition: 0.6s;
++        }
++
++        .btn-primary:hover::after {
++            left: 120%;
++        }
++
++        .btn-secondary {
++            background: rgba(255, 255, 255, 0.08);
++            color: var(--branco);
++            border: 2px solid rgba(240, 180, 41, 0.7);
++        }
++
++        .btn-secondary:hover {
++            background: rgba(240, 180, 41, 0.16);
++            border-color: var(--destaque-amarelo);
++        }
++
++        .btn-group {
++            display: flex;
++            gap: 20px;
++            flex-wrap: wrap;
++            animation: fadeInUp 1s ease-out 0.4s both;
++        }
++
++        /* ================= VANTAGENS ================= */
++        .vantagens {
++            background-color: var(--branco);
++        }
++
++        .vantagens-grid {
++            display: grid;
++            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
++            gap: 30px;
++            margin-top: 60px;
++        }
++
++        .vantagem-card {
++            background: var(--branco);
++            padding: 40px 30px;
++            border-radius: var(--raio-padrao);
++            text-align: center;
++            box-shadow: var(--sombra-padrao);
++            transition: var(--transicao-padrao);
++            border: 1px solid rgba(15, 23, 42, 0.05);
++        }
++
++        .vantagem-card:hover {
++            transform: translateY(-10px);
++            box-shadow: var(--sombra-elevada);
++            border-color: var(--verde-claro);
++        }
++
++        .vantagem-icon {
++            width: 80px;
++            height: 80px;
++            background: linear-gradient(135deg, var(--verde-primario) 0%, var(--destaque-amarelo) 140%);
++            border-radius: 50%;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            margin: 0 auto 25px;
++            color: var(--branco);
++            font-size: 2rem;
++        }
++
++        /* ================= SOBRE ================= */
++        .sobre-container {
++            display: grid;
++            grid-template-columns: 1fr 1fr;
++            gap: 80px;
++            align-items: center;
++        }
++
++        .sobre-img {
++            border-radius: var(--raio-grande);
++            overflow: hidden;
++            box-shadow: var(--sombra-elevada);
++            position: relative;
++        }
++
++        .sobre-img::before {
++            content: '';
++            position: absolute;
++            top: 0;
++            left: 0;
++            width: 100%;
++            height: 100%;
++            background: linear-gradient(45deg, rgba(34, 197, 94, 0.1), transparent);
++            z-index: 1;
++        }
++
++        .sobre-img img {
++            width: 100%;
++            height: 100%;
++            object-fit: cover;
++            transition: var(--transicao-lenta);
++        }
++
++        .sobre-img:hover img {
++            transform: scale(1.05);
++        }
++
++        .stats {
++            display: grid;
++            grid-template-columns: repeat(3, 1fr);
++            gap: 25px;
++            margin-top: 50px;
++        }
++
++        .stat {
++            background: rgba(255, 255, 255, 0.9);
++            backdrop-filter: blur(10px);
++            padding: 30px;
++            border-radius: var(--raio-padrao);
++            text-align: center;
++            box-shadow: var(--sombra-padrao);
++            border: 1px solid rgba(15, 23, 42, 0.05);
++            transition: var(--transicao-padrao);
++        }
++
++        .stat:hover {
++            transform: translateY(-5px);
++            box-shadow: var(--sombra-elevada);
++        }
++
++        .stat h3 {
++            font-size: 2.8rem;
++            color: var(--verde-primario);
++            margin-bottom: 5px;
++        }
++
++        /* ================= CATÁLOGO ================= */
++        .catalogo {
++            background-color: var(--cinza-claro);
++        }
++
++        .catalogo-header {
++            text-align: center;
++            max-width: 700px;
++            margin: 0 auto 70px;
++        }
++
++        .cards {
++            display: grid;
++            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
++            gap: 40px;
++        }
++
++        .card {
++            background: var(--branco);
++            border-radius: var(--raio-grande);
++            overflow: hidden;
++            box-shadow: var(--sombra-padrao);
++            transition: var(--transicao-padrao);
++            height: 100%;
++            display: flex;
++            flex-direction: column;
++        }
++
++        .card:hover {
++            transform: translateY(-15px);
++            box-shadow: var(--sombra-elevada);
++        }
++
++        .card-img {
++            height: 240px;
++            overflow: hidden;
++        }
++
++        .card-img img {
++            width: 100%;
++            height: 100%;
++            object-fit: cover;
++            transition: var(--transicao-lenta);
++        }
++
++        .card:hover .card-img img {
++            transform: scale(1.1);
++        }
++
++        .card-content {
++            padding: 30px;
++            flex-grow: 1;
++            display: flex;
++            flex-direction: column;
++        }
++
++        .card-content h3 {
++            margin-bottom: 15px;
++        }
++
++        .card-btn {
++            margin-top: auto;
++            padding-top: 20px;
++            display: inline-flex;
++            align-items: center;
++            gap: 8px;
++            color: var(--verde-primario);
++            font-weight: 600;
++            text-decoration: none;
++            transition: var(--transicao-padrao);
++        }
++
++        .card-btn:hover {
++            gap: 12px;
++        }
++
++        /* ================= DEPOIMENTOS ================= */
++        .depoimentos {
++            background: var(--gradiente-azul);
++            color: var(--branco);
++        }
++
++        .depoimentos h2 {
++            color: var(--branco);
++        }
++
++        .swiper {
++            width: 100%;
++            padding: 50px 0 80px;
++        }
++
++        .depoimento-slide {
++            background: rgba(255, 255, 255, 0.1);
++            backdrop-filter: blur(10px);
++            border-radius: var(--raio-grande);
++            padding: 40px;
++            border: 1px solid rgba(255, 255, 255, 0.1);
++        }
++
++        .depoimento-conteudo {
++            font-size: 1.2rem;
++            font-style: italic;
++            margin-bottom: 30px;
++            line-height: 1.6;
++        }
++
++        .depoimento-autor {
++            display: flex;
++            align-items: center;
++            gap: 15px;
++        }
++
++        .depoimento-autor img {
++            width: 60px;
++            height: 60px;
++            border-radius: 50%;
++            object-fit: cover;
++            border: 3px solid var(--verde-primario);
++        }
++
++        .swiper-pagination-bullet {
++            background: var(--cinza-medio);
++            opacity: 0.5;
++            width: 12px;
++            height: 12px;
++        }
++
++        .swiper-pagination-bullet-active {
++            background: var(--verde-primario);
++            opacity: 1;
++        }
++
++        /* ================= CONTATO ================= */
++        .contato-container {
++            display: grid;
++            grid-template-columns: 1fr 1fr;
++            gap: 80px;
++        }
++
++        .contato-info {
++            display: flex;
++            flex-direction: column;
++            gap: 30px;
++        }
++
++        .contato-item {
++            display: flex;
++            align-items: flex-start;
++            gap: 20px;
++        }
++
++        .contato-icon {
++            width: 60px;
++            height: 60px;
++            background: #eef5e7;
++            border-radius: 50%;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            color: var(--verde-primario);
++            font-size: 1.5rem;
++            flex-shrink: 0;
++        }
++
++        .contato-form {
++            background: var(--branco);
++            padding: 50px;
++            border-radius: var(--raio-grande);
++            box-shadow: var(--sombra-elevada);
++        }
++
++        .form-group {
++            margin-bottom: 25px;
++        }
++
++        .form-group label {
++            display: block;
++            margin-bottom: 8px;
++            font-weight: 500;
++            color: var(--azul-escuro);
++        }
++
++        .form-control {
++            width: 100%;
++            padding: 16px 20px;
++            border: 1px solid rgba(15, 23, 42, 0.1);
++            border-radius: 12px;
++            font-family: 'Roboto', sans-serif;
++            font-size: 1rem;
++            transition: var(--transicao-padrao);
++            background-color: var(--cinza-claro);
++        }
++
++        .form-control:focus {
++            outline: none;
++            border-color: var(--verde-primario);
++            background-color: var(--branco);
++            box-shadow: 0 0 0 3px rgba(47, 125, 50, 0.12);
++        }
++
++        /* ================= FOOTER ================= */
++        footer {
++            background: var(--gradiente-azul);
++            color: #cbd5e1;
++            padding: 80px 0 40px;
++        }
++
++        .footer-container {
++            display: grid;
++            grid-template-columns: repeat(4, 1fr);
++            gap: 60px;
++            margin-bottom: 60px;
++        }
++
++        .footer-col h4 {
++            color: var(--branco);
++            font-size: 1.3rem;
++            margin-bottom: 25px;
++            position: relative;
++            padding-bottom: 10px;
++        }
++
++        .footer-col h4::after {
++            content: '';
++            position: absolute;
++            bottom: 0;
++            left: 0;
++            width: 40px;
++            height: 3px;
++            background: var(--verde-primario);
++        }
++
++        .footer-links {
++            list-style: none;
++            display: flex;
++            flex-direction: column;
++            gap: 15px;
++        }
++
++        .footer-links a {
++            color: #cbd5e1;
++            text-decoration: none;
++            transition: var(--transicao-padrao);
++        }
++
++        .footer-links a:hover {
++            color: var(--verde-primario);
++            padding-left: 5px;
++        }
++
++        .social-links {
++            display: flex;
++            gap: 15px;
++            margin-top: 25px;
++        }
++
++        .social-link {
++            width: 45px;
++            height: 45px;
++            background: rgba(255, 255, 255, 0.1);
++            border-radius: 50%;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            color: var(--branco);
++            text-decoration: none;
++            transition: var(--transicao-padrao);
++        }
++
++        .social-link:hover {
++            background: var(--verde-primario);
++            transform: translateY(-5px);
++        }
++
++        .footer-bottom {
++            border-top: 1px solid rgba(255, 255, 255, 0.1);
++            padding-top: 30px;
++            text-align: center;
++            font-size: 0.95rem;
++        }
++
++        .footer-bottom span {
++            color: var(--verde-primario);
++            font-weight: 700;
++        }
++
++        /* ================= BOTÃO WHATSAPP ================= */
++        .whatsapp-btn {
++            position: fixed;
++            bottom: 30px;
++            right: 30px;
++            width: 70px;
++            height: 70px;
++            background: #2f7d32;
++            border-radius: 50%;
++            display: flex;
++            align-items: center;
++            justify-content: center;
++            color: var(--branco);
++            font-size: 2.2rem;
++            text-decoration: none;
++            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
++            z-index: 999;
++            transition: var(--transicao-padrao);
++            animation: pulse 2s infinite;
++        }
++
++        .whatsapp-btn:hover {
++            transform: scale(1.1);
++            box-shadow: 0 15px 40px rgba(79, 70, 229, 0.6);
++        }
++
++        /* ================= RESPONSIVO ================= */
++        @media (max-width: 1200px) {
++            h1 { font-size: 3rem; }
++            h2 { font-size: 2.4rem; }
++            .hero h1 { font-size: 3.2rem; }
++        }
++
++        @media (max-width: 992px) {
++            section { padding: 80px 0; }
++            
++            .sobre-container,
++            .contato-container {
++                grid-template-columns: 1fr;
++                gap: 60px;
++            }
++            
++            .footer-container {
++                grid-template-columns: repeat(2, 1fr);
++                gap: 50px;
++            }
++            
++            .menu-desktop {
++                display: none;
++            }
++            
++            .menu-mobile-btn {
++                display: block;
++            }
++        }
++
++        @media (max-width: 768px) {
++            h1 { font-size: 2.6rem; }
++            h2 { font-size: 2.1rem; }
++            .hero h1 { font-size: 2.8rem; }
++            
++            .btn-group {
++                flex-direction: column;
++                align-items: flex-start;
++            }
++            
++            .btn {
++                width: 100%;
++                justify-content: center;
++            }
++            
++            .stats {
++                grid-template-columns: repeat(2, 1fr);
++            }
++            
++            .cards {
++                grid-template-columns: 1fr;
++            }
++            
++            .contato-form {
++                padding: 30px;
++            }
++        }
++
++        @media (max-width: 576px) {
++            h1 { font-size: 2.2rem; }
++            h2 { font-size: 1.8rem; }
++            .hero h1 { font-size: 2.4rem; }
++            
++            .hero p {
++                font-size: 1.1rem;
++            }
++            
++            .stats {
++                grid-template-columns: 1fr;
++            }
++            
++            .footer-container {
++                grid-template-columns: 1fr;
++            }
++            
++            .whatsapp-btn {
++                width: 60px;
++                height: 60px;
++                font-size: 1.8rem;
++                bottom: 20px;
++                right: 20px;
++            }
++        }
++    </style>
++</head>
++
++<body>
++    <!-- Header -->
++    <header>
++        <div class="container header-container">
++            <div class="logo">
++                <i class="fas fa-seedling logo-icon"></i>
++                <h1>bagger<span>BRASIL</span></h1>
++            </div>
++            
++            <!-- Menu Desktop -->
++            <nav class="menu-desktop">
++                <a href="#home">Início</a>
++                <a href="#vantagens">Vantagens</a>
++                <a href="#sobre">Sobre</a>
++                <a href="maquinas.html">Máquinas</a> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
++                <a href="#contato">Contato</a>
++            </nav>
++            
++            <button class="btn-contato-header">
++                <i class="fas fa-phone-alt"></i> Falar com Especialista
++            </button>
++            
++            <!-- Menu Mobile Button -->
++            <button class="menu-mobile-btn" id="menuMobileBtn">
++                <i class="fas fa-bars"></i>
++            </button>
++        </div>
++        
++        <!-- Menu Mobile -->
++        <nav class="menu-mobile" id="menuMobile">
++            <a href="#home">Início</a>
++            <a href="#vantagens">Vantagens</a>
++            <a href="#sobre">Sobre</a>
++            <a href="maquinas.html">Máquinas</a> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
++            <a href="#contato">Contato</a>
++            <button class="btn btn-primary" style="margin-top: 20px;">
++                <i class="fas fa-phone-alt"></i> Falar com Especialista
++            </button>
++        </nav>
++        
++        <!-- Overlay Menu Mobile -->
++        <div class="overlay" id="overlay"></div>
++    </header>
++
++    <!-- Hero Section -->
++    <section class="hero" id="home">
++        <div class="container">
++            <div class="hero-content">
++                <h1 class="fade-in">Tecnologia para um Agro Mais Forte</h1>
++                <p class="fade-in">Máquinas agrícolas 100% elétricas com alta performance, robustez para o campo e redução de até 70% nos custos operacionais. Força, eficiência e sustentabilidade para o agronegócio brasileiro.</p>
++                <div class="btn-group">
++                    <a href="maquinas.html" class="btn btn-primary fade-in"> <!-- LINK PARA PÁGINA DE MÁQUINAS -->
++                        <i class="fas fa-tractor"></i> Explorar Máquinas
++                    </a>
++                    <a href="#contato" class="btn btn-secondary fade-in">
++                        <i class="fas fa-comments"></i> Falar com Consultor
++                    </a>
++                </div>
++            </div>
++        </div>
++    </section>
++
++    <!-- Vantagens -->
++    <section id="vantagens" class="vantagens">
++        <div class="container">
++            <h2 class="texto-centro">Por que escolher a <span class="texto-destaque">BaggerBrasil</span>?</h2>
++            <p class="texto-centro texto-grande" style="max-width: 800px; margin: 0 auto 40px;">Oferecemos as soluções mais avançadas em eletrificação agrícola com benefícios reais para sua operação.</p>
++            
++            <div class="vantagens-grid">
++                <div class="vantagem-card fade-in">
++                    <div class="vantagem-icon">
++                        <i class="fas fa-leaf"></i>
++                    </div>
++                    <h3>Sustentabilidade</h3>
++                    <p>Zero emissões de carbono, contribuindo para a preservação ambiental e agregando valor à sua marca.</p>
++                </div>
++                
++                <div class="vantagem-card fade-in">
++                    <div class="vantagem-icon">
++                        <i class="fas fa-chart-line"></i>
++                    </div>
++                    <h3>Economia</h3>
++                    <p>Redução de até 70% nos custos com combustível e manutenção em comparação com máquinas a diesel.</p>
++                </div>
++                
++                <div class="vantagem-card fade-in">
++                    <div class="vantagem-icon">
++                        <i class="fas fa-tachometer-alt"></i>
++                    </div>
++                    <h3>Alta Performance</h3>
++                    <p>Torque instantâneo, operação silenciosa e maior vida útil dos componentes mecânicos.</p>
++                </div>
++            </div>
++        </div>
++    </section>
++
++    <!-- Sobre -->
++    <section id="sobre">
++        <div class="container">
++            <div class="sobre-container">
++                <div class="fade-in">
++                    <h2>Liderança em Tecnologia Agrícola Sustentável</h2>
++                    <p class="texto-grande">A <span class="texto-destaque">BaggerBrasil</span> é referência nacional em eletrificação agrícola, oferecendo soluções limpas e eficientes que transformam a produtividade no campo.</p>
++                    <p>Com mais de 15 anos de experiência, desenvolvemos máquinas que unem alta tecnologia, confiabilidade e respeito ao meio ambiente. Nossa missão é liderar a transição energética no agronegócio brasileiro.</p>
++                    
++                    <div class="stats">
++                        <div class="stat fade-in">
++                            <h3>15+</h3>
++                            <p>Anos de experiência</p>
++                        </div>
++                        <div class="stat fade-in">
++                            <h3>500+</h3>
++                            <p>Máquinas vendidas</p>
++                        </div>
++                        <div class="stat fade-in">
++                            <h3>70%</h3>
++                            <p>Economia operacional</p>
++                        </div>
++                    </div>
++                </div>
++                
++                <div class="sobre-img fade-in">
++                    <img src="uploads/escavadeira-1.jpg" alt="Trator elétrico BaggerBrasil em operação">
++                </div>
++            </div>
++        </div>
++    </section>
++
++  <!-- Catálogo -->
++    <section id="catalogo" class="catalogo">
++        <div class="container">
++            <div class="catalogo-header fade-in">
++                <h2>Nossas <span class="texto-destaque">Máquinas</span></h2>
++                <p class="texto-grande">Conheça nossa linha completa de equipamentos 100% elétricos desenvolvidos para maximizar sua produtividade.</p>
++            </div>
++            
++            <div class="cards">
++                <div class="card fade-in">
++                    <div class="card-img">
++                        <img src="uploads/escavadeira-2.jpg" alt="Trator elétrico">
++                    </div>
++                    <div class="card-content">
++                        <h3>Tratores Elétricos</h3>
++                        <p>Potência limpa para todas as operações com autonomia de até 12 horas de trabalho contínuo.</p>
++                        <a href="maquinas.html#tratores" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
++                            Ver Modelos <i class="fas fa-arrow-right"></i>
++                        </a>
++                    </div>
++                </div>
++                
++                <div class="card fade-in">
++                    <div class="card-img">
++                        <img src="uploads/escavadeira-3.jpg" alt="Colheitadeira elétrica">
++                    </div>
++                    <div class="card-content">
++                        <h3>Colheitadeiras Elétricas</h3>
++                        <p>Alta eficiência e zero emissões com sistema de colheita inteligente que reduz perdas em até 15%.</p>
++                        <a href="maquinas.html#colheitadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
++                            Ver Modelos <i class="fas fa-arrow-right"></i>
++                        </a>
++                    </div>
++                </div>
++                
++                <div class="card fade-in">
++                    <div class="card-img">
++                        <img src="uploads/escavadeira-4.jpg" alt="Empilhadeira elétrica">
++                    </div>
++                    <div class="card-content">
++                        <h3>Empilhadeiras Elétricas</h3>
++                        <p>Operação silenciosa e econômica para ambientes fechados ou abertos, com capacidade de 1 a 5 toneladas.</p>
++                        <a href="maquinas.html#empilhadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
++                            Ver Modelos <i class="fas fa-arrow-right"></i>
++                        </a>
++                    </div>
++                </div>
++                
++                <!-- Novo Card para Escavadeiras -->
++                <div class="card fade-in">
++                    <div class="card-img">
++                        <img src="uploads/escavadeira-5.jpg" alt="Escavadeira elétrica">
++                    </div>
++                    <div class="card-content">
++                        <h3>Escavadeiras Elétricas</h3>
++                        <p>Escavação precisa e eficiente com zero emissões. Ideal para obras urbanas e agrícolas.</p>
++                        <a href="maquinas.html#miniescavadeiraeletrica" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
++                            Ver Modelos <i class="fas fa-arrow-right"></i>
++                        </a>
++                    </div>
++                </div>
++            </div>
++            
++            <div class="texto-centro" style="margin-top: 60px;">
++                <a href="maquinas.html" class="btn btn-primary"> <!-- LINK PARA PÁGINA COMPLETA -->
++                    <i class="fas fa-list"></i> Ver Todas as Máquinas
++                </a>
++            </div>
++        </div>
++    </section>
++
++
++
++    <!--
++     Depoimentos 
++    <section id="depoimentos" class="depoimentos">
++        <div class="container">
++            <h2 class="texto-centro fade-in">O que nossos clientes dizem</h2>
++            
++            <div class="swiper fade-in">
++                <div class="swiper-wrapper">
++                    <div class="swiper-slide">
++                        <div class="depoimento-slide">
++                            <div class="depoimento-conteudo">
++                                "A migração para máquinas elétricas da BaggerBrasil reduziu nossos custos operacionais em 65%. O retorno sobre o investimento foi alcançado em apenas 18 meses."
++                            </div>
++                            <div class="depoimento-autor">
++                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva">
++                                <div>
++                                    <h4>Carlos Silva</h4>
++                                    <p>Fazenda São João, Mato Grosso</p>
++                                </div>
++                            </div>
++                        </div>
++                    </div>
++                    
++                    <div class="swiper-slide">
++                        <div class="depoimento-slide">
++                            <div class="depoimento-conteudo">
++                                "Além da economia, o silêncio das máquinas elétricas melhorou muito as condições de trabalho para nossa equipe. A produtividade aumentou 20%."
++                            </div>
++                            <div class="depoimento-autor">
++                                <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Costa">
++                                <div>
++                                    <h4>Ana Costa</h4>
++                                    <p>Agropecuária Costa Feliz, Goiás</p>
++                                </div>
++                            </div>
++                        </div>
++                    </div>
++                    
++                    <div class="swiper-slide">
++                        <div class="depoimento-slide">
++                            <div class="depoimento-conteudo">
++                                "O suporte técnico da BaggerBrasil é excepcional. A transição para elétrico foi tranquila e hoje somos referência em sustentabilidade na nossa região."
++                            </div>
++                            <div class="depoimento-autor">
++                                <img src="https://randomuser.me/api/portraits/men/65.jpg" alt="Roberto Almeida">
++                                <div>
++                                    <h4>Roberto Almeida</h4>
++                                    <p>Fazenda Vale Verde, Paraná</p>
++                                </div>
++                            </div>
++                        </div>
++                    </div>
++                </div>
++                <div class="swiper-pagination"></div>
++            </div>
++        </div>
++    </section>
++    -->
++    <!-- Contato -->
++    <section id="contato">
++        <div class="container">
++            <h2 class="texto-centro fade-in">Entre em <span class="texto-destaque">Contato</span></h2>
++            <p class="texto-centro texto-grande" style="max-width: 700px; margin: 0 auto 60px;">Nossa equipe de especialistas está pronta para apresentar as melhores soluções elétricas para sua operação.</p>
++            
++            <div class="contato-container">
++                <div class="contato-info fade-in">
++                    <div class="contato-item">
++                        <div class="contato-icon">
++                            <i class="fas fa-map-marker-alt"></i>
++                        </div>
++                        <div>
++                            <h4>Nossa Localização</h4>
++                            <p>Av. das Indústrias, 1234<br>Campo Grande, MS<br>CEP: 79000-000</p>
++                        </div>
++                    </div>
++                    
++                    <div class="contato-item">
++                        <div class="contato-icon">
++                            <i class="fas fa-phone"></i>
++                        </div>
++                        <div>
++                            <h4>Telefone</h4>
++                            <p>(67) 3322-5566<br>Segunda a Sexta, 8h às 18h</p>
++                        </div>
++                    </div>
++                    
++                    <div class="contato-item">
++                        <div class="contato-icon">
++                            <i class="fas fa-envelope"></i>
++                        </div>
++                        <div>
++                            <h4>E-mail</h4>
++                            <p>vendas@baggerbrasil.com.br<br>suporte@baggerbrasil.com.br</p>
++                        </div>
++                    </div>
++                </div>
++                
++                <div class="contato-form fade-in">
++                    <h3>Solicite uma Proposta</h3>
++                    <form id="formContato">
++                        <div class="form-group">
++                            <label for="nome">Nome Completo</label>
++                            <input type="text" id="nome" class="form-control" required>
++                        </div>
++                        
++                        <div class="form-group">
++                            <label for="email">E-mail</label>
++                            <input type="email" id="email" class="form-control" required>
++                        </div>
++                        
++                        <div class="form-group">
++                            <label for="telefone">Telefone</label>
++                            <input type="tel" id="telefone" class="form-control" required>
++                        </div>
++                        
++                        <div class="form-group">
++                            <label for="interesse">Interesse Principal</label>
++                            <select id="interesse" class="form-control" required>
++                                <option value="">Selecione uma opção</option>
++                                <option value="tratores">Tratores Elétricos</option>
++                                <option value="colheitadeiras">Colheitadeiras Elétricas</option>
++                                <option value="empilhadeiras">Empilhadeiras Elétricas</option>
++                                <option value="outros">Outros Equipamentos</option>
++                            </select>
++                        </div>
++                        
++                        <div class="form-group">
++                            <label for="mensagem">Mensagem</label>
++                            <textarea id="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
++                        </div>
++                        
++                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
++                            <i class="fas fa-paper-plane"></i> Enviar Solicitação
++                        </button>
++                    </form>
++                </div>
++            </div>
++        </div>
++    </section>
++
++    <!-- Footer -->
++    <footer>
++        <div class="container">
++            <div class="footer-container">
++                <div class="footer-col">
++                    <div class="logo" style="margin-bottom: 20px;">
++                        <i class="fas fa-leaf logo-icon"></i>
++                        <h1 style="color: white; font-size: 1.5rem;">bagger<span>BRASIL</span></h1>
++                    </div>
++                    <p>Tecnologia elétrica de ponta para o agronegócio brasileiro. Sustentabilidade, economia e alta performance.</p>
++                    <div class="social-links">
++                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
++                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
++                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
++                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
++                    </div>
++                </div>
++                
++                <div class="footer-col">
++                    <h4>Links Rápidos</h4>
++                    <ul class="footer-links">
++                        <li><a href="#home">Início</a></li>
++                        <li><a href="#vantagens">Vantagens</a></li>
++                        <li><a href="#sobre">Sobre Nós</a></li>
++                        <li><a href="#catalogo">Catálogo</a></li>
++                        <li><a href="#contato">Contato</a></li>
++                    </ul>
++                </div>
++                
++                <div class="footer-col">
++                    <h4>Nossos Produtos</h4>
++                    <ul class="footer-links">
++                        <li><a href="#catalogo">Tratores Elétricos</a></li>
++                        <li><a href="#catalogo">Colheitadeiras Elétricas</a></li>
++                        <li><a href="#catalogo">Empilhadeiras Elétricas</a></li>
++                        <li><a href="#catalogo">Sistemas de Carga</a></li>
++                        <li><a href="#contato">Solicitar Catálogo</a></li>
++                    </ul>
++                </div>
++                
++                <div class="footer-col">
++                    <h4>Suporte</h4>
++                    <ul class="footer-links">
++                        <li><a href="#">Manual do Operador</a></li>
++                        <li><a href="#">Perguntas Frequentes</a></li>
++                        <li><a href="#">Política de Garantia</a></li>
++                        <li><a href="#">Peças e Acessórios</a></li>
++                        <li><a href="#">Trabalhe Conosco</a></li>
++                    </ul>
++                </div>
++            </div>
++            
++            <div class="footer-bottom">
++                <p>© 2026 <span>BaggerBrasil</span> — Todos os direitos reservados. CNPJ: 12.345.678/0001-90</p>
++                <p style="margin-top: 10px; font-size: 0.9rem; color: #94a3b8;">Desenvolvido com <i class="fas fa-heart" style="color: #ef4444;"></i> para o agronegócio brasileiro</p>
++            </div>
++        </div>
++    </footer>
++
++    <!-- WhatsApp Button -->
++    <a href="https://wa.me/556733225566?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20as%20máquinas%20elétricas%20BaggerBrasil" class="whatsapp-btn" target="_blank">
++        <i class="fab fa-whatsapp"></i>
++    </a>
++
++    <!-- Scripts -->
++    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
++    <script>
++        // Menu Mobile
++        const menuMobileBtn = document.getElementById('menuMobileBtn');
++        const menuMobile = document.getElementById('menuMobile');
++        const overlay = document.getElementById('overlay');
++        
++        menuMobileBtn.addEventListener('click', () => {
++            menuMobile.classList.toggle('active');
++            overlay.classList.toggle('active');
++            document.body.style.overflow = menuMobile.classList.contains('active') ? 'hidden' : 'auto';
++            
++            // Alternar ícone do botão
++            const icon = menuMobileBtn.querySelector('i');
++            if (menuMobile.classList.contains('active')) {
++                icon.classList.remove('fa-bars');
++                icon.classList.add('fa-times');
++            } else {
++                icon.classList.remove('fa-times');
++                icon.classList.add('fa-bars');
++            }
++        });
++        
++        overlay.addEventListener('click', () => {
++            menuMobile.classList.remove('active');
++            overlay.classList.remove('active');
++            document.body.style.overflow = 'auto';
++            menuMobileBtn.querySelector('i').classList.remove('fa-times');
++            menuMobileBtn.querySelector('i').classList.add('fa-bars');
++        });
++        
++        // Fechar menu ao clicar em um link
++        menuMobile.querySelectorAll('a').forEach(link => {
++            link.addEventListener('click', () => {
++                menuMobile.classList.remove('active');
++                overlay.classList.remove('active');
++                document.body.style.overflow = 'auto';
++                menuMobileBtn.querySelector('i').classList.remove('fa-times');
++                menuMobileBtn.querySelector('i').classList.add('fa-bars');
++            });
++        });
++        
++        // Scroll Animation
++        const observer = new IntersectionObserver(entries => {
++            entries.forEach(entry => {
++                if (entry.isIntersecting) {
++                    entry.target.classList.add('visible');
++                }
++            });
++        }, {
++            threshold: 0.1,
++            rootMargin: '0px 0px -50px 0px'
++        });
++        
++        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
++        
++        // Header Scroll Effect
++        window.addEventListener('scroll', () => {
++            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
++        });
++        
++        // Swiper (Depoimentos)
++        const swiper = new Swiper('.swiper', {
++            slidesPerView: 1,
++            spaceBetween: 30,
++            loop: true,
++            autoplay: {
++                delay: 5000,
++                disableOnInteraction: false,
++            },
++            pagination: {
++                el: '.swiper-pagination',
++                clickable: true,
++            },
++            breakpoints: {
++                768: {
++                    slidesPerView: 2,
++                },
++                1024: {
++                    slidesPerView: 3,
++                }
++            }
++        });
++        
++        // Form Submission
++        document.getElementById('formContato').addEventListener('submit', function(e) {
++            e.preventDefault();
++            
++            // Simulação de envio
++            const nome = document.getElementById('nome').value;
++            const botao = this.querySelector('button[type="submit"]');
++            const textoOriginal = botao.innerHTML;
++            
++            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
++            botao.disabled = true;
++            
++            setTimeout(() => {
++                alert(`Obrigado, ${nome}! Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em até 24 horas.`);
++                botao.innerHTML = textoOriginal;
++                botao.disabled = false;
++                document.getElementById('formContato').reset();
++            }, 1500);
++        });
++        
++        // Smooth Scroll para links internos
++        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
++            anchor.addEventListener('click', function(e) {
++                e.preventDefault();
++                
++                const targetId = this.getAttribute('href');
++                if (targetId === '#') return;
++                
++                const targetElement = document.querySelector(targetId);
++                if (targetElement) {
++                    window.scrollTo({
++                        top: targetElement.offsetTop - 100,
++                        behavior: 'smooth'
++                    });
++                }
++            });
++        });
++        
++        // Botão "Falar com Especialista"
++        document.querySelector('.btn-contato-header').addEventListener('click', () => {
++            document.getElementById('contato').scrollIntoView({
++                behavior: 'smooth'
++            });
++        });
++    </script>
++</body>
++</html>
