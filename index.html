@@ -295,14 +295,36 @@
             display: flex;
             align-items: center;
             position: relative;
-            background:
-                var(--gradiente-hero),
-                url('uploads/escavadeiralogo.jpeg') center/cover no-repeat;
+            background: var(--gradiente-hero);
             color: var(--branco);
             overflow: hidden;
         }
 
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .hero-bg-next {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
         .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradiente-hero);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            z-index: 1;
+        }
+
+        .hero::after {
             content: '';
             position: absolute;
             top: 0;
@@ -312,12 +334,13 @@
             background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232f7d32' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
             opacity: 0.3;
             animation: float 20s linear infinite;
+            z-index: 2;
         }
 
         .hero-content {
             max-width: 800px;
             position: relative;
-            z-index: 2;
+            z-index: 3;
         }
 
         .hero h1 {
@@ -951,6 +974,8 @@
 
     <!-- Hero Section -->
     <section class="hero" id="home">
+        <div class="hero-bg hero-bg-current"></div>
+        <div class="hero-bg hero-bg-next"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="fade-in">Tecnologia para um Agro Mais Forte</h1>
@@ -1044,12 +1069,12 @@
             <div class="cards">
                 <div class="card fade-in">
                     <div class="card-img">
-                        <img src="uploads/escavadeira-2.jpg" alt="Trator elétrico">
+                        <img src="uploads/escavadeira-2.jpg" alt="Mini carregadeira elétrica">
                     </div>
                     <div class="card-content">
-                        <h3>Tratores Elétricos</h3>
-                        <p>Potência limpa para todas as operações com autonomia de até 12 horas de trabalho contínuo.</p>
-                        <a href="maquinas.html#tratores" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+                        <h3>Mini Carregadeiras Elétricas</h3>
+                        <p>Equipamentos compactos e versáteis para operações em espaços reduzidos, com alta eficiência e zero emissões.</p>
+                        <a href="maquinas.html#minicarregadeira" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
                             Ver Modelos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1057,12 +1082,12 @@
                 
                 <div class="card fade-in">
                     <div class="card-img">
-                        <img src="uploads/escavadeira-3.jpg" alt="Colheitadeira elétrica">
+                        <img src="uploads/escavadeira-3.jpg" alt="Dumper elétrico">
                     </div>
                     <div class="card-content">
-                        <h3>Colheitadeiras Elétricas</h3>
-                        <p>Alta eficiência e zero emissões com sistema de colheita inteligente que reduz perdas em até 15%.</p>
-                        <a href="maquinas.html#colheitadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+                        <h3>Dumper Elétrico</h3>
+                        <p>Transporte de materiais com mais segurança e menor custo operacional, ideal para obras e áreas agrícolas.</p>
+                        <a href="maquinas.html#dumper" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
                             Ver Modelos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1075,21 +1100,33 @@
                     <div class="card-content">
                         <h3>Empilhadeiras Elétricas</h3>
                         <p>Operação silenciosa e econômica para ambientes fechados ou abertos, com capacidade de 1 a 5 toneladas.</p>
-                        <a href="maquinas.html#empilhadeiras" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+                        <a href="maquinas.html#empilhadeira" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
                             Ver Modelos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
                 </div>
                 
-                <!-- Novo Card para Escavadeiras -->
                 <div class="card fade-in">
                     <div class="card-img">
                         <img src="uploads/escavadeira-5.jpg" alt="Escavadeira elétrica">
                     </div>
                     <div class="card-content">
-                        <h3>Escavadeiras Elétricas</h3>
-                        <p>Escavação precisa e eficiente com zero emissões. Ideal para obras urbanas e agrícolas.</p>
-                        <a href="maquinas.html#miniescavadeiraeletrica" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+                        <h3>Carregadeiras Elétricas</h3>
+                        <p>Mais alcance e produtividade para movimentação de carga com operação silenciosa e sustentável.</p>
+                        <a href="maquinas.html#carregadeira" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
+                            Ver Modelos <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="card fade-in">
+                    <div class="card-img">
+                        <img src="uploads/escavadeira-6.jpg" alt="Pá carregadeira elétrica">
+                    </div>
+                    <div class="card-content">
+                        <h3>Pás Carregadeiras Elétricas</h3>
+                        <p>Força e robustez para operações pesadas com menor consumo e menor impacto ambiental.</p>
+                        <a href="maquinas.html#pacarregadeira" class="card-btn"> <!-- LINK PARA CATEGORIA ESPECÍFICA -->
                             Ver Modelos <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1225,9 +1262,11 @@
                             <label for="interesse">Interesse Principal</label>
                             <select id="interesse" class="form-control" required>
                                 <option value="">Selecione uma opção</option>
-                                <option value="tratores">Tratores Elétricos</option>
-                                <option value="colheitadeiras">Colheitadeiras Elétricas</option>
-                                <option value="empilhadeiras">Empilhadeiras Elétricas</option>
+                                <option value="minicarregadeira">Mini Carregadeira Elétrica</option>
+                                <option value="dumper">Dumper Elétrico</option>
+                                <option value="empilhadeira">Empilhadeira Elétrica</option>
+                                <option value="carregadeira">Carregadeira Elétrica</option>
+                                <option value="pacarregadeira">Pá Carregadeira Elétrica</option>
                                 <option value="outros">Outros Equipamentos</option>
                             </select>
                         </div>
@@ -1278,10 +1317,11 @@
                 <div class="footer-col">
                     <h4>Nossos Produtos</h4>
                     <ul class="footer-links">
-                        <li><a href="#catalogo">Tratores Elétricos</a></li>
-                        <li><a href="#catalogo">Colheitadeiras Elétricas</a></li>
-                        <li><a href="#catalogo">Empilhadeiras Elétricas</a></li>
-                        <li><a href="#catalogo">Sistemas de Carga</a></li>
+                        <li><a href="maquinas.html#minicarregadeira">Mini Carregadeira Elétrica</a></li>
+                        <li><a href="maquinas.html#dumper">Dumper Elétrico</a></li>
+                        <li><a href="maquinas.html#empilhadeira">Empilhadeira Elétrica</a></li>
+                        <li><a href="maquinas.html#carregadeira">Carregadeira Elétrica</a></li>
+                        <li><a href="maquinas.html#pacarregadeira">Pá Carregadeira Elétrica</a></li>
                         <li><a href="#contato">Solicitar Catálogo</a></li>
                     </ul>
                 </div>
@@ -1371,6 +1411,35 @@
             document.querySelector('header').classList.toggle('scrolled', window.scrollY > 60);
         });
         
+        // Slider de imagem no Hero
+        const heroBgCurrent = document.querySelector('.hero-bg-current');
+        const heroBgNext = document.querySelector('.hero-bg-next');
+        const heroImages = [
+            'uploads/escavadeiralogo.jpeg',
+            'uploads/campo.jpg',
+            'uploads/carregadeirafundo.jpg',
+            'uploads/escavadeira.jpeg'
+        ];
+
+        let heroImageIndex = 0;
+
+        function setHeroBackground(element, imagePath) {
+            element.style.backgroundImage = `url('${imagePath}')`;
+        }
+
+        setHeroBackground(heroBgCurrent, heroImages[heroImageIndex]);
+
+        setInterval(() => {
+            heroImageIndex = (heroImageIndex + 1) % heroImages.length;
+            setHeroBackground(heroBgNext, heroImages[heroImageIndex]);
+            heroBgNext.style.opacity = '1';
+
+            setTimeout(() => {
+                setHeroBackground(heroBgCurrent, heroImages[heroImageIndex]);
+                heroBgNext.style.opacity = '0';
+            }, 1000);
+        }, 5000);
+
         // Swiper (Depoimentos)
         const swiper = new Swiper('.swiper', {
             slidesPerView: 1,
