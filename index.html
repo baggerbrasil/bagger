@@ -14,7 +14,7 @@
         /* ================= VARIÁVEIS & RESET ================= */
         :root {
             --azul-escuro: #1f3b2d;
-            --azul-medio: #2a5a3c;
+            --azul-medio: #1e3a8a;
             --verde-primario: #2f7d32;
             --verde-secundario: #256628;
             --verde-claro: #e8f3e9;
@@ -23,9 +23,9 @@
             --cinza-claro: #f7f8f3;
             --branco: #ffffff;
             --preto: #0a0a0a;
-            --destaque-amarelo: #f0b429;
+            --azul-destaque: #1d4ed8;
             
-            --gradiente-azul: linear-gradient(135deg, #1f3b2d 0%, #2a5a3c 100%);
+            --gradiente-azul: linear-gradient(135deg, #1f3b2d 0%, #1e3a8a 100%);
             --gradiente-verde: linear-gradient(135deg, #2f7d32 0%, #256628 100%);
             --gradiente-hero: linear-gradient(140deg, rgba(23, 52, 34, 0.94) 0%, rgba(42, 90, 60, 0.84) 100%);
             
@@ -83,7 +83,7 @@
         p { margin-bottom: 1.5rem; font-size: 1.1rem; }
         
         .texto-destaque { color: var(--verde-primario); font-weight: 700; }
-        .texto-amarelo { color: var(--destaque-amarelo); }
+        .texto-azul { color: var(--azul-destaque); }
         .texto-centro { text-align: center; }
         .texto-grande { font-size: 1.3rem; }
 
@@ -323,7 +323,7 @@
         .hero h1 {
             font-size: 4rem;
             margin-bottom: 1.5rem;
-            background: linear-gradient(90deg, #ffffff, #f5d87b);
+            background: linear-gradient(90deg, #ffffff, #93c5fd);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -385,12 +385,12 @@
         .btn-secondary {
             background: rgba(255, 255, 255, 0.08);
             color: var(--branco);
-            border: 2px solid rgba(240, 180, 41, 0.7);
+            border: 2px solid rgba(29, 78, 216, 0.7);
         }
 
         .btn-secondary:hover {
-            background: rgba(240, 180, 41, 0.16);
-            border-color: var(--destaque-amarelo);
+            background: rgba(29, 78, 216, 0.14);
+            border-color: var(--azul-destaque);
         }
 
         .btn-group {
@@ -431,7 +431,7 @@
         .vantagem-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, var(--verde-primario) 0%, var(--destaque-amarelo) 140%);
+            background: linear-gradient(135deg, var(--verde-primario) 0%, var(--azul-destaque) 140%);
             border-radius: 50%;
             display: flex;
             align-items: center;
