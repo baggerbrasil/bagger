@@ -15,9 +15,9 @@
     <style> 
         /* ================= VARIÁVEIS ================= */ 
         :root { 
-            --azul-principal: #1f3b2d;
-            --azul-secundario: #2a5a3c;
-            --azul-claro: #e8f3e9;
+            --azul-principal: #111545;
+            --azul-secundario: #1d2f8f;
+            --azul-claro: #e9edff;
             --verde-energia: #2f7d32;
             --verde-claro: #e8f3e9;
             --laranja-destaque: #f0b429;
@@ -27,14 +27,14 @@
             --branco: #ffffff; 
             --preto: #000000; 
              
-            --gradiente-azul: linear-gradient(135deg, #1f3b2d 0%, #2a5a3c 100%);
-            --gradiente-verde: linear-gradient(135deg, #2f7d32 0%, #256628 100%);
+            --gradiente-azul: linear-gradient(135deg, #111545 0%, #1d2f8f 100%);
+            --gradiente-verde: linear-gradient(135deg, #111545 0%, #2f7d32 100%);
             --gradiente-laranja: linear-gradient(135deg, #f0b429 0%, #d49b1a 100%);
              
             --sombra-suave: 0 10px 30px rgba(0, 0, 0, 0.08); 
             --sombra-media: 0 15px 40px rgba(0, 0, 0, 0.12); 
             --sombra-forte: 0 20px 50px rgba(0, 0, 0, 0.18); 
-            --sombra-botao: 0 5px 20px rgba(47, 125, 50, 0.3);
+            --sombra-botao: 0 5px 20px rgba(17, 21, 69, 0.35);
              
             --raio-padrao: 16px; 
             --raio-grande: 24px; 
@@ -237,7 +237,7 @@
  
         .btn-contato-header:hover { 
             transform: translateY(-3px); 
-            box-shadow: 0 10px 25px rgba(47, 125, 50, 0.4);
+            box-shadow: 0 10px 25px rgba(17, 21, 69, 0.35);
         } 
  
         /* Menu Mobile */ 
@@ -465,7 +465,7 @@
  
         .btn-primary:hover { 
             transform: translateY(-5px); 
-            box-shadow: 0 15px 30px rgba(47, 125, 50, 0.4);
+            box-shadow: 0 15px 30px rgba(17, 21, 69, 0.35);
         } 
  
         .btn-primary::after { 
@@ -545,7 +545,7 @@
             font-size: 0.85rem; 
             font-weight: 700; 
             z-index: 2; 
-            box-shadow: 0 4px 12px rgba(47, 125, 50, 0.3);
+            box-shadow: 0 4px 12px rgba(17, 21, 69, 0.28);
         } 
  
         .maquina-card-badge.laranja { 
@@ -960,7 +960,7 @@
             color: var(--branco); 
             font-size: 2.2rem; 
             text-decoration: none; 
-            box-shadow: 0 10px 30px rgba(47, 125, 50, 0.4);
+            box-shadow: 0 10px 30px rgba(17, 21, 69, 0.35);
             z-index: 999; 
             transition: var(--transicao-padrao); 
             animation: pulse 2s infinite; 
@@ -972,7 +972,7 @@
         } 
  
         @keyframes pulse { 
-            0% { box-shadow: 0 0 0 0 rgba(47, 125, 50, 0.4); }
+            0% { box-shadow: 0 0 0 0 rgba(17, 21, 69, 0.4); }
             70% { box-shadow: 0 0 0 15px rgba(79, 70, 229, 0); } 
             100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); } 
         } 
