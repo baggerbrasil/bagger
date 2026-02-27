@@ -1245,22 +1245,22 @@
                     <form id="formContato">
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" class="form-control" required>
+                            <input type="text" id="nome" name="nome" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" class="form-control" required>
+                            <input type="tel" id="telefone" name="telefone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="interesse">Interesse Principal</label>
-                            <select id="interesse" class="form-control" required>
+                            <select id="interesse" name="interesse" class="form-control" required>
                                 <option value="">Selecione uma opção</option>
                                 <option value="minicarregadeira">Mini Carregadeira Elétrica</option>
                                 <option value="dumper">Dumper Elétrico</option>
@@ -1273,12 +1273,13 @@
                         
                         <div class="form-group">
                             <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
+                            <textarea id="mensagem" name="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
                             <i class="fas fa-paper-plane"></i> Enviar Solicitação
                         </button>
+                        <p id="formStatus" style="display:none; margin-top: 14px; font-size: 0.95rem; color: var(--verde-secundario);"></p>
                     </form>
                 </div>
             </div>
@@ -1463,24 +1464,79 @@
             }
         });
         
-        // Form Submission
-        document.getElementById('formContato').addEventListener('submit', function(e) {
+        // Form Submission (envio por e-mail)
+        document.getElementById('formContato').addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            // Simulação de envio
-            const nome = document.getElementById('nome').value;
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const interesse = document.getElementById('interesse');
+            const interesseTexto = interesse.options[interesse.selectedIndex]?.text || '';
+            const mensagem = document.getElementById('mensagem').value.trim() || 'Não informada.';
+            const status = document.getElementById('formStatus');
             const botao = this.querySelector('button[type="submit"]');
             const textoOriginal = botao.innerHTML;
-            
-            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+            if (!nome || !email || !telefone || !interesse.value) {
+                status.style.display = 'block';
+                status.style.color = '#b91c1c';
+                status.textContent = 'Preencha os campos obrigatórios para solicitar sua proposta.';
+                return;
+            }
+
+            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando proposta...';
             botao.disabled = true;
-            
-            setTimeout(() => {
-                alert(`Obrigado, ${nome}! Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em até 24 horas.`);
+
+            const assunto = `Nova solicitação de proposta - ${interesseTexto}`;
+            const corpo = [
+                'Nova solicitação recebida pelo site BaggerBrasil:',
+                '',
+                `Nome: ${nome}`,
+                `E-mail: ${email}`,
+                `Telefone: ${telefone}`,
+                `Interesse: ${interesseTexto}`,
+                `Mensagem: ${mensagem}`
+            ].join('\n');
+
+            try {
+                const resposta = await fetch('https://formsubmit.co/ajax/davikaspary15@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        telefone,
+                        interesse: interesseTexto,
+                        mensagem,
+                        _subject: assunto,
+                        _captcha: 'false',
+                        _template: 'table'
+                    })
+                });
+
+                if (!resposta.ok) {
+                    throw new Error('Falha ao enviar e-mail');
+                }
+
+                status.style.display = 'block';
+                status.style.color = 'var(--verde-secundario)';
+                status.textContent = `Proposta enviada com sucesso, ${nome}! Retornaremos em breve por e-mail ou telefone.`;
+                this.reset();
+            } catch (erro) {
+                const mailto = `mailto:davikaspary15@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+                window.location.href = mailto;
+
+                status.style.display = 'block';
+                status.style.color = '#b45309';
+                status.textContent = 'Não conseguimos enviar automaticamente. Abrimos seu aplicativo de e-mail para concluir o envio.';
+            } finally {
                 botao.innerHTML = textoOriginal;
                 botao.disabled = false;
-                document.getElementById('formContato').reset();
-            }, 1500);
+            }
         });
         
         // Smooth Scroll para links internos
