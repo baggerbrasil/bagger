@@ -1279,6 +1279,7 @@
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
                             <i class="fas fa-paper-plane"></i> Enviar Solicitação
                         </button>
+                        <p id="formStatus" style="display:none; margin-top: 14px; font-size: 0.95rem; color: var(--verde-secundario);"></p>
                     </form>
                 </div>
             </div>
@@ -1466,21 +1467,53 @@
         // Form Submission
         document.getElementById('formContato').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Simulação de envio
-            const nome = document.getElementById('nome').value;
+
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const telefone = document.getElementById('telefone').value.trim();
+            const interesse = document.getElementById('interesse');
+            const interesseTexto = interesse.options[interesse.selectedIndex]?.text || '';
+            const mensagem = document.getElementById('mensagem').value.trim() || 'Não informada.';
+            const status = document.getElementById('formStatus');
             const botao = this.querySelector('button[type="submit"]');
             const textoOriginal = botao.innerHTML;
-            
-            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+
+            if (!nome || !email || !telefone || !interesse.value) {
+                status.style.display = 'block';
+                status.style.color = '#b91c1c';
+                status.textContent = 'Preencha os campos obrigatórios para solicitar sua proposta.';
+                return;
+            }
+
+            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando proposta...';
             botao.disabled = true;
-            
+
+            const textoWhatsapp = [
+                'Olá! Quero solicitar uma proposta da BaggerBrasil.',
+                '',
+                `Nome: ${nome}`,
+                `E-mail: ${email}`,
+                `Telefone: ${telefone}`,
+                `Interesse: ${interesseTexto}`,
+                `Mensagem: ${mensagem}`
+            ].join('\n');
+
+            const whatsappUrl = `https://wa.me/554998031880?text=${encodeURIComponent(textoWhatsapp)}`;
+
             setTimeout(() => {
-                alert(`Obrigado, ${nome}! Sua solicitação foi enviada com sucesso. Nossa equipe entrará em contato em até 24 horas.`);
+                const novaAba = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+                if (!novaAba) {
+                    window.location.href = whatsappUrl;
+                }
+
+                status.style.display = 'block';
+                status.style.color = 'var(--verde-secundario)';
+                status.textContent = `Perfeito, ${nome}! Abrimos o WhatsApp com sua proposta preenchida para envio.`;
+
                 botao.innerHTML = textoOriginal;
                 botao.disabled = false;
-                document.getElementById('formContato').reset();
-            }, 1500);
+                this.reset();
+            }, 600);
         });
         
         // Smooth Scroll para links internos
