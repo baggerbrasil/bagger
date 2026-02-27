@@ -1245,22 +1245,22 @@
                     <form id="formContato">
                         <div class="form-group">
                             <label for="nome">Nome Completo</label>
-                            <input type="text" id="nome" class="form-control" required>
+                            <input type="text" id="nome" name="nome" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="email">E-mail</label>
-                            <input type="email" id="email" class="form-control" required>
+                            <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" class="form-control" required>
+                            <input type="tel" id="telefone" name="telefone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="interesse">Interesse Principal</label>
-                            <select id="interesse" class="form-control" required>
+                            <select id="interesse" name="interesse" class="form-control" required>
                                 <option value="">Selecione uma opção</option>
                                 <option value="minicarregadeira">Mini Carregadeira Elétrica</option>
                                 <option value="dumper">Dumper Elétrico</option>
@@ -1273,7 +1273,7 @@
                         
                         <div class="form-group">
                             <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
+                            <textarea id="mensagem" name="mensagem" class="form-control" rows="4" placeholder="Descreva sua necessidade..."></textarea>
                         </div>
                         
                         <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
@@ -1464,8 +1464,8 @@
             }
         });
         
-        // Form Submission
-        document.getElementById('formContato').addEventListener('submit', function(e) {
+        // Form Submission (envio por e-mail)
+        document.getElementById('formContato').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const nome = document.getElementById('nome').value.trim();
@@ -1485,11 +1485,12 @@
                 return;
             }
 
-            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Preparando proposta...';
+            botao.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando proposta...';
             botao.disabled = true;
 
-            const textoWhatsapp = [
-                'Olá! Quero solicitar uma proposta da BaggerBrasil.',
+            const assunto = `Nova solicitação de proposta - ${interesseTexto}`;
+            const corpo = [
+                'Nova solicitação recebida pelo site BaggerBrasil:',
                 '',
                 `Nome: ${nome}`,
                 `E-mail: ${email}`,
@@ -1498,22 +1499,44 @@
                 `Mensagem: ${mensagem}`
             ].join('\n');
 
-            const whatsappUrl = `https://wa.me/554998031880?text=${encodeURIComponent(textoWhatsapp)}`;
+            try {
+                const resposta = await fetch('https://formsubmit.co/ajax/davikaspary15@gmail.com', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        nome,
+                        email,
+                        telefone,
+                        interesse: interesseTexto,
+                        mensagem,
+                        _subject: assunto,
+                        _captcha: 'false',
+                        _template: 'table'
+                    })
+                });
 
-            setTimeout(() => {
-                const novaAba = window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
-                if (!novaAba) {
-                    window.location.href = whatsappUrl;
+                if (!resposta.ok) {
+                    throw new Error('Falha ao enviar e-mail');
                 }
 
                 status.style.display = 'block';
                 status.style.color = 'var(--verde-secundario)';
-                status.textContent = `Perfeito, ${nome}! Abrimos o WhatsApp com sua proposta preenchida para envio.`;
+                status.textContent = `Proposta enviada com sucesso, ${nome}! Retornaremos em breve por e-mail ou telefone.`;
+                this.reset();
+            } catch (erro) {
+                const mailto = `mailto:davikaspary15@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+                window.location.href = mailto;
 
+                status.style.display = 'block';
+                status.style.color = '#b45309';
+                status.textContent = 'Não conseguimos enviar automaticamente. Abrimos seu aplicativo de e-mail para concluir o envio.';
+            } finally {
                 botao.innerHTML = textoOriginal;
                 botao.disabled = false;
-                this.reset();
-            }, 600);
+            }
         });
         
         // Smooth Scroll para links internos
