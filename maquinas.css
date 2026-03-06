@@ -377,7 +377,7 @@
  
         /* ================= HERO CATEGORIA ================= */ 
         .hero-categoria { 
-            background: linear-gradient(rgba(10, 61, 98, 0.88), rgba(10, 61, 98, 0.92)), url('https://images.unsplash.com/photo-1586771107445-d3ca888129f4?q=80&w=2070'); 
+            background: linear-gradient(rgba(10, 61, 98, 0.88), rgba(10, 61, 98, 0.92)), url('uploads/carregadeirafundo.jpg'); 
             background-size: cover; 
             background-position: center; 
             color: var(--branco); 
