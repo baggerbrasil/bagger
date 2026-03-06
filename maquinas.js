@@ -73,59 +73,7 @@ const categorias = {
         "Três circuitos hidráulicos auxiliares",
     ]
 },
-            { 
-                id: 102, 
-                modelo: "E606", 
-                nome: "Mini Carregadeira Elétrica E606", 
-                descricao: "Maior capacidade e versatilidade para operações mais exigentes. Ideal para operações exigentes e movimentação de materiais.", 
-                imagem: "uploads/minicarregadeira-e606.jpg", 
-                imagens: [ 
-                    "uploads/minicarregadeira-e606-1.jpg", 
-                    "uploads/minicarregadeira-e606-2.jpg" 
-                ], 
-                categoria_nome: "Mini Carregadeira", 
-                carga_nominal: "650 kg", 
-                peso_total: "2050 kg", 
-                dimensoes: "3810 x 1260 x 2270 mm", 
-                altura_elevacao: "2170 mm", 
-                autonomia: "8 horas", 
-                tempo_carga: "6 horas", 
-                bateria: "12 unidades 3-EVF-200", 
-                tipo_bateria: "Chumbo-ácido sem manutenção", 
-                capacidade_bateria: "14,4 kW", 
-                tensao_nominal: "72 V", 
-                pneu: "26 x 12.00-12", 
-                potencia_motor: "14,4 kW", 
-                velocidade: "0-15 km/h", 
-                preco: "R$ 245.000,00", 
-                badge: "Alta Performance", 
-                personalizavel: "Cor e logotipo personalizáveis", 
-                especificacoes: [ 
-                    { label: "Modelo", valor: "E606" }, 
-                    { label: "Carga Nominal", valor: "650 kg" }, 
-                    { label: "Peso Total", valor: "2.050 kg" }, 
-                    { label: "Dimensões (CxLxA)", valor: "3810 x 1260 x 2270 mm" }, 
-                    { label: "Altura de Elevação", valor: "2.170 mm" }, 
-                    { label: "Autonomia", valor: "8 horas" }, 
-                    { label: "Tempo de Carga", valor: "6 horas" }, 
-                    { label: "Bateria", valor: "12 unid. 3-EVF-200" }, 
-                    { label: "Tipo de Bateria", valor: "Chumbo-ácido s/ manutenção" }, 
-                    { label: "Capacidade da Bateria", valor: "14,4 kW" }, 
-                    { label: "Tensão Nominal", valor: "72 V" }, 
-                    { label: "Pneus", valor: "26 x 12.00-12" } 
-                ], 
-                recursos: [ 
-                    "Maior capacidade de carga (650 kg)", 
-                    "Autonomia estendida de 8 horas", 
-                    "Carregamento rápido em 6 horas", 
-                    "Ideal para rotinas operacionais", 
-                    "Versátil para diversos implementos", 
-                    "Cor e logotipo personalizáveis", 
-                    "Sistema de recuperação de energia" 
-                ] 
-            } 
-        ] 
-    }, 
+           
      
     dumper: { 
         titulo: "Dumpers Elétricos", 
