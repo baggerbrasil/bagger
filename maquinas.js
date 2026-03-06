@@ -6,60 +6,8 @@ const categorias = {
         descricao: "Compactas, ágeis e 100% elétricas. Ideais para movimentação de materiais em espaços reduzidos, diversos segmentos operacionais. Zero emissões e baixíssimo ruído.", 
         heroImage: "uploads/escavadeira-1.jpg", 
         maquinas: [ 
-            { 
-                id: 101, 
-                modelo: "E604", 
-                nome: "Mini Carregadeira Elétrica E604", 
-                descricao: "Mini carregadeira elétrica compacta para operações leves e médias. Perfeita para operações compactas em diferentes ambientes.", 
-                imagem: "uploads/minicarregadeira-e604.jpg", 
-                imagens: [ 
-                    "uploads/minicarregadeira-e604-1.jpg", 
-                    "uploads/minicarregadeira-e604-2.jpg", 
-                    "uploads/minicarregadeira-e604-3.jpg" 
-                ], 
-                categoria_nome: "Mini Carregadeira", 
-                carga_nominal: "400 kg", 
-                peso_total: "1120 kg", 
-                dimensoes: "3260 x 1140 x 2085 mm", 
-                altura_elevacao: "2160 mm", 
-                autonomia: "6 horas", 
-                tempo_carga: "8 horas", 
-                bateria: "5 unidades 6-EVF-150", 
-                tipo_bateria: "Chumbo-ácido sem manutenção", 
-                capacidade_bateria: "9 kW", 
-                tensao_nominal: "60 V", 
-                pneu: "6.00-12", 
-                potencia_motor: "9 kW", 
-                velocidade: "0-12 km/h", 
-                preco: "R$ 185.000,00", 
-                badge: "Compacta e Ágil", 
-                personalizavel: "Cor e logotipo personalizáveis", 
-                especificacoes: [ 
-                    { label: "Modelo", valor: "E604" }, 
-                    { label: "Carga Nominal", valor: "400 kg" }, 
-                    { label: "Peso Total", valor: "1.120 kg" }, 
-                    { label: "Dimensões (CxLxA)", valor: "3260 x 1140 x 2085 mm" }, 
-                    { label: "Altura de Elevação", valor: "2.160 mm" }, 
-                    { label: "Autonomia", valor: "6 horas" }, 
-                    { label: "Tempo de Carga", valor: "8 horas" }, 
-                    { label: "Bateria", valor: "5 unid. 6-EVF-150" }, 
-                    { label: "Tipo de Bateria", valor: "Chumbo-ácido s/ manutenção" }, 
-                    { label: "Capacidade da Bateria", valor: "9 kW" }, 
-                    { label: "Tensão Nominal", valor: "60 V" }, 
-                    { label: "Pneus", valor: "6.00-12" } 
-                ], 
-                recursos: [ 
-                    "Design ultracompacto para espaços reduzidos", 
-                    "Zero emissões - opera em ambientes fechados", 
-                    "Baixíssimo ruído (< 65 dB)", 
-                    "Manutenção simplificada", 
-                    "Baterias de chumbo-ácido sem manutenção", 
-                    "Cor e logotipo personalizáveis", 
-                    "Ideal para ambientes operacionais compactos" 
-                ] 
-            }, 
 { 
-    id: 103,
+    id: 101,
     modelo: "ME30D",
     nome: "Mini Escavadeira Elétrica ME30D",
     descricao: "Mini escavadeira elétrica compacta com bateria de lítio, ideal para operações em espaços reduzidos com baixo ruído e zero emissões.",
@@ -120,59 +68,7 @@ const categorias = {
         "Três circuitos hidráulicos auxiliares",
     ]
 },
-            { 
-                id: 102, 
-                modelo: "E606", 
-                nome: "Mini Carregadeira Elétrica E606", 
-                descricao: "Maior capacidade e versatilidade para operações mais exigentes. Ideal para operações exigentes e movimentação de materiais.", 
-                imagem: "uploads/minicarregadeira-e606.jpg", 
-                imagens: [ 
-                    "uploads/minicarregadeira-e606-1.jpg", 
-                    "uploads/minicarregadeira-e606-2.jpg" 
-                ], 
-                categoria_nome: "Mini Carregadeira", 
-                carga_nominal: "650 kg", 
-                peso_total: "2050 kg", 
-                dimensoes: "3810 x 1260 x 2270 mm", 
-                altura_elevacao: "2170 mm", 
-                autonomia: "8 horas", 
-                tempo_carga: "6 horas", 
-                bateria: "12 unidades 3-EVF-200", 
-                tipo_bateria: "Chumbo-ácido sem manutenção", 
-                capacidade_bateria: "14,4 kW", 
-                tensao_nominal: "72 V", 
-                pneu: "26 x 12.00-12", 
-                potencia_motor: "14,4 kW", 
-                velocidade: "0-15 km/h", 
-                preco: "R$ 245.000,00", 
-                badge: "Alta Performance", 
-                personalizavel: "Cor e logotipo personalizáveis", 
-                especificacoes: [ 
-                    { label: "Modelo", valor: "E606" }, 
-                    { label: "Carga Nominal", valor: "650 kg" }, 
-                    { label: "Peso Total", valor: "2.050 kg" }, 
-                    { label: "Dimensões (CxLxA)", valor: "3810 x 1260 x 2270 mm" }, 
-                    { label: "Altura de Elevação", valor: "2.170 mm" }, 
-                    { label: "Autonomia", valor: "8 horas" }, 
-                    { label: "Tempo de Carga", valor: "6 horas" }, 
-                    { label: "Bateria", valor: "12 unid. 3-EVF-200" }, 
-                    { label: "Tipo de Bateria", valor: "Chumbo-ácido s/ manutenção" }, 
-                    { label: "Capacidade da Bateria", valor: "14,4 kW" }, 
-                    { label: "Tensão Nominal", valor: "72 V" }, 
-                    { label: "Pneus", valor: "26 x 12.00-12" } 
-                ], 
-                recursos: [ 
-                    "Maior capacidade de carga (650 kg)", 
-                    "Autonomia estendida de 8 horas", 
-                    "Carregamento rápido em 6 horas", 
-                    "Ideal para rotinas operacionais", 
-                    "Versátil para diversos implementos", 
-                    "Cor e logotipo personalizáveis", 
-                    "Sistema de recuperação de energia" 
-                ] 
-            } 
-        ] 
-    }, 
+          
      
     dumper: { 
         titulo: "Dumpers Elétricos", 
