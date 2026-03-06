@@ -58,6 +58,68 @@ const categorias = {
                     "Ideal para ambientes operacionais compactos" 
                 ] 
             }, 
+{ 
+    id: 103,
+    modelo: "ME30D",
+    nome: "Mini Escavadeira Elétrica ME30D",
+    descricao: "Mini escavadeira elétrica compacta com bateria de lítio, ideal para operações em espaços reduzidos com baixo ruído e zero emissões.",
+    imagem: "uploads/escavadeira-4.jpg",
+    imagens: [
+        "uploads/escavadeira-1.jpg",
+        "uploads/escavadeira-2.jpg",
+        "uploads/escavadeira-3.jpg"
+    ],
+    categoria_nome: "Mini Escavadeira",
+
+    carga_nominal: "Caçamba 0.065 m³",
+    peso_total: "2950 kg",
+    dimensoes: "4200 x 1550 x 2480 mm",
+    altura_elevacao: "4396 mm",
+    autonomia: "5 - 7 horas",
+    tempo_carga: "4 horas",
+
+    bateria: "Bateria de lítio 72V 540Ah",
+    tipo_bateria: "Lítio",
+    capacidade_bateria: "540 Ah",
+    tensao_nominal: "72 V",
+
+    pneu: "Esteiras de aço",
+    potencia_motor: "9 kW (pico 18 kW)",
+    velocidade: "0 – 2.2 – 3.1 km/h",
+
+    preco: "Sob consulta",
+    badge: "Escavadeira Compacta",
+    personalizavel: "Cor e logotipo personalizáveis",
+
+    especificacoes: [
+        { label: "Modelo", valor: "ME30D" },
+        { label: "Peso da Máquina", valor: "2.950 kg" },
+        { label: "Capacidade da Caçamba", valor: "0.065 m³" },
+        { label: "Bateria", valor: "Lítio 72V 540Ah" },
+        { label: "Autonomia", valor: "5 - 7 horas" },
+        { label: "Tempo de Carga", valor: "4 horas" },
+        { label: "Potência do Motor", valor: "9 kW (pico 18 kW)" },
+        { label: "Comprimento Total", valor: "4200 mm" },
+        { label: "Altura Total", valor: "2480 mm" },
+        { label: "Largura", valor: "1550 mm (ajustável 900–1300)" },
+        { label: "Largura da Esteira", valor: "300 mm" },
+        { label: "Velocidade de Deslocamento", valor: "0-2.2-3.1 km/h" }
+    ],
+
+    recursos: [
+        "Bateria de lítio 72V de alta capacidade",
+        "Autonomia de até 7 horas",
+        "Carregamento rápido em 4 horas",
+        "Sistema hidráulico com sensor de carga",
+        "Motor de deslocamento com redutor de duas velocidades",
+        "Esteiras de aço reforçadas",
+        "Função de giro lateral do braço",
+        "Design sem cauda (no-tail swing)",
+        "Cabine confortável estilo luxury cockpit",
+        "Controle de temperatura e dissipação de calor",
+        "Três circuitos hidráulicos auxiliares",
+    ]
+}
             { 
                 id: 102, 
                 modelo: "E606", 
