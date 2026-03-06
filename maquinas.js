@@ -71,6 +71,8 @@ const categorias = {
         "Cabine confortável estilo luxury cockpit",
         "Controle de temperatura e dissipação de calor",
         "Três circuitos hidráulicos auxiliares",
+             ]
+        }
     ]
 },
            
