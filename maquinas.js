@@ -119,7 +119,7 @@ const categorias = {
         "Controle de temperatura e dissipação de calor",
         "Três circuitos hidráulicos auxiliares",
     ]
-}
+},
             { 
                 id: 102, 
                 modelo: "E606", 
@@ -589,7 +589,7 @@ const categorias = {
         }); 
          
         // Categoria atual (padrão: miniescavadeiraeletrica) 
-        let categoriaAtual = 'miniescavadeiraeletrica'; 
+        let categoriaAtual = 'minicarregadeira'; 
          
         // Carregar máquinas da categoria 
         function carregarMaquinasCategoria(categoria) { 
@@ -800,21 +800,55 @@ const categorias = {
                 window.location.href = 'index.html#contato'; 
             }); 
         }); 
+
+        function encontrarMaquinaPorIdentificador(identificador) {
+            const idNumerico = parseInt(identificador, 10);
+
+            for (const [categoria, categoriaData] of Object.entries(categorias)) {
+                const maquina = categoriaData.maquinas.find(m => {
+                    if (!Number.isNaN(idNumerico) && m.id === idNumerico) {
+                        return true;
+                    }
+
+                    return String(m.modelo).toLowerCase() === String(identificador).toLowerCase();
+                });
+
+                if (maquina) {
+                    return { categoria, maquinaId: maquina.id };
+                }
+            }
+
+            return null;
+        }
          
         // Inicializar página 
         document.addEventListener('DOMContentLoaded', function() { 
             // Verificar se há categoria na URL 
             const hash = window.location.hash.substring(1); 
             const hashParts = hash.split('/'); 
-            const categoriaInicial = categorias[hashParts[0]] ? hashParts[0] : 'miniescavadeiraeletrica'; 
+            const categoriaHash = hashParts[0];
+            let categoriaInicial = categorias[categoriaHash] ? categoriaHash : 'minicarregadeira';
+            let maquinaInicial = hashParts.length > 1 ? encontrarMaquinaPorIdentificador(hashParts[1]) : null;
+
+            if (!categorias[categoriaHash] && categoriaHash) {
+                const maquinaDireta = encontrarMaquinaPorIdentificador(categoriaHash);
+
+                if (maquinaDireta) {
+                    categoriaInicial = maquinaDireta.categoria;
+                    maquinaInicial = maquinaDireta;
+                }
+            }
+
+            if (maquinaInicial && maquinaInicial.categoria !== categoriaInicial) {
+                categoriaInicial = maquinaInicial.categoria;
+            }
              
             carregarMaquinasCategoria(categoriaInicial); 
              
             // Se houver ID de máquina na URL, mostrar detalhes 
-            if (hashParts.length > 1) { 
-                const maquinaId = parseInt(hashParts[1]); 
+            if (maquinaInicial) { 
                 setTimeout(() => { 
-                    mostrarDetalhesMaquina(maquinaId, categoriaInicial); 
+                    mostrarDetalhesMaquina(maquinaInicial.maquinaId, categoriaInicial); 
                 }, 500); 
             } 
              
