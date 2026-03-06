@@ -44,16 +44,88 @@ const categorias = {
                     { label: "Capacidade da Caçamba", valor: "0.065 m³" }
                 ],
 
-                recursos: [
-                    "Bateria de lítio 72V de alta capacidade",
-                    "Autonomia de até 7 horas",
-                    "Carregamento rápido em 4 horas",
-                    "Sistema hidráulico com sensor de carga"
-                ]
-            }
-        ]
-    },
-          
+    especificacoes: [
+        { label: "Modelo", valor: "ME30D" },
+        { label: "Peso da Máquina", valor: "2.950 kg" },
+        { label: "Capacidade da Caçamba", valor: "0.065 m³" },
+        { label: "Bateria", valor: "Lítio 72V 540Ah" },
+        { label: "Autonomia", valor: "5 - 7 horas" },
+        { label: "Tempo de Carga", valor: "4 horas" },
+        { label: "Potência do Motor", valor: "9 kW (pico 18 kW)" },
+        { label: "Comprimento Total", valor: "4200 mm" },
+        { label: "Altura Total", valor: "2480 mm" },
+        { label: "Largura", valor: "1550 mm (ajustável 900–1300)" },
+        { label: "Largura da Esteira", valor: "300 mm" },
+        { label: "Velocidade de Deslocamento", valor: "0-2.2-3.1 km/h" }
+    ],
+
+    recursos: [
+        "Bateria de lítio 72V de alta capacidade",
+        "Autonomia de até 7 horas",
+        "Carregamento rápido em 4 horas",
+        "Sistema hidráulico com sensor de carga",
+        "Motor de deslocamento com redutor de duas velocidades",
+        "Esteiras de aço reforçadas",
+        "Função de giro lateral do braço",
+        "Design sem cauda (no-tail swing)",
+        "Cabine confortável estilo luxury cockpit",
+        "Controle de temperatura e dissipação de calor",
+        "Três circuitos hidráulicos auxiliares",
+    ]
+},
+            { 
+                id: 102, 
+                modelo: "E606", 
+                nome: "Mini Carregadeira Elétrica E606", 
+                descricao: "Maior capacidade e versatilidade para operações mais exigentes. Ideal para operações exigentes e movimentação de materiais.", 
+                imagem: "uploads/minicarregadeira-e606.jpg", 
+                imagens: [ 
+                    "uploads/minicarregadeira-e606-1.jpg", 
+                    "uploads/minicarregadeira-e606-2.jpg" 
+                ], 
+                categoria_nome: "Mini Carregadeira", 
+                carga_nominal: "650 kg", 
+                peso_total: "2050 kg", 
+                dimensoes: "3810 x 1260 x 2270 mm", 
+                altura_elevacao: "2170 mm", 
+                autonomia: "8 horas", 
+                tempo_carga: "6 horas", 
+                bateria: "12 unidades 3-EVF-200", 
+                tipo_bateria: "Chumbo-ácido sem manutenção", 
+                capacidade_bateria: "14,4 kW", 
+                tensao_nominal: "72 V", 
+                pneu: "26 x 12.00-12", 
+                potencia_motor: "14,4 kW", 
+                velocidade: "0-15 km/h", 
+                preco: "R$ 245.000,00", 
+                badge: "Alta Performance", 
+                personalizavel: "Cor e logotipo personalizáveis", 
+                especificacoes: [ 
+                    { label: "Modelo", valor: "E606" }, 
+                    { label: "Carga Nominal", valor: "650 kg" }, 
+                    { label: "Peso Total", valor: "2.050 kg" }, 
+                    { label: "Dimensões (CxLxA)", valor: "3810 x 1260 x 2270 mm" }, 
+                    { label: "Altura de Elevação", valor: "2.170 mm" }, 
+                    { label: "Autonomia", valor: "8 horas" }, 
+                    { label: "Tempo de Carga", valor: "6 horas" }, 
+                    { label: "Bateria", valor: "12 unid. 3-EVF-200" }, 
+                    { label: "Tipo de Bateria", valor: "Chumbo-ácido s/ manutenção" }, 
+                    { label: "Capacidade da Bateria", valor: "14,4 kW" }, 
+                    { label: "Tensão Nominal", valor: "72 V" }, 
+                    { label: "Pneus", valor: "26 x 12.00-12" } 
+                ], 
+                recursos: [ 
+                    "Maior capacidade de carga (650 kg)", 
+                    "Autonomia estendida de 8 horas", 
+                    "Carregamento rápido em 6 horas", 
+                    "Ideal para rotinas operacionais", 
+                    "Versátil para diversos implementos", 
+                    "Cor e logotipo personalizáveis", 
+                    "Sistema de recuperação de energia" 
+                ] 
+            } 
+        ] 
+    }, 
      
     dumper: { 
         titulo: "Dumpers Elétricos", 
@@ -481,6 +553,11 @@ const categorias = {
                 console.error(`Categoria ${categoria} não encontrada`); 
                 return; 
             } 
+
+            // Garantir estado de listagem ao trocar de categoria
+            document.getElementById('heroCategoria').style.display = 'block';
+            document.getElementById('maquinas').style.display = 'block';
+            document.getElementById('detalhesMaquina').style.display = 'none';
              
             // Atualizar breadcrumb 
             document.getElementById('breadcrumbCurrent').textContent = categoriaData.titulo; 
@@ -633,7 +710,8 @@ const categorias = {
                 recursosLista.appendChild(li); 
             }); 
              
-            // Mostrar seção de detalhes e esconder lista 
+            // Mostrar seção de detalhes e esconder hero/lista 
+            document.getElementById('heroCategoria').style.display = 'none';
             document.getElementById('detalhesMaquina').style.display = 'block'; 
             document.getElementById('maquinas').style.display = 'none'; 
              
@@ -647,6 +725,7 @@ const categorias = {
         // Voltar para a lista 
         document.getElementById('voltarLista').addEventListener('click', function() { 
             document.getElementById('detalhesMaquina').style.display = 'none'; 
+            document.getElementById('heroCategoria').style.display = 'block';
             document.getElementById('maquinas').style.display = 'block'; 
              
             // Atualizar URL (simulação) 
