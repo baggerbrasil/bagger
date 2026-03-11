@@ -64,7 +64,6 @@ const heroBgCurrent = document.querySelector('.hero-bg-current');
 const heroBgNext = document.querySelector('.hero-bg-next');
 const heroImages = [
     'uploads/escavadeiralogo.jpeg',
-    'uploads/campo.jpg',
     'uploads/carregadeirafundo.jpg',
     'uploads/escavadeira.jpeg'
 ];
