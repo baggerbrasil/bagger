@@ -182,7 +182,7 @@ const categorias = {
             } 
         ] 
     }, 
-
+*/
     
      
     empilhadeira: { 
@@ -501,7 +501,7 @@ const categorias = {
     } 
 }; 
 
-*/
+
  
         // Menu Mobile 
         const menuMobileBtn = document.getElementById('menuMobileBtn'); 
