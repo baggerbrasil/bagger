@@ -132,7 +132,7 @@ const categorias = {
                     "Manutenção simplificada" 
                 ] 
             },
-            {
+      /*      {
                 id: 202,
                 modelo: "2T-2W",
                 nome: "Dumper Elétrico sobre Rodas 2T-2W",
@@ -182,6 +182,8 @@ const categorias = {
             } 
         ] 
     }, 
+
+    
      
     empilhadeira: { 
         titulo: "Empilhadeiras Elétricas", 
@@ -498,6 +500,8 @@ const categorias = {
         ] 
     } 
 }; 
+
+*/
  
         // Menu Mobile 
         const menuMobileBtn = document.getElementById('menuMobileBtn'); 
