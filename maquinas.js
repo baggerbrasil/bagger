@@ -80,17 +80,17 @@ const categorias = {
     dumper: { 
         titulo: "Dumpers Elétricos", 
         descricao: "Transporte eficiente de materiais com zero emissões. Robustez, economia e silêncio para diferentes cenários operacionais.", 
-        heroImage: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070", 
+        heroImage: "uploads/dumpereletrico.jpg", 
         maquinas: [ 
             { 
                 id: 201, 
                 modelo: "EWD16", 
                 nome: "Dumper Elétrico EWD16", 
                 descricao: "Dumper sobre rodas 100% elétrico para transporte de materiais a granel. Ideal para movimentação de materiais em diversos segmentos.", 
-                imagem: "uploads/dumper-ewd16.jpg", 
+                imagem: "uploads/dumpereletrico.jpg", 
                 imagens: [ 
-                    "uploads/dumper-ewd16-1.jpg", 
-                    "uploads/dumper-ewd16-2.jpg" 
+                    "uploads/dumpereletrico.jpg"
+                    
                 ], 
                 categoria_nome: "Dumper Elétrico", 
                 carga_nominal: "1600 kg", 
@@ -106,7 +106,7 @@ const categorias = {
                 potencia_motor: "14,4 kW", 
                 velocidade: "0-18 km/h", 
                 capacidade_cacamba: "1,2 m³", 
-                preco: "R$ 268.000,00", 
+                preco: "Sob consulta", 
                 badge: "Transporte Pesado", 
                 especificacoes: [ 
                     { label: "Modelo", valor: "EWD16" }, 
