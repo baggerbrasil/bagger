@@ -187,8 +187,10 @@ const categorias = {
                     "Mastro de visão ampla", 
                     "Bateria de longa duração", 
                     "Ideal para armazéns e CD's" 
-                ] 
-            }, 
+                       ] 
+            } 
+        ] 
+    }, 
             { 
                 id: 302, 
                 modelo: "ETL1200", 
