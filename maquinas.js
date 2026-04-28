@@ -84,14 +84,13 @@ const categorias = {
         maquinas: [ 
             { 
                 id: 201, 
-                modelo: "2T-2W", 
-                nome: "Dumper Elétrico sobre Rodas 2T-2W", 
+                modelo: "EWD16", 
+                nome: "Dumper Elétrico EWD16", 
                 descricao: "Dumper sobre rodas 100% elétrico para transporte de materiais a granel. Ideal para movimentação de materiais em diversos segmentos.", 
-                imagem: "uploads/escavadeira.jpeg", 
+                imagem: "uploads/dumpereletrico.png", 
                 imagens: [ 
-                    "uploads/escavadeira.jpeg",
-                    "uploads/escavadeira-6.jpg",
-                    "uploads/escavadeira-5.jpg"
+                    "uploads/dumpereletrico.png"
+                    
                 ], 
                 categoria_nome: "Dumper Elétrico", 
                 carga_nominal: "1600 kg", 
@@ -103,14 +102,14 @@ const categorias = {
                 tipo_bateria: "Chumbo-ácido sem manutenção", 
                 capacidade_bateria: "14,4 kW", 
                 tensao_nominal: "72 V", 
-                pneu: "26 x 12.00-12*", 
+                pneu: "26 x 12.00-12", 
                 potencia_motor: "14,4 kW", 
                 velocidade: "0-18 km/h", 
                 capacidade_cacamba: "1,2 m³", 
                 preco: "Sob consulta", 
                 badge: "Transporte Pesado", 
                 especificacoes: [ 
-                    { label: "Modelo", valor: "2T-2W" }, 
+                    { label: "Modelo", valor: "EWD16" }, 
                     { label: "Carga Nominal", valor: "1.600 kg" }, 
                     { label: "Peso Total", valor: "1.980 kg" }, 
                     { label: "Dimensões (CxLxA)", valor: "3325 x 1260 x 2270 mm" }, 
@@ -121,7 +120,7 @@ const categorias = {
                     { label: "Tipo de Bateria", valor: "Chumbo-ácido s/ manutenção" }, 
                     { label: "Capacidade da Bateria", valor: "14,4 kW" }, 
                     { label: "Tensão Nominal", valor: "72 V" }, 
-                    { label: "Pneus", valor: "26 x 12.00-12*" } 
+                    { label: "Pneus", valor: "26 x 12.00-12" } 
                 ], 
                 recursos: [ 
                     "Capacidade de carga de 1,6 toneladas", 
