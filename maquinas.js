@@ -36,6 +36,39 @@ const categorias = {
           'Zero emissões locais',
           'Esteiras reforçadas para terreno irregular'
         ]
+      },
+      {
+        id: 102,
+        modelo: 'ME15D',
+        nome: 'Mini Escavadeira Elétrica ME15D',
+        descricao:
+          'Versão mais compacta da linha elétrica, muito similar à ME30D, com dimensões reduzidas e opção de cabine como acessório.',
+        imagem: 'uploads/escavadeira-6.jpg',
+        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg', 'uploads/WhatsApp Image 2026-02-09 at 20.57.03.jpeg'],
+        categoria_nome: 'Mini Escavadeira',
+        carga_nominal: '0.025 m³',
+        peso_total: '1.250 kg',
+        autonomia: '5-7 h',
+        preco: 'Sob consulta',
+        badge: 'Compacta com Cabine Opcional',
+        especificacoes: [
+          { label: 'Modelo', valor: 'ME15D' },
+          { label: 'Peso da Máquina', valor: '1.250 kg' },
+          { label: 'Capacidade da Caçamba', valor: '0.025 m³' },
+          { label: 'Bateria', valor: 'Lítio 72V 300Ah' },
+          { label: 'Autonomia', valor: '7 - 9 horas' },
+          { label: 'Tempo de Carga', valor: '5 horas' },
+          { label: 'Potência do Motor', valor: '5,5 kW (pico 11 kW)' },
+          { label: 'Largura Total', valor: '1.000 mm' }
+        ],
+        recursos: [
+          'Mesmo conceito elétrico da ME30D em tamanho reduzido',
+          'Cabine disponível como acessório opcional',
+          'Bateria de lítio 72V 300Ah',
+          'Controle piloto hidráulico',
+          'Rotação contínua de 13 rpm',
+          'Zero emissões locais e baixa vibração'
+        ]
       }
     ]
   },
