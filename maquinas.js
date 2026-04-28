@@ -80,16 +80,16 @@ const categorias = {
     dumper: { 
         titulo: "Dumpers Elétricos", 
         descricao: "Transporte eficiente de materiais com zero emissões. Robustez, economia e silêncio para diferentes cenários operacionais.", 
-        heroImage: "uploads/dumpereletrico.jpg", 
+        heroImage: "uploads/dumpereletrico.png", 
         maquinas: [ 
             { 
                 id: 201, 
                 modelo: "EWD16", 
                 nome: "Dumper Elétrico EWD16", 
                 descricao: "Dumper sobre rodas 100% elétrico para transporte de materiais a granel. Ideal para movimentação de materiais em diversos segmentos.", 
-                imagem: "uploads/dumpereletrico.jpg", 
+                imagem: "uploads/dumpereletrico.png", 
                 imagens: [ 
-                    "uploads/dumpereletrico.jpg"
+                    "uploads/dumpereletrico.png"
                     
                 ], 
                 categoria_nome: "Dumper Elétrico", 
