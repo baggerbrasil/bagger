@@ -43,8 +43,8 @@ const categorias = {
         nome: 'Mini Escavadeira Elétrica ME15D',
         descricao:
           'Versão mais compacta da linha elétrica, muito similar à ME30D, com dimensões reduzidas e opção de cabine como acessório.',
-        imagem: 'uploads/escavadeira-6.jpg',
-        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg', 'uploads/WhatsApp Image 2026-02-09 at 20.57.03.jpeg'],
+        imagem: 'uploads/DSC09914.jpg',
+        imagens: ['uploads/DSC09914.jpg', 'uploads/DSC09887.jpg'],
         categoria_nome: 'Mini Escavadeira',
         carga_nominal: '0.025 m³',
         peso_total: '1.250 kg',
