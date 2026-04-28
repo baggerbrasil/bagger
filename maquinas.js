@@ -80,7 +80,7 @@ const categorias = {
     dumper: { 
         titulo: "Dumpers Elétricos", 
         descricao: "Transporte eficiente de materiais com zero emissões. Robustez, economia e silêncio para diferentes cenários operacionais.", 
-        heroImage: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2070", 
+        heroImage: "uploads/dumpereletrico.png", 
         maquinas: [ 
             { 
                 id: 201, 
@@ -107,7 +107,7 @@ const categorias = {
                 potencia_motor: "14,4 kW", 
                 velocidade: "0-18 km/h", 
                 capacidade_cacamba: "1,2 m³", 
-                preco: "R$ 268.000,00", 
+                preco: "Sob consulta", 
                 badge: "Transporte Pesado", 
                 especificacoes: [ 
                     { label: "Modelo", valor: "2T-2W" }, 
@@ -132,9 +132,10 @@ const categorias = {
                     "Baixo custo operacional", 
                     "Manutenção simplificada" 
                 ] 
-            } 
-        ] 
-    }, 
+            },
+           
+
+    
      
     empilhadeira: { 
         titulo: "Empilhadeiras Elétricas", 
@@ -451,6 +452,8 @@ const categorias = {
         ] 
     } 
 }; 
+
+
  
         // Menu Mobile 
         const menuMobileBtn = document.getElementById('menuMobileBtn'); 
