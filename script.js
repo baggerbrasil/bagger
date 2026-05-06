@@ -126,7 +126,7 @@ if (formContato) {
         ].join('\n');
 
         try {
-            const resposta = await fetch('https://formsubmit.co/ajax/davikaspary15@gmail.com', {
+            const resposta = await fetch('https://formsubmit.co/ajax/vendas@bagger.net.br', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ if (formContato) {
             status.textContent = `Proposta enviada com sucesso, ${nome}! Retornaremos em breve.`;
             this.reset();
         } catch (erro) {
-            const mailto = `mailto:davikaspary15@gmail.com?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+            const mailto = `mailto:vendas@bagger.net.br?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
             window.location.href = mailto;
             status.style.display = 'block';
             status.style.color = '#b45309';
