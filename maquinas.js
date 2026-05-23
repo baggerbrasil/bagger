@@ -116,8 +116,8 @@ const categorias = {
         nome: 'Empilhadeira Elétrica EFL12',
         descricao:
           'Empilhadeira elétrica robusta para movimentação de cargas com operação silenciosa e sem emissões locais.',
-        imagem: 'uploads/escavadeira-6.jpg',
-        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
+        imagem: 'uploads/empilhadeira.png',
+        imagens: ['uploads/empilhadeira.png'],
         categoria_nome: 'Empilhadeira Elétrica',
         carga_nominal: '1.200 kg',
         peso_total: '2.115 kg',
@@ -152,8 +152,8 @@ const categorias = {
         nome: 'Pá Carregadeira Elétrica E612',
         descricao:
           'Pá carregadeira elétrica compacta para operações intensivas com ótimo desempenho e baixo custo operacional.',
-        imagem: 'uploads/carregadeirafundo.jpg',
-        imagens: ['uploads/carregadeirafundo.jpg', 'uploads/escavadeira.jpeg'],
+        imagem: 'uploads/pá.png',
+        imagens: ['uploads/pá.png'],
         categoria_nome: 'Pá Carregadeira Elétrica',
         carga_nominal: '1.200 kg',
         peso_total: '2.920 kg',
@@ -187,8 +187,8 @@ const categorias = {
         nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-22',
         descricao:
           'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
-        imagem: 'uploads/escavadeira-3.jpg',
-        imagens: ['uploads/escavadeira-3.jpg', 'uploads/escavadeira-2.jpg'],
+        imagem: 'uploads/elevador1.png',
+        imagens: ['uploads/elevador1.png', 'uploads/elevador2.png', 'uploads/elevador3.png'],
         categoria_nome: 'Plataforma Elevatória Elétrica',
         carga_nominal: '256 kg',
         peso_total: '8.900 kg',
