@@ -450,12 +450,20 @@ function trocarCategoria(categoria) {
 }
 
 function configurarCategorias() {
-  els.categoriasBtn.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.preventDefault();
-      trocarCategoria(btn.dataset.categoria);
-      document.getElementById('maquinas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+  const container = document.querySelector('.categorias-container');
+  if (!container) return;
+
+  container.addEventListener('click', (event) => {
+    const btn = event.target.closest('.categoria-btn');
+    if (!btn) return;
+
+    event.preventDefault();
+    const categoria = btn.dataset.categoria;
+    if (!categoria) return;
+
+    trocarCategoria(categoria);
+    window.history.replaceState(null, '', `#${categoria}`);
+    document.getElementById('maquinas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
@@ -481,6 +489,11 @@ function init() {
   const categoriaInicial = window.location.hash.replace('#', '');
   const categoriaValida = categorias[categoriaInicial] ? categoriaInicial : 'minicarregadeira';
   trocarCategoria(categoriaValida);
+
+  window.addEventListener('hashchange', () => {
+    const categoriaHash = window.location.hash.replace('#', '');
+    if (categorias[categoriaHash]) trocarCategoria(categoriaHash);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);
