@@ -109,6 +109,133 @@ const categorias = {
           'Baixo custo operacional',
           'Manutenção simplificada'
         ]
+      },
+      {
+        id: 202,
+        modelo: 'EFL12',
+        nome: 'Empilhadeira Elétrica EFL12',
+        descricao:
+          'Empilhadeira elétrica robusta para movimentação de cargas com operação silenciosa e sem emissões locais.',
+        imagem: 'uploads/escavadeira-6.jpg',
+        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
+        categoria_nome: 'Empilhadeira Elétrica',
+        carga_nominal: '1.200 kg',
+        peso_total: '2.115 kg',
+        autonomia: '8 h',
+        preco: 'Sob consulta',
+        badge: 'Movimentação de Cargas',
+        especificacoes: [
+          { label: 'Modelo', valor: 'EFL12' },
+          { label: 'Capacidade de Carga', valor: '1.200 kg' },
+          { label: 'Peso Total', valor: '2.115 kg' },
+          { label: 'Dimensões (CxLxA)', valor: '3800 x 1260 x 2270 mm' },
+          { label: 'Altura de Elevação', valor: '3050 mm' },
+          { label: 'Autonomia', valor: '8 horas' },
+          { label: 'Tempo de Carregamento', valor: '6 horas' },
+          { label: 'Bateria', valor: '12 unidades 3-EVF-200 (chumbo-ácido sem manutenção)' },
+          { label: 'Capacidade da Bateria', valor: '14,4 kW' },
+          { label: 'Tensão Nominal', valor: '72 V' },
+          { label: 'Tamanho do Pneu', valor: '26*12.00-12' }
+        ],
+        recursos: [
+          'Elevação de carga de até 3.050 mm',
+          'Bateria chumbo-ácido sem manutenção',
+          'Autonomia de até 8 horas',
+          'Tempo de recarga de 6 horas',
+          'Operação silenciosa para ambientes internos e externos',
+          'Zero emissões locais'
+        ]
+      },
+      {
+        id: 203,
+        modelo: 'E612',
+        nome: 'Pá Carregadeira Elétrica E612',
+        descricao:
+          'Pá carregadeira elétrica compacta para operações intensivas com ótimo desempenho e baixo custo operacional.',
+        imagem: 'uploads/carregadeirafundo.jpg',
+        imagens: ['uploads/carregadeirafundo.jpg', 'uploads/escavadeira.jpeg'],
+        categoria_nome: 'Pá Carregadeira Elétrica',
+        carga_nominal: '1.200 kg',
+        peso_total: '2.920 kg',
+        autonomia: '6 h',
+        preco: 'Sob consulta',
+        badge: 'Carregamento e Movimentação',
+        especificacoes: [
+          { label: 'Modelo', valor: 'E612' },
+          { label: 'Carga Nominal', valor: '1.200 kg' },
+          { label: 'Peso Total', valor: '2.920 kg' },
+          { label: 'Dimensões (CxLxA)', valor: '4885 x 1730 x 2550 mm' },
+          { label: 'Tempo de Operação', valor: '6 horas' },
+          { label: 'Tempo de Carregamento', valor: '6 horas' },
+          { label: 'Bateria', valor: '8 baterias TEV12-265 (chumbo-ácido sem manutenção)' },
+          { label: 'Capacidade da Bateria', valor: '25,4 kWh' },
+          { label: 'Tensão Nominal', valor: '96 V' },
+          { label: 'Tamanho do Pneu', valor: '31*15,5-15' }
+        ],
+        recursos: [
+          'Carga nominal de 1.200 kg',
+          'Conjunto elétrico de 96 V',
+          'Baterias sem manutenção',
+          'Autonomia operacional de 6 horas',
+          'Recarga completa em 6 horas',
+          'Zero emissões locais e baixo ruído'
+        ]
+      },
+      {
+        id: 204,
+        modelo: 'MPGKT-22',
+        nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-22',
+        descricao:
+          'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
+        imagem: 'uploads/escavadeira-3.jpg',
+        imagens: ['uploads/escavadeira-3.jpg', 'uploads/escavadeira-2.jpg'],
+        categoria_nome: 'Plataforma Elevatória Elétrica',
+        carga_nominal: '256 kg',
+        peso_total: '8.900 kg',
+        autonomia: 'Sob consulta',
+        preco: 'Sob consulta',
+        badge: 'Trabalho em Altura',
+        especificacoes: [
+          { label: 'Modelo', valor: 'MPGKT-22' },
+          { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
+          { label: 'Altura Máxima de Trabalho', valor: '22 m' },
+          { label: 'Altura Máxima da Plataforma', valor: '20 m' },
+          { label: 'Altura Máxima de Transposição', valor: '8,54 m' },
+          { label: 'Alcance Máximo Horizontal', valor: '12,9 m' },
+          { label: 'Largura da Plataforma', valor: '0,9 m' },
+          { label: 'Comprimento da Plataforma', valor: '2,4 m' },
+          { label: 'Capacidade Máxima de Carga', valor: '256 kg' },
+          { label: 'Número de Ocupantes', valor: '2 a 3 pessoas' },
+          { label: 'Rotação da Plataforma', valor: '160°' },
+          { label: 'Rotação da Torre', valor: '355°' },
+          { label: 'Dimensões Recolhida (CxLxA)', valor: '8,9 x 2,5 x 2,53 m' },
+          { label: 'Distância entre Eixos', valor: '2,5 m' },
+          { label: 'Distância do Solo', valor: '0,3 m' },
+          { label: 'Velocidade de Deslocamento', valor: '0–6 km/h' },
+          { label: 'Capacidade de Subida', valor: '45%' },
+          { label: 'Inclinação Máxima em Operação', valor: '5°' },
+          { label: 'Raio de Giro Externo', valor: '5,4 m' },
+          { label: 'Tração e Direção', valor: '4x4' },
+          { label: 'Bateria', valor: '48V / 320Ah' },
+          { label: 'Tensão de Controle', valor: '12V DC' },
+          { label: 'Potência do Motor Hidráulico', valor: '7 kW' },
+          { label: 'Motores de Tração', valor: '2 x 3,3 kW' },
+          { label: 'Unidade de Emergência', valor: '24V / 1,6 kW' },
+          { label: 'Peso Total', valor: '8.900 kg' }
+        ],
+        recursos: [
+          'Eixo direcional flutuante reforçado para maior estabilidade em terrenos irregulares',
+          'Sensor de segurança por cabo com desligamento automático em caso de instabilidade',
+          'Sensor de pressão na válvula principal para subida e descida mais suaves',
+          'Caixa preta integrada para registro e diagnóstico de operação',
+          'Cilindro oscilante da plataforma com rotação lateral de 80° para cada lado',
+          'Sistema automático de nivelamento com sensores de inclinação e controle eletro-hidráulico proporcional',
+          'Controle proporcional total com alertas sonoros e luminosos',
+          'Travamento automático da plataforma e sistema de descida de emergência',
+          'Botão de parada de emergência e sistema anti-esmagamento',
+          'Indicação de falhas no painel e proteção contra inclinação excessiva',
+          'Sistema de pesagem/carga e rotação da plataforma'
+        ]
       }
     ]
   }
