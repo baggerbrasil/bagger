@@ -109,7 +109,15 @@ const categorias = {
           'Baixo custo operacional',
           'Manutenção simplificada'
         ]
-      },
+      }
+    ]
+  },
+  empilhadeira: {
+    titulo: 'Empilhadeiras Elétricas',
+    descricao:
+      'Movimentação de cargas com precisão e segurança. Equipamentos elétricos para operação silenciosa e livre de emissões.',
+    heroImage: 'uploads/empilhadeira.png',
+    maquinas: [
       {
         id: 202,
         modelo: 'EFL12',
@@ -145,7 +153,15 @@ const categorias = {
           'Operação silenciosa para ambientes internos e externos',
           'Zero emissões locais'
         ]
-      },
+      }
+    ]
+  },
+  pacarregadeira: {
+    titulo: 'Pás Carregadeiras Elétricas',
+    descricao:
+      'Pás carregadeiras compactas e elétricas para carregamento e movimentação com alta eficiência energética.',
+    heroImage: 'uploads/pá.png',
+    maquinas: [
       {
         id: 203,
         modelo: 'E612',
@@ -180,7 +196,15 @@ const categorias = {
           'Recarga completa em 6 horas',
           'Zero emissões locais e baixo ruído'
         ]
-      },
+      }
+    ]
+  },
+  plataformaelevatoria: {
+    titulo: 'Plataformas Elevatórias Elétricas',
+    descricao:
+      'Trabalho em altura com segurança e estabilidade. Plataformas elétricas com grande alcance horizontal e vertical.',
+    heroImage: 'uploads/elevador1.png',
+    maquinas: [
       {
         id: 204,
         modelo: 'MPGKT-22',
@@ -426,12 +450,20 @@ function trocarCategoria(categoria) {
 }
 
 function configurarCategorias() {
-  els.categoriasBtn.forEach((btn) => {
-    btn.addEventListener('click', (event) => {
-      event.preventDefault();
-      trocarCategoria(btn.dataset.categoria);
-      document.getElementById('maquinas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    });
+  const container = document.querySelector('.categorias-container');
+  if (!container) return;
+
+  container.addEventListener('click', (event) => {
+    const btn = event.target.closest('.categoria-btn');
+    if (!btn) return;
+
+    event.preventDefault();
+    const categoria = btn.dataset.categoria;
+    if (!categoria) return;
+
+    trocarCategoria(categoria);
+    window.history.replaceState(null, '', `#${categoria}`);
+    document.getElementById('maquinas')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 
@@ -457,6 +489,11 @@ function init() {
   const categoriaInicial = window.location.hash.replace('#', '');
   const categoriaValida = categorias[categoriaInicial] ? categoriaInicial : 'minicarregadeira';
   trocarCategoria(categoriaValida);
+
+  window.addEventListener('hashchange', () => {
+    const categoriaHash = window.location.hash.replace('#', '');
+    if (categorias[categoriaHash]) trocarCategoria(categoriaHash);
+  });
 }
 
 document.addEventListener('DOMContentLoaded', init);
