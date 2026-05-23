@@ -109,6 +109,77 @@ const categorias = {
           'Baixo custo operacional',
           'Manutenção simplificada'
         ]
+      },
+      {
+        id: 202,
+        modelo: 'EFL12',
+        nome: 'Empilhadeira Elétrica EFL12',
+        descricao:
+          'Empilhadeira elétrica robusta para movimentação de cargas com operação silenciosa e sem emissões locais.',
+        imagem: 'uploads/escavadeira-6.jpg',
+        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
+        categoria_nome: 'Empilhadeira Elétrica',
+        carga_nominal: '1.200 kg',
+        peso_total: '2.115 kg',
+        autonomia: '8 h',
+        preco: 'Sob consulta',
+        badge: 'Movimentação de Cargas',
+        especificacoes: [
+          { label: 'Modelo', valor: 'EFL12' },
+          { label: 'Capacidade de Carga', valor: '1.200 kg' },
+          { label: 'Peso Total', valor: '2.115 kg' },
+          { label: 'Dimensões (CxLxA)', valor: '3800 x 1260 x 2270 mm' },
+          { label: 'Altura de Elevação', valor: '3050 mm' },
+          { label: 'Autonomia', valor: '8 horas' },
+          { label: 'Tempo de Carregamento', valor: '6 horas' },
+          { label: 'Bateria', valor: '12 unidades 3-EVF-200 (chumbo-ácido sem manutenção)' },
+          { label: 'Capacidade da Bateria', valor: '14,4 kW' },
+          { label: 'Tensão Nominal', valor: '72 V' },
+          { label: 'Tamanho do Pneu', valor: '26*12.00-12' }
+        ],
+        recursos: [
+          'Elevação de carga de até 3.050 mm',
+          'Bateria chumbo-ácido sem manutenção',
+          'Autonomia de até 8 horas',
+          'Tempo de recarga de 6 horas',
+          'Operação silenciosa para ambientes internos e externos',
+          'Zero emissões locais'
+        ]
+      },
+      {
+        id: 203,
+        modelo: 'E612',
+        nome: 'Pá Carregadeira Elétrica E612',
+        descricao:
+          'Pá carregadeira elétrica compacta para operações intensivas com ótimo desempenho e baixo custo operacional.',
+        imagem: 'uploads/carregadeirafundo.jpg',
+        imagens: ['uploads/carregadeirafundo.jpg', 'uploads/escavadeira.jpeg'],
+        categoria_nome: 'Pá Carregadeira Elétrica',
+        carga_nominal: '1.200 kg',
+        peso_total: '2.920 kg',
+        autonomia: '6 h',
+        preco: 'Sob consulta',
+        badge: 'Carregamento e Movimentação',
+        especificacoes: [
+          { label: 'Modelo', valor: 'E612' },
+          { label: 'Carga Nominal', valor: '1.200 kg' },
+          { label: 'Peso Total', valor: '2.920 kg' },
+          { label: 'Dimensões (CxLxA)', valor: '4885 x 1730 x 2550 mm' },
+          { label: 'Tempo de Operação', valor: '6 horas' },
+          { label: 'Tempo de Carregamento', valor: '6 horas' },
+          { label: 'Bateria', valor: '8 baterias TEV12-265 (chumbo-ácido sem manutenção)' },
+          { label: 'Capacidade da Bateria', valor: '25,4 kWh' },
+          { label: 'Tensão Nominal', valor: '96 V' },
+          { label: 'Tamanho do Pneu', valor: '31*15,5-15' }
+        ],
+        recursos: [
+          'Carga nominal de 1.200 kg',
+          'Conjunto elétrico de 96 V',
+          'Baterias sem manutenção',
+          'Autonomia operacional de 6 horas',
+          'Recarga completa em 6 horas',
+          'Zero emissões locais e baixo ruído'
+        ]
       }
     ]
   }
