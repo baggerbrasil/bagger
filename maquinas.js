@@ -203,7 +203,7 @@ const categorias = {
         nome: 'Pá Carregadeira Elétrica EU606PRO',
         descricao:
           'Pá carregadeira elétrica ALT EU606PRO com bateria LFP, caçamba frontal e caçamba traseira basculante para operações compactas e versáteis.',
-        imagem: 'uploads/pá.png',
+        imagem: 'uploads/EU606PRO.png',
         imagens: ['uploads/EU606PRO.png','uploads/EU606PRO2.png'],
         categoria_nome: 'Pá Carregadeira Elétrica',
         carga_nominal: '650 kg',
