@@ -204,7 +204,7 @@ const categorias = {
         descricao:
           'Pá carregadeira elétrica ALT EU606PRO com bateria LFP, caçamba frontal e caçamba traseira basculante para operações compactas e versáteis.',
         imagem: 'uploads/pá.png',
-        imagens: ['uploads/pá.png'],
+        imagens: ['uploads/EU606PRO.png','uploads/EU606PRO2.png'],
         categoria_nome: 'Pá Carregadeira Elétrica',
         carga_nominal: '650 kg',
         peso_total: '1.935 kg',
