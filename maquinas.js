@@ -1,6 +1,6 @@
 const categorias = {
   minicarregadeira: {
-    titulo: 'Mini Carregadeiras Elétricas',
+    titulo: 'Mini Escavadeiras Elétricas',
     descricao:
       'Compactas, ágeis e 100% elétricas. Ideais para movimentação de materiais em espaços reduzidos, com zero emissões e baixo ruído.',
     heroImage: 'uploads/escavadeira-1.jpg',
@@ -187,8 +187,8 @@ const categorias = {
         nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-22',
         descricao:
           'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
-        imagem: 'uploads/elevatorio.png',
-        imagens: ['uploads/elevatorio.png'],
+        imagem: 'uploads/escavadeira-3.jpg',
+        imagens: ['uploads/escavadeira-3.jpg', 'uploads/escavadeira-2.jpg'],
         categoria_nome: 'Plataforma Elevatória Elétrica',
         carga_nominal: '256 kg',
         peso_total: '8.900 kg',
@@ -303,8 +303,8 @@ const categorias = {
         nome: 'Empilhadeira Elétrica Hopper CPD20E',
         descricao:
           'Empilhadeira contrabalançada elétrica Hopper para operação sentado, com capacidade de 2 toneladas e conjunto elétrico de alta potência.',
-        imagem: 'uploads/miniempilhadeira.png',
-        imagens: ['uploads/miniempilhadeira.png'],
+        imagem: 'uploads/escavadeira-6.jpg',
+        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
         categoria_nome: 'Empilhadeira Elétrica',
         carga_nominal: '2.000 kg',
         peso_total: 'Sob consulta',
@@ -410,6 +410,34 @@ const categorias = {
     ]
   }
 };
+
+const maquinasDumper = categorias.dumper.maquinas;
+
+categorias.empilhadeira = {
+  titulo: 'Empilhadeiras Elétricas',
+  descricao:
+    'Empilhadeiras elétricas para movimentação de cargas com operação limpa, silenciosa e alto desempenho em ambientes internos e externos.',
+  heroImage: 'uploads/escavadeira-6.jpg',
+  maquinas: maquinasDumper.filter((maquina) => ['EFL12', 'CPD20E'].includes(maquina.modelo))
+};
+
+categorias.pacarregadeira = {
+  titulo: 'Pás Carregadeiras Elétricas',
+  descricao:
+    'Pás carregadeiras elétricas para carregamento e movimentação de materiais com baixo ruído, zero emissões locais e economia operacional.',
+  heroImage: 'uploads/carregadeirafundo.jpg',
+  maquinas: maquinasDumper.filter((maquina) => maquina.modelo === 'E612')
+};
+
+categorias.plataforma = {
+  titulo: 'Plataformas Elevatórias Elétricas',
+  descricao:
+    'Plataformas elevatórias elétricas articuladas e tipo tesoura para trabalho em altura com segurança, precisão e operação autopropelida.',
+  heroImage: 'uploads/escavadeira-3.jpg',
+  maquinas: maquinasDumper.filter((maquina) => ['MPGKT-22', 'MPGTJ2046', 'GTJZ1416'].includes(maquina.modelo))
+};
+
+categorias.dumper.maquinas = maquinasDumper.filter((maquina) => maquina.modelo === 'EWD16');
 
 const state = {
   categoriaAtual: 'minicarregadeira',
