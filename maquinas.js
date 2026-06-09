@@ -361,215 +361,50 @@ const categorias = {
           'Troca lateral da bateria para facilitar manutenção e substituição',
           'Opcionais disponíveis: torre tríplex, elevação livre, bateria de lítio, side shift, cabine, rodas especiais e sistema de pesagem'
         ]
-      }
-    ]
-  },
-  empilhadeira: {
-    titulo: 'Empilhadeiras Elétricas',
-    descricao:
-      'Movimentação de cargas com precisão e segurança. Equipamentos elétricos para operação silenciosa e livre de emissões.',
-    heroImage: 'uploads/empilhadeira.png',
-    maquinas: [
-      {
-        id: 202,
-        modelo: 'EFL12',
-        nome: 'Empilhadeira Elétrica EFL12',
-        descricao:
-          'Empilhadeira elétrica robusta para movimentação de cargas com operação silenciosa e sem emissões locais.',
-        imagem: 'uploads/empilhadeira.png',
-        imagens: ['uploads/empilhadeira.png'],
-        categoria_nome: 'Empilhadeira Elétrica',
-        carga_nominal: '1.200 kg',
-        peso_total: '2.115 kg',
-        autonomia: '8 h',
-        preco: 'Sob consulta',
-        badge: 'Movimentação de Cargas',
-        especificacoes: [
-          { label: 'Modelo', valor: 'EFL12' },
-          { label: 'Capacidade de Carga', valor: '1.200 kg' },
-          { label: 'Peso Total', valor: '2.115 kg' },
-          { label: 'Dimensões (CxLxA)', valor: '3800 x 1260 x 2270 mm' },
-          { label: 'Altura de Elevação', valor: '3050 mm' },
-          { label: 'Autonomia', valor: '8 horas' },
-          { label: 'Tempo de Carregamento', valor: '6 horas' },
-          { label: 'Bateria', valor: '12 unidades 3-EVF-200 (chumbo-ácido sem manutenção)' },
-          { label: 'Capacidade da Bateria', valor: '14,4 kW' },
-          { label: 'Tensão Nominal', valor: '72 V' },
-          { label: 'Tamanho do Pneu', valor: '26*12.00-12' }
-        ],
-        recursos: [
-          'Elevação de carga de até 3.050 mm',
-          'Bateria chumbo-ácido sem manutenção',
-          'Autonomia de até 8 horas',
-          'Tempo de recarga de 6 horas',
-          'Operação silenciosa para ambientes internos e externos',
-          'Zero emissões locais'
-        ]
-      }
-    ]
-  },
-  pacarregadeira: {
-    titulo: 'Pás Carregadeiras Elétricas',
-    descricao:
-      'Pás carregadeiras compactas e elétricas para carregamento e movimentação com alta eficiência energética.',
-    heroImage: 'uploads/pá.png',
-    maquinas: [
-      {
-        id: 203,
-        modelo: 'E612',
-        nome: 'Pá Carregadeira Elétrica E612',
-        descricao:
-          'Pá carregadeira elétrica compacta para operações intensivas com ótimo desempenho e baixo custo operacional.',
-        imagem: 'uploads/pá.png',
-        imagens: ['uploads/pá.png'],
-        categoria_nome: 'Pá Carregadeira Elétrica',
-        carga_nominal: '1.200 kg',
-        peso_total: '2.920 kg',
-        autonomia: '6 h',
-        preco: 'Sob consulta',
-        badge: 'Carregamento e Movimentação',
-        especificacoes: [
-          { label: 'Modelo', valor: 'E612' },
-          { label: 'Carga Nominal', valor: '1.200 kg' },
-          { label: 'Peso Total', valor: '2.920 kg' },
-          { label: 'Dimensões (CxLxA)', valor: '4885 x 1730 x 2550 mm' },
-          { label: 'Tempo de Operação', valor: '6 horas' },
-          { label: 'Tempo de Carregamento', valor: '6 horas' },
-          { label: 'Bateria', valor: '8 baterias TEV12-265 (chumbo-ácido sem manutenção)' },
-          { label: 'Capacidade da Bateria', valor: '25,4 kWh' },
-          { label: 'Tensão Nominal', valor: '96 V' },
-          { label: 'Tamanho do Pneu', valor: '31*15,5-15' }
-        ],
-        recursos: [
-          'Carga nominal de 1.200 kg',
-          'Conjunto elétrico de 96 V',
-          'Baterias sem manutenção',
-          'Autonomia operacional de 6 horas',
-          'Recarga completa em 6 horas',
-          'Zero emissões locais e baixo ruído'
-        ]
       },
       {
-        id: 206,
-        modelo: 'EU606PRO',
-        nome: 'Pá Carregadeira Elétrica EU606PRO',
+        id: 207,
+        modelo: 'GTJZ1416',
+        nome: 'Plataforma Elevatória Tesoura Elétrica Autopropelida GTJZ1416',
         descricao:
-          'Pá carregadeira elétrica ALT EU606PRO com bateria LFP, caçamba frontal e caçamba traseira basculante para operações compactas e versáteis.',
-        imagem: 'uploads/EU606PRO.png',
-        imagens: ['uploads/EU606PRO.png','uploads/EU606PRO2.png'],
-        categoria_nome: 'Pá Carregadeira Elétrica',
-        carga_nominal: '650 kg',
-        peso_total: '1.935 kg',
-        autonomia: '7 h',
-        preco: 'Sob consulta',
-        badge: 'Compacta ALT',
-        especificacoes: [
-          { label: 'Modelo', valor: 'EU606PRO' },
-          { label: 'Marca', valor: 'ALT' },
-          { label: 'Capacidade de Carga', valor: '650 kg' },
-          { label: 'Peso Operacional', valor: '1.935 kg' },
-          { label: 'Capacidade da Caçamba', valor: '0,25 m³' },
-          { label: 'Caçamba Traseira Basculante', valor: '0,52 m³' },
-          { label: 'Capacidade da Caçamba Traseira', valor: '1.000 kg' },
-          { label: 'Dimensões (CxLxA)', valor: '4.650 x 1.300 x 2.250 mm' },
-          { label: 'Largura Externa dos Pneus', valor: '1.280 mm' },
-          { label: 'Largura da Caçamba', valor: '1.150 mm' },
-          { label: 'Entre-eixos', valor: '2.250 mm' },
-          { label: 'Bitola', valor: '995 mm' },
-          { label: 'Distância Mínima do Solo', valor: '200 mm' },
-          { label: 'Altura de Descarga', valor: '2.170 mm' },
-          { label: 'Altura Máxima de Elevação', valor: '3.330 mm' },
-          { label: 'Alcance de Descarga', valor: '405 mm' },
-          { label: 'Raio Mínimo de Giro', valor: '3.950 mm' },
-          { label: 'Ângulo Máximo de Esterçamento', valor: '±45°' },
-          { label: 'Velocidade Baixa', valor: '10 km/h' },
-          { label: 'Velocidade Alta', valor: '20 km/h' },
-          { label: 'Tempo de Operação', valor: '7 horas' },
-          { label: 'Tempo de Carga', valor: '5 horas' },
-          { label: 'Bateria', valor: '73,6V - 240Ah' },
-          { label: 'Tipo de Bateria', valor: 'LFP (Lítio Ferro Fosfato)' },
-          { label: 'Capacidade Total da Bateria', valor: '17,7 kWh' },
-          { label: 'Tensão Nominal', valor: '73,6 V' },
-          { label: 'Alimentação Hidráulica', valor: 'AC' },
-          { label: 'Potência Hidráulica', valor: '4,5 kW' },
-          { label: 'Pressão Hidráulica', valor: '16 MPa' },
-          { label: 'Direção', valor: 'Totalmente hidráulica' },
-          { label: 'Pneus', valor: '4 unidades 26x12.00-12' },
-          { label: 'Freio de Serviço', valor: 'Tambor' },
-          { label: 'Freio de Estacionamento', valor: 'Tambor manual' }
-        ],
-        recursos: [
-          'Capacidade de carga de 650 kg',
-          'Caçamba traseira basculante de 0,52 m³',
-          'Bateria LFP de 17,7 kWh',
-          'Autonomia operacional de 7 horas',
-          'Recarga completa em 5 horas',
-          'Direção totalmente hidráulica',
-          'Velocidade alta de até 20 km/h'
-        ]
-      }
-    ]
-  },
-  plataformaelevatoria: {
-    titulo: 'Plataformas Elevatórias Elétricas',
-    descricao:
-      'Trabalho em altura com segurança e estabilidade. Plataformas elétricas com grande alcance horizontal e vertical.',
-    heroImage: 'uploads/elevador1.png',
-    maquinas: [
-      {
-        id: 204,
-        modelo: 'MPGKT-22',
-        nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-22',
-        descricao:
-          'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
-        imagem: 'uploads/elevador1.png',
-        imagens: ['uploads/elevador1.png', 'uploads/elevador2.png', 'uploads/elevador3.png'],
-        categoria_nome: 'Plataforma Elevatória Elétrica',
-        carga_nominal: '256 kg',
-        peso_total: '8.900 kg',
+          'Plataforma elevatória tipo tesoura autopropelida com acionamento elétrico, controle proporcional total e sistemas inteligentes de segurança para trabalho em altura.',
+        imagem: 'uploads/escavadeira-4.jpg',
+        imagens: ['uploads/escavadeira-4.jpg', 'uploads/escavadeira-1.jpg'],
+        categoria_nome: 'Plataforma Tesoura Elétrica',
+        carga_nominal: 'Sob consulta',
+        peso_total: 'Sob consulta',
         autonomia: 'Sob consulta',
         preco: 'Sob consulta',
-        badge: 'Trabalho em Altura',
+        badge: 'Tesoura Autopropelida',
         especificacoes: [
-          { label: 'Modelo', valor: 'MPGKT-22' },
-          { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
-          { label: 'Altura Máxima de Trabalho', valor: '22 m' },
-          { label: 'Altura Máxima da Plataforma', valor: '20 m' },
-          { label: 'Altura Máxima de Transposição', valor: '8,54 m' },
-          { label: 'Alcance Máximo Horizontal', valor: '12,9 m' },
-          { label: 'Largura da Plataforma', valor: '0,9 m' },
-          { label: 'Comprimento da Plataforma', valor: '2,4 m' },
-          { label: 'Capacidade Máxima de Carga', valor: '256 kg' },
-          { label: 'Número de Ocupantes', valor: '2 a 3 pessoas' },
-          { label: 'Rotação da Plataforma', valor: '160°' },
-          { label: 'Rotação da Torre', valor: '355°' },
-          { label: 'Dimensões Recolhida (CxLxA)', valor: '8,9 x 2,5 x 2,53 m' },
-          { label: 'Distância entre Eixos', valor: '2,5 m' },
-          { label: 'Distância do Solo', valor: '0,3 m' },
-          { label: 'Velocidade de Deslocamento', valor: '0–6 km/h' },
-          { label: 'Capacidade de Subida', valor: '45%' },
-          { label: 'Inclinação Máxima em Operação', valor: '5°' },
-          { label: 'Raio de Giro Externo', valor: '5,4 m' },
-          { label: 'Tração e Direção', valor: '4x4' },
-          { label: 'Bateria', valor: '48V / 320Ah' },
-          { label: 'Tensão de Controle', valor: '12V DC' },
-          { label: 'Potência do Motor Hidráulico', valor: '7 kW' },
-          { label: 'Motores de Tração', valor: '2 x 3,3 kW' },
-          { label: 'Unidade de Emergência', valor: '24V / 1,6 kW' },
-          { label: 'Peso Total', valor: '8.900 kg' }
+          { label: 'Modelo', valor: 'GTJZ1416' },
+          { label: 'Nome do Produto', valor: 'Self-Propelled Scissor Lift Platform' },
+          { label: 'Tipo', valor: 'Plataforma Elevatória Tipo Tesoura Autopropelida' },
+          { label: 'Acionamento', valor: 'Elétrico' },
+          { label: 'Operação', valor: 'Autopropelida' },
+          { label: 'Estrutura', valor: 'Plataforma elevatória tipo tesoura' },
+          { label: 'Rodagem', valor: 'Rodas de borracha maciça' },
+          { label: 'Proteção', valor: 'Guarda-corpo de proteção integral' },
+          { label: 'Extensão', valor: 'Extensão frontal da plataforma' },
+          { label: 'Controles', valor: 'Instalados na plataforma superior' },
+          { label: 'Controle', valor: 'Controle proporcional total de todos os movimentos' },
+          { label: 'Baterias', valor: 'Baterias chumbo-ácido de alto desempenho' },
+          { label: 'Sistema Elétrico', valor: 'Chicotes elétricos automotivos e conectores industriais' },
+          { label: 'Interação Homem-Máquina', valor: 'Leitura de falhas, parâmetros, monitoramento e diagnóstico em tempo real' }
         ],
         recursos: [
-          'Eixo direcional flutuante reforçado para maior estabilidade em terrenos irregulares',
-          'Sensor de segurança por cabo com desligamento automático em caso de instabilidade',
-          'Sensor de pressão na válvula principal para subida e descida mais suaves',
-          'Caixa preta integrada para registro e diagnóstico de operação',
-          'Cilindro oscilante da plataforma com rotação lateral de 80° para cada lado',
-          'Sistema automático de nivelamento com sensores de inclinação e controle eletro-hidráulico proporcional',
-          'Controle proporcional total com alertas sonoros e luminosos',
-          'Travamento automático da plataforma e sistema de descida de emergência',
-          'Botão de parada de emergência e sistema anti-esmagamento',
-          'Indicação de falhas no painel e proteção contra inclinação excessiva',
-          'Sistema de pesagem/carga e rotação da plataforma'
+          'Controle proporcional total para maior precisão no posicionamento da plataforma',
+          'Maior conforto operacional com sistema de controle de desempenho superior',
+          'Baterias chumbo-ácido de alta qualidade para maior estabilidade operacional',
+          'Chicotes elétricos automotivos e conectores industriais para maior vida útil dos componentes',
+          'Projeto de baixa manutenção com estrutura reforçada e componentes de direção protegidos',
+          'Sistema de proteção contra impactos e mancais especiais de alta capacidade de carga',
+          'Proteção contra sobrecarga, descida de emergência e proteção contra inclinação',
+          'Sistemas de segurança para trabalho em altura',
+          'Sistema inteligente com leitura de falhas, exibição de parâmetros e diagnóstico de falhas',
+          'Monitoramento em tempo real dos componentes',
+          'Indicada para centros logísticos, galpões industriais e manutenção predial',
+          'Aplicável em instalações elétricas, montagem industrial, estoques verticais, shoppings, aeroportos e construção civil'
         ]
       }
     ]
