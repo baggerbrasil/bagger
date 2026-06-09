@@ -116,8 +116,8 @@ const categorias = {
         nome: 'Empilhadeira Elétrica EFL12',
         descricao:
           'Empilhadeira elétrica robusta para movimentação de cargas com operação silenciosa e sem emissões locais.',
-        imagem: 'uploads/escavadeira-6.jpg',
-        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
+        imagem: 'uploads/empilhadeira.png',
+        imagens: ['uploads/empilhadeira.png'],
         categoria_nome: 'Empilhadeira Elétrica',
         carga_nominal: '1.200 kg',
         peso_total: '2.115 kg',
@@ -303,8 +303,8 @@ const categorias = {
         nome: 'Empilhadeira Elétrica Hopper CPD20E',
         descricao:
           'Empilhadeira contrabalançada elétrica Hopper para operação sentado, com capacidade de 2 toneladas e conjunto elétrico de alta potência.',
-        imagem: 'uploads/escavadeira-6.jpg',
-        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
+        imagem: 'uploads/miniempilhadeira.png',
+        imagens: ['uploads/miniempilhadeira.png'],
         categoria_nome: 'Empilhadeira Elétrica',
         carga_nominal: '2.000 kg',
         peso_total: 'Sob consulta',
@@ -522,7 +522,7 @@ const categorias = {
     titulo: 'Pás Carregadeiras Elétricas',
     descricao:
       'Pás carregadeiras elétricas para carregamento e movimentação de materiais com baixo ruído, zero emissões locais e economia operacional.',
-    heroImage: 'uploads/carregadeirafundo.jpg',
+    heroImage: 'uploads/pá.png',
     maquinas: [
       {
         id: 203,
@@ -531,7 +531,7 @@ const categorias = {
         descricao:
           'Pá carregadeira elétrica compacta para operações intensivas com ótimo desempenho e baixo custo operacional.',
         imagem: 'uploads/carregadeirafundo.jpg',
-        imagens: ['uploads/carregadeirafundo.jpg', 'uploads/escavadeira.jpeg'],
+        imagens: ['uploads/pá.png'],
         categoria_nome: 'Pá Carregadeira Elétrica',
         carga_nominal: '1.200 kg',
         peso_total: '2.920 kg',
@@ -689,8 +689,8 @@ const categorias = {
         nome: 'Plataforma Elevatória Tesoura Elétrica Autopropelida GTJZ1416',
         descricao:
           'Plataforma elevatória tipo tesoura autopropelida com acionamento elétrico, controle proporcional total e sistemas inteligentes de segurança para trabalho em altura.',
-        imagem: 'uploads/escavadeira-4.jpg',
-        imagens: ['uploads/escavadeira-4.jpg', 'uploads/escavadeira-1.jpg'],
+        imagem: 'uploads/elevatorio.png',
+        imagens: ['uploads/elevatorio.png'],
         categoria_nome: 'Plataforma Tesoura Elétrica',
         carga_nominal: 'Sob consulta',
         peso_total: 'Sob consulta',
