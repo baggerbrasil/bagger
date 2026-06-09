@@ -187,8 +187,8 @@ const categorias = {
         nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-22',
         descricao:
           'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
-        imagem: 'uploads/escavadeira-3.jpg',
-        imagens: ['uploads/escavadeira-3.jpg', 'uploads/escavadeira-2.jpg'],
+        imagem: 'uploads/elevatorio.png',
+        imagens: ['uploads/elevatorio.png'],
         categoria_nome: 'Plataforma Elevatória Elétrica',
         carga_nominal: '256 kg',
         peso_total: '8.900 kg',
@@ -303,8 +303,8 @@ const categorias = {
         nome: 'Empilhadeira Elétrica Hopper CPD20E',
         descricao:
           'Empilhadeira contrabalançada elétrica Hopper para operação sentado, com capacidade de 2 toneladas e conjunto elétrico de alta potência.',
-        imagem: 'uploads/escavadeira-6.jpg',
-        imagens: ['uploads/escavadeira-6.jpg', 'uploads/escavadeira-5.jpg'],
+        imagem: 'uploads/miniempilhadeira.png',
+        imagens: ['uploads/miniempilhadeira.png'],
         categoria_nome: 'Empilhadeira Elétrica',
         carga_nominal: '2.000 kg',
         peso_total: 'Sob consulta',
