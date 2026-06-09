@@ -152,8 +152,8 @@ const categorias = {
         nome: 'Pá Carregadeira Elétrica E612',
         descricao:
           'Pá carregadeira elétrica compacta para operações intensivas com ótimo desempenho e baixo custo operacional.',
-        imagem: 'uploads/carregadeirafundo.jpg',
-        imagens: ['uploads/carregadeirafundo.jpg', 'uploads/escavadeira.jpeg'],
+        imagem: 'uploads/pá.png',
+        imagens: ['uploads/pá.png'],
         categoria_nome: 'Pá Carregadeira Elétrica',
         carga_nominal: '1.200 kg',
         peso_total: '2.920 kg',
