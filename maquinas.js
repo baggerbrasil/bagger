@@ -1133,7 +1133,7 @@ categorias.pacarregadeira = {
   titulo: 'Pás Carregadeiras Elétricas',
   descricao:
     'Pás carregadeiras elétricas para carregamento e movimentação de materiais com baixo ruído, zero emissões locais e economia operacional.',
-  heroImage: 'uploads/carregadeirafundo.jpg',
+  heroImage: 'uploads/pá.jpg',
   maquinas: maquinasDumper.filter(
     (maquina) => ['E612', 'EU606PRO'].includes(maquina.modelo)
   )
@@ -1148,7 +1148,7 @@ categorias.plataforma = {
 };
 
 categorias.dumper.maquinas = maquinasDumper.filter(
-  (maquina) => ['EWD16', 'EU606PRO'].includes(maquina.modelo)
+  (maquina) => ['EWD16'].includes(maquina.modelo)
 );
 const state = {
   categoriaAtual: 'minicarregadeira',
