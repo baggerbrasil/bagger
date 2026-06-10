@@ -1113,7 +1113,7 @@ categorias.plataforma = {
   descricao:
     'Plataformas elevatórias elétricas articuladas e tipo tesoura para trabalho em altura com segurança, precisão e operação autopropelida.',
   heroImage: 'uploads/elevador1.png',
-  maquinas: maquinasDumper.filter((maquina) => ['MPGKT-16', 'MPGTJ2046', 'GTJZ1416'].includes(maquina.modelo))
+  maquinas: maquinasDumper.filter((maquina) => ['MPGKT-16', 'GTJZ1416'].includes(maquina.modelo))
 };
 
 categorias.dumper.maquinas = maquinasDumper.filter((maquina) => maquina.modelo === 'EWD16');
