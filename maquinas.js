@@ -874,7 +874,7 @@ const categorias = {
           'Concha de alta capacidade',
           'Sistema de recuperação de energia'
         ]
-      }
+      },
       {
   id: 210,
   modelo: 'EU606PRO',
