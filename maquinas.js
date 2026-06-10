@@ -188,7 +188,7 @@ const categorias = {
         descricao:
           'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
         imagem: 'uploads/elevador1.png',
-        imagens: ['uploadselevador1.png', 'uploads/elevador2.png','uploads/elevador3.png'],
+        imagens: ['uploads/elevador1.png', 'uploads/elevador2.png','uploads/elevador3.png'],
         categoria_nome: 'Plataforma Elevatória Elétrica',
         carga_nominal: '256 kg',
         peso_total: '8.900 kg',
