@@ -183,12 +183,12 @@ const categorias = {
       },
       {
         id: 204,
-        modelo: 'MPGKT-22',
-        nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-22',
+        modelo: 'MPGKT-16',
+        nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-16',
         descricao:
           'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
-        imagem: 'uploads/escavadeira-3.jpg',
-        imagens: ['uploads/escavadeira-3.jpg', 'uploads/escavadeira-2.jpg'],
+        imagem: 'uploads/elevador1.png',
+        imagens: ['uploadselevador1.png', 'uploads/elevador2.png','uploads/elevador3.png'],
         categoria_nome: 'Plataforma Elevatória Elétrica',
         carga_nominal: '256 kg',
         peso_total: '8.900 kg',
@@ -196,7 +196,7 @@ const categorias = {
         preco: 'Sob consulta',
         badge: 'Trabalho em Altura',
         especificacoes: [
-          { label: 'Modelo', valor: 'MPGKT-22' },
+          { label: 'Modelo', valor: 'MPGKT-16' },
           { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
           { label: 'Altura Máxima de Trabalho', valor: '22 m' },
           { label: 'Altura Máxima da Plataforma', valor: '20 m' },
@@ -368,8 +368,8 @@ const categorias = {
         nome: 'Plataforma Elevatória Tesoura Elétrica Autopropelida GTJZ1416',
         descricao:
           'Plataforma elevatória tipo tesoura autopropelida com acionamento elétrico, controle proporcional total e sistemas inteligentes de segurança para trabalho em altura.',
-        imagem: 'uploads/escavadeira-4.jpg',
-        imagens: ['uploads/escavadeira-4.jpg', 'uploads/escavadeira-1.jpg'],
+        imagem: 'uploads/elevatorio.png',
+        imagens: ['uploads/elevatorio.png'],
         categoria_nome: 'Plataforma Tesoura Elétrica',
         carga_nominal: 'Sob consulta',
         peso_total: 'Sob consulta',
