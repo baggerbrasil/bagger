@@ -875,15 +875,7 @@ const categorias = {
           'Sistema de recuperação de energia'
         ]
       }
-    ]
-  },
-  pacarregadeira: {
-    titulo: 'Pás Carregadeiras Elétricas',
-    descricao:
-      'Pás carregadeiras elétricas para carregamento e movimentação de materiais com baixo ruído, zero emissões locais e economia operacional.',
-    heroImage: 'uploads/EU606PRO.png',
-    maquinas: [
-{
+      {
   id: 210,
   modelo: 'EU606PRO',
   nome: 'Pá Carregadeira Elétrica EU606PRO',
@@ -946,6 +938,16 @@ const categorias = {
 }
     ]
   },
+/*  pacarregadeira: {
+    titulo: 'Pás Carregadeiras Elétricas',
+    descricao:
+      'Pás carregadeiras elétricas para carregamento e movimentação de materiais com baixo ruído, zero emissões locais e economia operacional.',
+    heroImage: 'uploads/EU606PRO.png',
+    maquinas: [
+
+    ]
+  },
+  */
   plataforma: {
     titulo: 'Plataformas Elevatórias Elétricas',
     descricao:
