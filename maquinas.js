@@ -1096,7 +1096,7 @@ categorias.empilhadeira = {
   titulo: 'Empilhadeiras Elétricas',
   descricao:
     'Empilhadeiras elétricas para movimentação de cargas com operação limpa, silenciosa e alto desempenho em ambientes internos e externos.',
-  heroImage: 'uploads/escavadeira-6.jpg',
+  heroImage: 'uploads/empilhadeira.png',
   maquinas: maquinasDumper.filter((maquina) => ['EFL12', 'CPD20E'].includes(maquina.modelo))
 };
 
@@ -1112,8 +1112,8 @@ categorias.plataforma = {
   titulo: 'Plataformas Elevatórias Elétricas',
   descricao:
     'Plataformas elevatórias elétricas articuladas e tipo tesoura para trabalho em altura com segurança, precisão e operação autopropelida.',
-  heroImage: 'uploads/escavadeira-3.jpg',
-  maquinas: maquinasDumper.filter((maquina) => ['MPGKT-22', 'MPGTJ2046', 'GTJZ1416'].includes(maquina.modelo))
+  heroImage: 'uploads/elevador1.png',
+  maquinas: maquinasDumper.filter((maquina) => ['MPGKT-16', 'MPGTJ2046', 'GTJZ1416'].includes(maquina.modelo))
 };
 
 categorias.dumper.maquinas = maquinasDumper.filter((maquina) => maquina.modelo === 'EWD16');
