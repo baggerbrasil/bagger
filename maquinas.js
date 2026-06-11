@@ -406,7 +406,7 @@ const categorias = {
           'Indicada para centros logísticos, galpões industriais e manutenção predial',
           'Aplicável em instalações elétricas, montagem industrial, estoques verticais, shoppings, aeroportos e construção civil'
         ]
-      }
+      },
        {
   id: 210,
   modelo: 'EU606PRO',
