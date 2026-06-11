@@ -1187,7 +1187,7 @@ categorias.empilhadeira = {
   descricao:
     'Empilhadeiras elétricas para movimentação de cargas com operação limpa, silenciosa e alto desempenho em ambientes internos e externos.',
   heroImage: 'uploads/empilhadeira.png',
-  maquinas: maquinasDumper.filter((maquina) => ['EFL12', 'CPD20E','EU606PRO'].includes(maquina.modelo))
+  maquinas: maquinasDumper.filter((maquina) => ['EFL12', 'CPD20E'].includes(maquina.modelo))
 };
 
 categorias.pacarregadeira = {
