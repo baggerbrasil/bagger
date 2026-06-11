@@ -147,7 +147,7 @@ const categorias = {
         ]
       },
       {
-        id: 203,
+        id: 211,
         modelo: 'E612',
         nome: 'Pá Carregadeira Elétrica E612',
         descricao:
