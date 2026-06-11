@@ -1148,7 +1148,7 @@ categorias.plataforma = {
 };
 
 categorias.dumper.maquinas = maquinasDumper.filter(
-  (maquina) => ['EWD16', 'EU606PRO'].includes(maquina.modelo)
+  (maquina) => maquina.modelo === 'EWD16'
 );
 const state = {
   categoriaAtual: 'minicarregadeira',
