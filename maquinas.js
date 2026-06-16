@@ -181,62 +181,82 @@ const categorias = {
           'Zero emissões locais e baixo ruído'
         ]
       },
-      {
-        id: 204,
-        modelo: 'MPGKT-16',
-        nome: 'Plataforma Elevatória Articulada Elétrica MPGKT-16',
-        descricao:
-          'Plataforma elevatória articulada elétrica para trabalhos em altura com longo alcance horizontal e múltiplos sistemas avançados de segurança.',
-        imagem: 'uploads/elevador1.png',
-        imagens: ['uploads/elevador1.png', 'uploads/elevador2.png','uploads/elevador3.png'],
-        categoria_nome: 'Plataforma Elevatória Elétrica',
-        carga_nominal: '256 kg',
-        peso_total: '8.900 kg',
-        autonomia: 'Sob consulta',
-        preco: 'Sob consulta',
-        badge: 'Trabalho em Altura',
-        especificacoes: [
-          { label: 'Modelo', valor: 'MPGKT-16' },
-          { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
-          { label: 'Altura Máxima de Trabalho', valor: '22 m' },
-          { label: 'Altura Máxima da Plataforma', valor: '20 m' },
-          { label: 'Altura Máxima de Transposição', valor: '8,54 m' },
-          { label: 'Alcance Máximo Horizontal', valor: '12,9 m' },
-          { label: 'Largura da Plataforma', valor: '0,9 m' },
-          { label: 'Comprimento da Plataforma', valor: '2,4 m' },
-          { label: 'Capacidade Máxima de Carga', valor: '256 kg' },
-          { label: 'Número de Ocupantes', valor: '2 a 3 pessoas' },
-          { label: 'Rotação da Plataforma', valor: '160°' },
-          { label: 'Rotação da Torre', valor: '355°' },
-          { label: 'Dimensões Recolhida (CxLxA)', valor: '8,9 x 2,5 x 2,53 m' },
-          { label: 'Distância entre Eixos', valor: '2,5 m' },
-          { label: 'Distância do Solo', valor: '0,3 m' },
-          { label: 'Velocidade de Deslocamento', valor: '0–6 km/h' },
-          { label: 'Capacidade de Subida', valor: '45%' },
-          { label: 'Inclinação Máxima em Operação', valor: '5°' },
-          { label: 'Raio de Giro Externo', valor: '5,4 m' },
-          { label: 'Tração e Direção', valor: '4x4' },
-          { label: 'Bateria', valor: '48V / 320Ah' },
-          { label: 'Tensão de Controle', valor: '12V DC' },
-          { label: 'Potência do Motor Hidráulico', valor: '7 kW' },
-          { label: 'Motores de Tração', valor: '2 x 3,3 kW' },
-          { label: 'Unidade de Emergência', valor: '24V / 1,6 kW' },
-          { label: 'Peso Total', valor: '8.900 kg' }
-        ],
-        recursos: [
-          'Eixo direcional flutuante reforçado para maior estabilidade em terrenos irregulares',
-          'Sensor de segurança por cabo com desligamento automático em caso de instabilidade',
-          'Sensor de pressão na válvula principal para subida e descida mais suaves',
-          'Caixa preta integrada para registro e diagnóstico de operação',
-          'Cilindro oscilante da plataforma com rotação lateral de 80° para cada lado',
-          'Sistema automático de nivelamento com sensores de inclinação e controle eletro-hidráulico proporcional',
-          'Controle proporcional total com alertas sonoros e luminosos',
-          'Travamento automático da plataforma e sistema de descida de emergência',
-          'Botão de parada de emergência e sistema anti-esmagamento',
-          'Indicação de falhas no painel e proteção contra inclinação excessiva',
-          'Sistema de pesagem/carga e rotação da plataforma'
-        ]
-      },
+     {
+  id: 204,
+  modelo: 'MPGKT',
+  nome: 'Plataforma Elevatória Articulada Elétrica MPGKT',
+  descricao:
+    'Plataforma elevatória articulada elétrica disponível em múltiplas configurações de altura para trabalhos em altura com longo alcance horizontal e avançados sistemas de segurança.',
+
+  imagem: 'uploads/elevador1.png',
+  imagens: [
+    'uploads/elevador1.png',
+    'uploads/elevador2.png',
+    'uploads/elevador3.png'
+  ],
+
+  categoria_nome: 'Plataforma Elevatória Elétrica',
+  carga_nominal: '256 kg',
+  peso_total: '8.900 kg',
+  autonomia: 'Sob consulta',
+  preco: 'Sob consulta',
+  badge: 'Trabalho em Altura',
+
+  modelosDisponiveis: [
+    'MPGKT-16',
+    'MPGKT-22'
+  ],
+
+  especificacoes: [
+    { label: 'Modelos Disponíveis', valor: 'MPGKT-16 / MPGKT-22' },
+    { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
+    { label: 'Capacidade Máxima', valor: '256 kg' },
+    { label: 'Número de Ocupantes', valor: '2 a 3 pessoas' },
+    { label: 'Rotação da Plataforma', valor: '160°' },
+    { label: 'Rotação da Torre', valor: '355°' },
+    { label: 'Tração e Direção', valor: '4x4' },
+    { label: 'Bateria', valor: '48V / 320Ah' },
+    { label: 'Tensão de Controle', valor: '12V DC' },
+    { label: 'Potência Motor Hidráulico', valor: '7 kW' },
+    { label: 'Motores de Tração', valor: '2 x 3,3 kW' }
+  ],
+
+  variantes: [
+    {
+      modelo: 'MPGKT-16',
+      altura_trabalho: '16 m',
+      altura_plataforma: '14 m',
+      alcance_horizontal: '8,5 m',
+      dimensoes: '8,9 x 2,5 x 2,53 m',
+      peso: '8.900 kg'
+    },
+
+    {
+      modelo: 'MPGKT-22',
+      altura_trabalho: '22 m',
+      altura_plataforma: '20 m',
+      alcance_horizontal: '12,9 m',
+      dimensoes: '8,9 x 2,5 x 2,53 m',
+      peso: '8.900 kg'
+    }
+  ],
+
+  recursos: [
+    'Eixo direcional flutuante reforçado',
+    'Sensor de segurança por cabo',
+    'Sensor automático de pressão',
+    'Caixa preta integrada',
+    'Sistema automático de nivelamento',
+    'Controle proporcional total',
+    'Alertas sonoros e luminosos',
+    'Travamento automático',
+    'Sistema de descida de emergência',
+    'Botão de parada de emergência',
+    'Sistema anti-esmagamento',
+    'Proteção contra inclinação',
+    'Sistema de pesagem/carga'
+  ]
+},
       {
         id: 205,
         modelo: 'MPGTJ2046',
