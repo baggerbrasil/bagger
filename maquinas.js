@@ -181,12 +181,12 @@ const categorias = {
           'Zero emissões locais e baixo ruído'
         ]
       },
-     {
+    {
   id: 204,
   modelo: 'MPGKT',
   nome: 'Plataforma Elevatória Articulada Elétrica MPGKT',
   descricao:
-    'Plataforma elevatória articulada elétrica disponível em múltiplas configurações de altura para trabalhos em altura com longo alcance horizontal e avançados sistemas de segurança.',
+    'Plataforma elevatória articulada elétrica disponível em versões de 16m e 22m para trabalhos em altura, oferecendo amplo alcance e sistemas avançados de segurança.',
 
   imagem: 'uploads/elevador1.png',
   imagens: [
@@ -197,47 +197,49 @@ const categorias = {
 
   categoria_nome: 'Plataforma Elevatória Elétrica',
   carga_nominal: '256 kg',
-  peso_total: '8.900 kg',
+  peso_total: '6.800–8.900 kg',
   autonomia: 'Sob consulta',
   preco: 'Sob consulta',
   badge: 'Trabalho em Altura',
-
-  modelosDisponiveis: [
-    'MPGKT-16',
-    'MPGKT-22'
-  ],
 
   especificacoes: [
     { label: 'Modelos Disponíveis', valor: 'MPGKT-16 / MPGKT-22' },
     { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
     { label: 'Capacidade Máxima', valor: '256 kg' },
     { label: 'Número de Ocupantes', valor: '2 a 3 pessoas' },
-    { label: 'Rotação da Plataforma', valor: '160°' },
     { label: 'Rotação da Torre', valor: '355°' },
-    { label: 'Tração e Direção', valor: '4x4' },
-    { label: 'Bateria', valor: '48V / 320Ah' },
     { label: 'Tensão de Controle', valor: '12V DC' },
-    { label: 'Potência Motor Hidráulico', valor: '7 kW' },
-    { label: 'Motores de Tração', valor: '2 x 3,3 kW' }
+    { label: 'Potência Hidráulica', valor: '7 kW' },
+    { label: 'Motores de Tração', valor: '2 × 3,3 kW' }
   ],
 
   variantes: [
     {
       modelo: 'MPGKT-16',
-      altura_trabalho: '16 m',
-      altura_plataforma: '14 m',
-      alcance_horizontal: '8,5 m',
-      dimensoes: '8,9 x 2,5 x 2,53 m',
-      peso: '8.900 kg'
+      alturaTrabalho: '16 m',
+      alturaPlataforma: '14 m',
+      alcanceHorizontal: '8,45 m',
+      dimensoes: '6,85 × 2,32 × 2,32 m',
+      peso: '6.800 kg',
+      bateria: '48V / 300Ah',
+      velocidade: '0–5,2 km/h',
+      subida: '30%',
+      tracao: '2x2',
+      raioGiro: '4,7 m'
     },
 
     {
       modelo: 'MPGKT-22',
-      altura_trabalho: '22 m',
-      altura_plataforma: '20 m',
-      alcance_horizontal: '12,9 m',
-      dimensoes: '8,9 x 2,5 x 2,53 m',
-      peso: '8.900 kg'
+      alturaTrabalho: '22 m',
+      alturaPlataforma: '20 m',
+      alcanceHorizontal: '12,9 m',
+      dimensoes: '8,9 × 2,5 × 2,53 m',
+      peso: '8.900 kg',
+      bateria: '48V / 320Ah',
+      velocidade: '0–6 km/h',
+      subida: '45%',
+      tracao: '4x4',
+      raioGiro: '5,4 m'
     }
   ],
 
@@ -246,15 +248,17 @@ const categorias = {
     'Sensor de segurança por cabo',
     'Sensor automático de pressão',
     'Caixa preta integrada',
+    'Unidade de emergência 24V / 1,6kW',
+    'Plataforma com rotação lateral ±80°',
     'Sistema automático de nivelamento',
     'Controle proporcional total',
     'Alertas sonoros e luminosos',
-    'Travamento automático',
+    'Travamento automático da plataforma',
     'Sistema de descida de emergência',
     'Botão de parada de emergência',
     'Sistema anti-esmagamento',
     'Proteção contra inclinação',
-    'Sistema de pesagem/carga'
+    'Sistema de pesagem'
   ]
 },
       {
@@ -606,12 +610,12 @@ const categorias = {
       'Plataformas elevatórias elétricas articuladas e tipo tesoura para trabalho em altura com segurança, precisão e operação autopropelida.',
     heroImage: 'uploads/escavadeira-3.jpg',
     maquinas: [
-     {
+{
   id: 204,
   modelo: 'MPGKT',
   nome: 'Plataforma Elevatória Articulada Elétrica MPGKT',
   descricao:
-    'Plataforma elevatória articulada elétrica disponível em múltiplas configurações de altura para trabalhos em altura com longo alcance horizontal e avançados sistemas de segurança.',
+    'Plataforma elevatória articulada elétrica disponível em versões de 16m e 22m para trabalhos em altura, oferecendo amplo alcance e sistemas avançados de segurança.',
 
   imagem: 'uploads/elevador1.png',
   imagens: [
@@ -622,47 +626,49 @@ const categorias = {
 
   categoria_nome: 'Plataforma Elevatória Elétrica',
   carga_nominal: '256 kg',
-  peso_total: '8.900 kg',
+  peso_total: '6.800–8.900 kg',
   autonomia: 'Sob consulta',
   preco: 'Sob consulta',
   badge: 'Trabalho em Altura',
-
-  modelosDisponiveis: [
-    'MPGKT-16',
-    'MPGKT-22'
-  ],
 
   especificacoes: [
     { label: 'Modelos Disponíveis', valor: 'MPGKT-16 / MPGKT-22' },
     { label: 'Tipo', valor: 'Plataforma Elevatória Articulada Elétrica' },
     { label: 'Capacidade Máxima', valor: '256 kg' },
     { label: 'Número de Ocupantes', valor: '2 a 3 pessoas' },
-    { label: 'Rotação da Plataforma', valor: '160°' },
     { label: 'Rotação da Torre', valor: '355°' },
-    { label: 'Tração e Direção', valor: '4x4' },
-    { label: 'Bateria', valor: '48V / 320Ah' },
     { label: 'Tensão de Controle', valor: '12V DC' },
-    { label: 'Potência Motor Hidráulico', valor: '7 kW' },
-    { label: 'Motores de Tração', valor: '2 x 3,3 kW' }
+    { label: 'Potência Hidráulica', valor: '7 kW' },
+    { label: 'Motores de Tração', valor: '2 × 3,3 kW' }
   ],
 
   variantes: [
     {
       modelo: 'MPGKT-16',
-      altura_trabalho: '16 m',
-      altura_plataforma: '14 m',
-      alcance_horizontal: '8,5 m',
-      dimensoes: '8,9 x 2,5 x 2,53 m',
-      peso: '8.900 kg'
+      alturaTrabalho: '16 m',
+      alturaPlataforma: '14 m',
+      alcanceHorizontal: '8,45 m',
+      dimensoes: '6,85 × 2,32 × 2,32 m',
+      peso: '6.800 kg',
+      bateria: '48V / 300Ah',
+      velocidade: '0–5,2 km/h',
+      subida: '30%',
+      tracao: '2x2',
+      raioGiro: '4,7 m'
     },
 
     {
       modelo: 'MPGKT-22',
-      altura_trabalho: '22 m',
-      altura_plataforma: '20 m',
-      alcance_horizontal: '12,9 m',
-      dimensoes: '8,9 x 2,5 x 2,53 m',
-      peso: '8.900 kg'
+      alturaTrabalho: '22 m',
+      alturaPlataforma: '20 m',
+      alcanceHorizontal: '12,9 m',
+      dimensoes: '8,9 × 2,5 × 2,53 m',
+      peso: '8.900 kg',
+      bateria: '48V / 320Ah',
+      velocidade: '0–6 km/h',
+      subida: '45%',
+      tracao: '4x4',
+      raioGiro: '5,4 m'
     }
   ],
 
@@ -671,15 +677,17 @@ const categorias = {
     'Sensor de segurança por cabo',
     'Sensor automático de pressão',
     'Caixa preta integrada',
+    'Unidade de emergência 24V / 1,6kW',
+    'Plataforma com rotação lateral ±80°',
     'Sistema automático de nivelamento',
     'Controle proporcional total',
     'Alertas sonoros e luminosos',
-    'Travamento automático',
+    'Travamento automático da plataforma',
     'Sistema de descida de emergência',
     'Botão de parada de emergência',
     'Sistema anti-esmagamento',
     'Proteção contra inclinação',
-    'Sistema de pesagem/carga'
+    'Sistema de pesagem'
   ]
 },
       {
